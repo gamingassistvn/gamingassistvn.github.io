@@ -1,0 +1,36 @@
+[
+  {
+    "id": "minepuzzle-daily",
+    "name": "MinePuzzle Daily",
+    "tagline": "Next-Gen 3D Cyber-Neon Minesweeper with Global Daily Challenges & Streaks.",
+    "category": "games",
+    "badge": "Hot 🚀",
+    "featured": true,
+    "icon": "assets/icons/minepuzzle_daily.png",
+    "version": "1.2.0",
+    "rating": "5.0 ★",
+    "tags": ["Puzzle", "Cyber 3D", "Daily Challenge", "12 Languages", "Multiplayer Seed"],
+    "description": "Challenge your logic every day with the global puzzle seed! Features smooth pinch-to-zoom controls, fast chord flagging, revive mechanics, player statistics, and 12-language auto localization.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
+    "appStoreUrl": "",
+    "appStoreStatus": "Coming Soon",
+    "privacyUrl": "privacy.html#minepuzzle"
+  },
+  {
+    "id": "t11-auto-helper",
+    "name": "T11 Auto Helper",
+    "tagline": "Intelligent Automation & Smart Workflow Assistant for Android.",
+    "category": "utilities",
+    "badge": "Testing 🔒",
+    "featured": false,
+    "icon": "assets/icons/t11_helper.png",
+    "version": "5.9.0",
+    "rating": "4.9 ★",
+    "tags": ["Productivity", "Automation", "Smart Tools", "Utility"],
+    "description": "High-performance smart helper designed to streamline daily tasks, automate repetitive actions, and boost user productivity with zero battery drain.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.assist.t11helper",
+    "appStoreUrl": "",
+    "appStoreStatus": "Internal Beta",
+    "privacyUrl": "privacy.html#t11"
+  }
+]
