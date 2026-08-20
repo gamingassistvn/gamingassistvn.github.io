@@ -52,10 +52,10 @@
     }
     .app-section {
       background: rgba(255, 255, 255, 0.03);
-      padding: 20px;
-      border-radius: 16px;
+      padding: 22px;
+      border-radius: 18px;
       border: 1px solid var(--border-glass);
-      margin: 20px 0;
+      margin: 24px 0;
     }
   </style>
 </head>
@@ -88,22 +88,36 @@
 
       <h2>1. Thu thập và Sử dụng Thông tin</h2>
       <p>
-        Các ứng dụng của chúng tôi được thiết kế để tôn trọng tối đa sự riêng tư của người chơi:
+        Các ứng dụng của chúng tôi được thiết kế để tôn trọng tối đa sự riêng tư của người dùng:
       </p>
       <ul>
-        <li><strong>Không thu thập dữ liệu cá nhân nhạy cảm:</strong> Chúng tôi không yêu cầu, lưu trữ hay chia sẻ thông tin như họ tên, số điện thoại, địa chỉ nhà riêng hoặc danh bạ của bạn.</li>
-        <li><strong>Dữ liệu lưu cục bộ trên máy (Local Storage):</strong> Điểm số, kỷ lục thời gian, chuỗi ngày chơi (Streak), số mạng chơi và cài đặt âm thanh/ngôn ngữ được lưu trực tiếp trên bộ nhớ máy của bạn và không bị tải lên máy chủ ngoài.</li>
+        <li><strong>Không thu thập dữ liệu cá nhân nhạy cảm:</strong> Chúng tôi không yêu cầu, lưu trữ hay chia sẻ thông tin như họ tên, số điện thoại, tài khoản ngân hàng hay danh bạ của bạn.</li>
+        <li><strong>Dữ liệu lưu cục bộ trên máy (Local Storage):</strong> Cài đặt ứng dụng, điểm số, hóa đơn đã quét và kỷ lục được lưu trực tiếp trên bộ nhớ máy của bạn và không bị chuyển giao trái phép.</li>
       </ul>
 
       <h2>2. Dịch vụ Bên thứ Ba & Quảng cáo (Google AdMob)</h2>
       <p>
-        Để duy trì các trò chơi miễn phí, chúng tôi tích hợp dịch vụ quảng cáo của <strong>Google AdMob</strong> và phân tích của <strong>Google Analytics for Firebase</strong>:
+        Để duy trì các ứng dụng miễn phí, chúng tôi tích hợp dịch vụ quảng cáo của <strong>Google AdMob</strong> và phân tích của <strong>Google Analytics for Firebase</strong>:
       </p>
       <ul>
         <li>Google AdMob có thể sử dụng mã nhận dạng quảng cáo (Advertising ID / IDFA) để phục vụ việc hiển thị quảng cáo phù hợp và chống gian lận.</li>
         <li>Bạn có thể tùy chỉnh hoặc tắt tính năng cá nhân hóa quảng cáo bất kỳ lúc nào trong phần Cài đặt của điện thoại Android / iOS.</li>
       </ul>
 
+      <!-- Section: BillSnap AI -->
+      <div class="app-section" id="billsnap">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 8px;">🤖 Điều khoản riêng cho BillSnap AI (Smart Receipt & Invoice Scanner)</h3>
+        <p>
+          Ứng dụng <strong>BillSnap AI</strong> cung cấp tính năng quét hóa đơn, biên lai và theo dõi chi tiêu thông minh:
+        </p>
+        <ul>
+          <li><strong>Quyền truy cập Máy ảnh (Camera Permission):</strong> Chỉ được sử dụng khi bạn chủ động nhấn chụp ảnh hóa đơn hoặc chọn ảnh biên lai từ thư viện để hệ thống nhận diện ký tự (OCR). Hình ảnh chỉ được xử lý cục bộ hoặc truyền tải qua giao thức mã hóa HTTPS an toàn.</li>
+          <li><strong>Bảo mật dữ liệu tài chính:</strong> Toàn bộ thông tin số tiền, tên cửa hàng, chi tiêu được lưu trữ an toàn trên thiết bị của bạn. Chúng tôi cam kết không bán, không thương mại hóa và không chia sẻ dữ liệu chi tiêu cá nhân với bất kỳ bên thứ ba nào.</li>
+          <li><strong>Không yêu cầu quyền tài khoản ngân hàng:</strong> BillSnap AI hoạt động hoàn toàn độc lập mà không cần liên kết tài khoản ngân hàng hay yêu cầu mật khẩu giao dịch.</li>
+        </ul>
+      </div>
+
+      <!-- Section: MinePuzzle Daily -->
       <div class="app-section" id="minepuzzle">
         <h3 style="color: var(--accent-gold); margin-bottom: 8px;">🎮 Điều khoản riêng cho MinePuzzle Daily</h3>
         <p>
@@ -111,8 +125,9 @@
         </p>
       </div>
 
+      <!-- Section: T11 Auto Helper -->
       <div class="app-section" id="t11">
-        <h3 style="color: var(--accent-cyan); margin-bottom: 8px;">⚡ Điều khoản riêng cho T11 Auto Helper</h3>
+        <h3 style="color: var(--accent-purple); margin-bottom: 8px;">⚡ Điều khoản riêng cho T11 Auto Helper</h3>
         <p>
           Ứng dụng <strong>T11 Auto Helper</strong> sử dụng dịch vụ Hỗ trợ tiếp cận (Accessibility Service) chỉ để tự động hóa các thao tác theo chỉ định của chính người dùng. Ứng dụng cam kết 100% không thu thập, không truyền tải và không ghi lại bất kỳ thao tác nhập văn bản hay mật khẩu nào của bạn.
         </p>

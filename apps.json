@@ -12,9 +12,22 @@
     "tags": ["Puzzle", "Cyber 3D", "Daily Challenge", "12 Languages", "Multiplayer Seed"],
     "description": "Challenge your logic every day with the global puzzle seed! Features smooth pinch-to-zoom controls, fast chord flagging, revive mechanics, player statistics, and 12-language auto localization.",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
-    "appStoreUrl": "",
-    "appStoreStatus": "Coming Soon",
     "privacyUrl": "privacy.html#minepuzzle"
+  },
+  {
+    "id": "billsnap-ai",
+    "name": "BillSnap AI",
+    "tagline": "Smart AI Invoice Scanner & Receipt Expense Tracker with Optical Recognition.",
+    "category": "utilities",
+    "badge": "AI Powered 🤖",
+    "featured": true,
+    "icon": "assets/icons/billsnap_ai.png",
+    "version": "1.0.0",
+    "rating": "5.0 ★",
+    "tags": ["AI Scanner", "Receipt OCR", "Expense Tracker", "Finance"],
+    "description": "Snap receipts and invoices with high-accuracy AI OCR technology. Auto categorize expenses, extract total amounts, and export financial summaries with zero manual typing.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.assist.billsnap",
+    "privacyUrl": "privacy.html#billsnap"
   },
   {
     "id": "t11-auto-helper",
@@ -29,8 +42,6 @@
     "tags": ["Productivity", "Automation", "Smart Tools", "Utility"],
     "description": "High-performance smart helper designed to streamline daily tasks, automate repetitive actions, and boost user productivity with zero battery drain.",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.assist.t11helper",
-    "appStoreUrl": "",
-    "appStoreStatus": "Internal Beta",
     "privacyUrl": "privacy.html#t11"
   }
 ]
