@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-glass);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover {
+      background: rgba(124, 108, 255, 0.25);
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 15px rgba(124, 108, 255, 0.3);
+    }
+  </style>
 </head>
 <body>
 
@@ -29,11 +51,16 @@
         <div class="brand-name">Assist Studio</div>
       </a>
       <ul class="nav-links">
-        <li><a href="#apps" class="active">Ứng dụng</a></li>
-        <li><a href="#about">Công nghệ</a></li>
-        <li><a href="privacy.html">Quyền riêng tư</a></li>
-        <li><a href="terms.html">Điều khoản</a></li>
+        <li><a href="#apps" class="active" data-i18n="nav_apps">Apps & Games</a></li>
+        <li><a href="#about" data-i18n="nav_tech">Technology</a></li>
+        <li><a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-i18n="nav_terms">Terms of Service</a></li>
       </ul>
+      <div>
+        <button id="lang-toggle-btn" class="lang-btn">
+          <span id="lang-badge">🌐 EN</span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -41,14 +68,14 @@
   <header class="hero">
     <div class="container">
       <div class="hero-badge">
-        <span>✨ KIẾN TẠO TRẢI NGHIỆM ĐỈNH CAO</span>
+        <span data-i18n="hero_badge">✨ CRAFTING NEXT-GEN EXPERIENCES</span>
       </div>
       <h1 class="hero-title">
-        Thông minh. Tốc độ.<br>
-        <span>Trải nghiệm Không giới hạn.</span>
+        <span data-i18n="hero_title_1">Intelligent. Fast.</span><br>
+        <span data-i18n="hero_title_2">Boundless Experience.</span>
       </h1>
-      <p class="hero-desc">
-        Chào mừng bạn đến với cổng thông tin chính thức của <strong>Assist Gaming & Tech Studio</strong>. Nơi quy tụ các dòng game trí tuệ thế hệ mới và ứng dụng tiện ích thông minh toàn cầu.
+      <p class="hero-desc" data-i18n="hero_desc">
+        Welcome to the official developer portal of <strong>Assist Gaming & Tech Studio</strong>. Home of modern 3D logic puzzles and intelligent utilities for global users.
       </p>
     </div>
   </header>
@@ -57,13 +84,13 @@
   <main class="container" id="apps">
     <div class="catalog-header">
       <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">Tất cả sản phẩm</button>
-        <button class="filter-btn" data-filter="games">🎮 Trò chơi (Games)</button>
-        <button class="filter-btn" data-filter="utilities">⚡ Tiện ích & Công cụ</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All Products</button>
+        <button class="filter-btn" data-filter="games" data-i18n="filter_games">🎮 Games</button>
+        <button class="filter-btn" data-filter="utilities" data-i18n="filter_utilities">⚡ Utilities & Tools</button>
       </div>
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" placeholder="Tìm kiếm ứng dụng...">
+        <input type="text" id="search-input" placeholder="Search apps & games...">
       </div>
     </div>
 
@@ -78,29 +105,29 @@
         <div class="tech-item">
           <div class="tech-icon">🚀</div>
           <div>
-            <h4 class="tech-title">Hiệu năng Native 60-120 FPS</h4>
-            <p class="tech-desc">Được xây dựng trên nền tảng Flutter & C++ nhị phân tối ưu hóa bộ nhớ và tiết kiệm pin tối đa.</p>
+            <h4 class="tech-title" data-i18n="tech_1_title">Native 60-120 FPS Performance</h4>
+            <p class="tech-desc" data-i18n="tech_1_desc">Engineered on Flutter with binary C++ optimization for silky-smooth framerates and minimal battery draw.</p>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">🌐</div>
           <div>
-            <h4 class="tech-title">Tương thích 12 Ngôn ngữ</h4>
-            <p class="tech-desc">Tự động bản địa hóa theo thiết bị người dùng trên 177 quốc gia toàn cầu.</p>
+            <h4 class="tech-title" data-i18n="tech_2_title">12-Language Auto Detection</h4>
+            <p class="tech-desc" data-i18n="tech_2_desc">Seamlessly localizes to player device settings across 177 countries worldwide.</p>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">🛡️</div>
           <div>
-            <h4 class="tech-title">Bảo mật & Quyền riêng tư</h4>
-            <p class="tech-desc">Tuân thủ 100% chuẩn GDPR, Google Play Families & App Store Data Protection.</p>
+            <h4 class="tech-title" data-i18n="tech_3_title">Security & Strict Privacy</h4>
+            <p class="tech-desc" data-i18n="tech_3_desc">100% compliant with GDPR, Google Play Families & App Store Data Protection standards.</p>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">💎</div>
           <div>
-            <h4 class="tech-title">Google AdMob Verified</h4>
-            <p class="tech-desc">Hệ thống phân phối quảng cáo chính hãng với tệp chứng thực app-ads.txt hợp lệ.</p>
+            <h4 class="tech-title" data-i18n="tech_4_title">Google AdMob Verified</h4>
+            <p class="tech-desc" data-i18n="tech_4_desc">Official ad distribution network verified with valid root app-ads.txt records.</p>
           </div>
         </div>
       </div>
@@ -111,14 +138,14 @@
   <footer class="footer">
     <div class="container footer-content">
       <div>
-        <p>© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.</p>
-        <p style="font-size: 12px; margin-top: 4px;">Tất cả ứng dụng được phát hành trên Google Play Store & Apple App Store.</p>
+        <p data-i18n="footer_rights">© 2026 Assist Gaming & Tech Studio. All rights reserved.</p>
+        <p style="font-size: 12px; margin-top: 4px;" data-i18n="footer_store">Published on Google Play Store & Apple App Store.</p>
       </div>
       <div class="footer-links">
-        <a href="privacy.html">Chính sách Quyền riêng tư</a>
-        <a href="terms.html">Điều khoản Dịch vụ</a>
+        <a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="nav_terms">Terms of Service</a>
         <a href="app-ads.txt" target="_blank">app-ads.txt</a>
-        <a href="mailto:support@assist.vn">Hỗ trợ & Liên hệ</a>
+        <a href="mailto:support@assist.vn" data-i18n="footer_contact">Support & Contact</a>
       </div>
     </div>
   </footer>
