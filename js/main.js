@@ -22,14 +22,15 @@ const translations = {
     no_results_title: "No applications found",
     no_results_desc: "Try searching with different keywords or switch categories.",
     btn_play: "📱 Google Play",
+    btn_appstore: "🍏 App Store",
     btn_privacy: "🛡️ Privacy Policy",
     tech_1_title: "Native 60-120 FPS Performance",
     tech_1_desc: "Engineered on Flutter with binary C++ optimization for silky-smooth framerates and minimal battery draw.",
-    tech_2_title: "12-Language Auto Detection",
+    tech_2_title: "91-Language Auto Detection",
     tech_2_desc: "Seamlessly localizes to player device settings across 177 countries worldwide.",
     tech_3_title: "Security & Strict Privacy",
     tech_3_desc: "100% compliant with GDPR, Google Play Families & App Store Data Protection standards.",
-    tech_4_title: "Google AdMob Verified",
+    tech_4_title: "Google AdMob & Apple Verified",
     tech_4_desc: "Official ad distribution network verified with valid root app-ads.txt records.",
     footer_rights: "© 2026 Assist Gaming & Tech Studio. All rights reserved.",
     footer_store: "Published on Google Play Store & Apple App Store.",
@@ -46,19 +47,20 @@ const translations = {
     hero_desc: "Chào mừng bạn đến với cổng thông tin chính thức của <strong>Assist Gaming & Tech Studio</strong>. Nơi quy tụ các dòng game trí tuệ thế hệ mới và ứng dụng tiện ích thông minh toàn cầu.",
     filter_all: "Tất cả sản phẩm",
     filter_games: "🎮 Trò chơi (Games)",
-    filter_utilities: "⚡ Tiện ích & Công cụ",
+    filter_utilities: "⚡ Tiện ích & AI",
     search_placeholder: "Tìm kiếm ứng dụng...",
     no_results_title: "Không tìm thấy ứng dụng phù hợp",
     no_results_desc: "Thử tìm kiếm với từ khóa khác hoặc chuyển danh mục.",
     btn_play: "📱 Google Play",
+    btn_appstore: "🍏 App Store",
     btn_privacy: "🛡️ Quyền riêng tư",
     tech_1_title: "Hiệu năng Native 60-120 FPS",
     tech_1_desc: "Được xây dựng trên nền tảng Flutter & C++ nhị phân tối ưu hóa bộ nhớ và tiết kiệm pin tối đa.",
-    tech_2_title: "Tương thích 12 Ngôn ngữ",
+    tech_2_title: "Tương thích 91 Ngôn ngữ",
     tech_2_desc: "Tự động bản địa hóa theo thiết bị người dùng trên 177 quốc gia toàn cầu.",
     tech_3_title: "Bảo mật & Quyền riêng tư",
     tech_3_desc: "Tuân thủ 100% chuẩn GDPR, Google Play Families & App Store Data Protection.",
-    tech_4_title: "Google AdMob Verified",
+    tech_4_title: "Google AdMob & Apple Verified",
     tech_4_desc: "Hệ thống phân phối quảng cáo chính hãng với tệp chứng thực app-ads.txt hợp lệ.",
     footer_rights: "© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.",
     footer_store: "Tất cả ứng dụng được phát hành trên Google Play Store & Apple App Store.",
@@ -117,6 +119,19 @@ async function loadApps() {
     console.warn('Fallback loading:', err);
     allApps = [
       {
+        id: "billsnap-ai",
+        name: "BillSnap AI",
+        tagline: "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
+        category: "utilities",
+        badge: "Flagship 🤖",
+        icon: "assets/icons/billsnap_ai.png",
+        rating: "5.0 ★",
+        tags: ["Gemini AI OCR", "IRS Schedule C", "Expense Tracker", "91 Languages", "Excel & PDF"],
+        playStoreUrl: "https://play.google.com/store/apps/details?id=com.billsnap.ai",
+        appStoreUrl: "https://apps.apple.com/app/billsnap-ai/id6817136538",
+        privacyUrl: "privacy.html#billsnap"
+      },
+      {
         id: "minepuzzle-daily",
         name: "MinePuzzle Daily",
         tagline: "Next-Gen 3D Cyber-Neon Minesweeper with Global Daily Challenges & Streaks.",
@@ -126,19 +141,19 @@ async function loadApps() {
         rating: "5.0 ★",
         tags: ["Puzzle", "Cyber 3D", "Daily Challenge", "12 Languages"],
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
-        privacyUrl: "privacy.html#minepuzzle"
+        privacyUrl: "privacy.html#games"
       },
       {
         id: "t11-auto-helper",
         name: "T11 Auto Helper",
         tagline: "Intelligent Automation & Smart Workflow Assistant for Android.",
         category: "utilities",
-        badge: "Testing 🔒",
+        badge: "Utility 🔒",
         icon: "assets/icons/t11_helper.png",
         rating: "4.9 ★",
         tags: ["Productivity", "Automation", "Smart Tools"],
         playStoreUrl: "https://play.google.com/store/apps/details?id=com.assist.t11helper",
-        privacyUrl: "privacy.html#t11"
+        privacyUrl: "privacy.html#utilities"
       }
     ];
     renderApps(allApps);
@@ -183,11 +198,16 @@ function renderApps(apps) {
 
       <div class="card-actions">
         ${app.playStoreUrl ? `
-          <a href="${app.playStoreUrl}" target="_blank" rel="noopener" class="btn-primary">
+          <a href="${app.playStoreUrl}" target="_blank" rel="noopener" class="btn-primary" style="padding: 10px 14px; font-size: 13px;">
             <span>${dict.btn_play}</span>
           </a>
         ` : ''}
-        <a href="${app.privacyUrl || 'privacy.html'}" class="btn-secondary">
+        ${app.appStoreUrl ? `
+          <a href="${app.appStoreUrl}" target="_blank" rel="noopener" class="btn-primary" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); padding: 10px 14px; font-size: 13px;">
+            <span>${dict.btn_appstore}</span>
+          </a>
+        ` : ''}
+        <a href="${app.privacyUrl || 'privacy.html'}" class="btn-secondary" style="padding: 10px 14px; font-size: 13px;">
           <span>${dict.btn_privacy}</span>
         </a>
       </div>

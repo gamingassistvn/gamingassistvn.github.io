@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Điều khoản Dịch vụ | Terms of Service - Assist Studio</title>
-  <meta name="description" content="Điều khoản dịch vụ chính thức của Assist Gaming & Tech Studio.">
+  <title>Terms of Service | Điều khoản Dịch vụ - Assist Studio</title>
+  <meta name="description" content="Official Terms of Service for Assist Gaming & Tech Studio apps including BillSnap AI and MinePuzzle Daily.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Terms of Service - Assist Gaming & Tech Studio">
+  <meta property="og:description" content="Official terms governing the use of Assist Studio mobile apps and in-app purchases.">
+  <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,38 +22,101 @@
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
       border-radius: 28px;
-      padding: 40px;
-      margin: 40px auto 70px;
-      max-width: 900px;
-      backdrop-filter: blur(12px);
+      padding: 44px;
+      margin: 36px auto 70px;
+      max-width: 960px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     }
-    .legal-content h1 {
+    .legal-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    .legal-title {
       font-size: 32px;
-      margin-bottom: 8px;
+      font-weight: 800;
       color: #FFFFFF;
+      letter-spacing: -0.5px;
     }
-    .legal-content .date {
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.3);
       color: var(--accent-cyan);
+      padding: 6px 14px;
+      border-radius: 20px;
       font-size: 13px;
-      margin-bottom: 24px;
-      display: inline-block;
+      font-weight: 600;
+    }
+    .lang-switcher-bar {
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+    }
+    .lang-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-tab.active {
+      background: var(--accent-purple);
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(124, 108, 255, 0.4);
     }
     .legal-content h2 {
-      font-size: 20px;
-      margin: 28px 0 12px;
+      font-size: 22px;
+      margin: 32px 0 14px;
       color: #FFFFFF;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 6px;
     }
+    .legal-content h3 {
+      font-size: 17px;
+      margin: 18px 0 10px;
+      color: #FFFFFF;
+    }
     .legal-content p, .legal-content li {
       color: var(--text-dim);
       font-size: 15px;
+      line-height: 1.75;
       margin-bottom: 12px;
-      line-height: 1.7;
     }
-    .legal-content ul {
+    .legal-content ul, .legal-content ol {
       padding-left: 24px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    .legal-content strong {
+      color: #FFFFFF;
+    }
+    .warning-box {
+      background: rgba(255, 209, 102, 0.08);
+      border-left: 4px solid var(--accent-gold);
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+    }
+    .warning-box p {
+      margin: 0;
+      color: #FFF3CD;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -62,52 +130,126 @@
         <div class="brand-name">Assist Studio</div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Ứng dụng</a></li>
-        <li><a href="privacy.html">Quyền riêng tư</a></li>
-        <li><a href="terms.html" class="active">Điều khoản</a></li>
+        <li><a href="index.html">Apps & Games</a></li>
+        <li><a href="index.html#billsnap-spotlight">BillSnap AI</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html" class="active">Terms</a></li>
       </ul>
+      <div class="lang-switcher-bar">
+        <button class="lang-tab" id="btn-terms-en" onclick="setTermsLang('en')">🌐 English</button>
+        <button class="lang-tab" id="btn-terms-vi" onclick="setTermsLang('vi')">🇻🇳 Tiếng Việt</button>
+      </div>
     </div>
   </nav>
 
-  <!-- Legal Content -->
+  <!-- Legal Main Container -->
   <main class="container">
     <div class="legal-content">
-      <h1>Điều khoản Dịch vụ (Terms of Service)</h1>
-      <span class="date">Cập nhật lần cuối: Ngày 20 tháng 08 năm 2026</span>
 
-      <p>
-        Bằng việc tải về, cài đặt và trải nghiệm bất kỳ ứng dụng hoặc trò chơi nào do <strong>Assist Gaming & Tech Studio</strong> phát hành, bạn đồng ý tuân thủ các điều khoản dịch vụ dưới đây.
-      </p>
+      <!-- Header -->
+      <div class="legal-header">
+        <div>
+          <h1 class="legal-title lang-en">Terms of Service</h1>
+          <h1 class="legal-title lang-vi" style="display: none;">Điều khoản Dịch vụ</h1>
+          <div style="margin-top: 8px;">
+            <span class="date-badge lang-en">🗓️ Last Updated: October 4, 2026</span>
+            <span class="date-badge lang-vi" style="display: none;">🗓️ Cập nhật lần cuối: Ngày 04 tháng 10 năm 2026</span>
+          </div>
+        </div>
+      </div>
 
-      <h2>1. Quyền sử dụng Giấy phép</h2>
-      <p>
-        Chúng tôi cấp cho bạn quyền cá nhân, không độc quyền, không thể chuyển nhượng để tải về và trải nghiệm ứng dụng trên các thiết bị di động của bạn cho mục đích giải trí và tiện ích cá nhân phi thương mại.
-      </p>
+      <!-- ================================================================= -->
+      <!-- ENGLISH CONTENT                                                  -->
+      <!-- ================================================================= -->
+      <div class="lang-en" id="terms-content-en">
+        <p>
+          By downloading, installing, accessing, or using applications and games published by <strong>Assist Gaming & Tech Studio</strong> ("we", "us", or "our") on the <strong>Apple App Store</strong> or <strong>Google Play Store</strong>, you agree to be bound by these Terms of Service.
+        </p>
 
-      <h2>2. Hành vi bị Nghiêm cấm</h2>
-      <p>Khi sử dụng ứng dụng của chúng tôi, bạn cam kết không:</p>
-      <ul>
-        <li>Dịch ngược, biên dịch đảo ngược, giải mã hoặc can thiệp vào mã nguồn của ứng dụng.</li>
-        <li>Sử dụng các công cụ gian lận, bot tự động hoặc can thiệp bất hợp pháp vào hệ thống tính điểm, thử thách hàng ngày và mạng chơi.</li>
-        <li>Thực hiện các hành vi gian lận lượt xem quảng cáo hoặc vi phạm điều khoản dịch vụ của Google AdMob.</li>
-      </ul>
+        <h2>1. Grant of License</h2>
+        <p>
+          We grant you a personal, non-exclusive, non-transferable, revocable license to use our mobile applications on compatible devices strictly for personal and legitimate business self-management purposes in accordance with these Terms.
+        </p>
 
-      <h2>3. Giới hạn Trách nhiệm</h2>
-      <p>
-        Ứng dụng được cung cấp theo nguyên trạng ("AS IS"). Chúng tôi nỗ lực tối đa để mang lại trải nghiệm mượt mà, chính xác và không có lỗi, tuy nhiên không chịu trách nhiệm cho các mất mát dữ liệu cục bộ do thiết bị người dùng bị xóa bộ nhớ hoặc lỗi phần cứng.
-      </p>
+        <h2>2. BillSnap AI & Professional Tax Disclaimer</h2>
+        <div class="warning-box">
+          <p><strong>⚠️ Important Notice Regarding Tax Deductions:</strong> BillSnap AI is an automated self-help productivity tool designed to assist users in organizing receipts and calculating preliminary figures for IRS Form 1040 Schedule C. BillSnap AI and Assist Studio do NOT provide certified legal, financial, or CPA tax advice (IRS Circular 230). Users remain exclusively responsible for verifying all receipts, invoices, and deduction amounts prior to submission to government tax authorities.</p>
+        </div>
 
-      <h2>4. Cập nhật và Thay đổi Điều khoản</h2>
-      <p>
-        Chúng tôi có quyền cập nhật hoặc sửa đổi các điều khoản này khi cần thiết. Những thay đổi sẽ có hiệu lực ngay khi được đăng tải trên cổng thông tin này.
-      </p>
+        <h2>3. In-App Purchases, Subscriptions & Billing</h2>
+        <ul>
+          <li><strong>Store Processing:</strong> All in-app purchase transactions, subscriptions, and renewals are handled exclusively through Apple App Store (StoreKit) or Google Play Billing.</li>
+          <li><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing cycle via your Apple ID or Google Play account settings.</li>
+          <li><strong>Refunds:</strong> Refund requests must be submitted directly to Apple or Google according to their respective store policies.</li>
+        </ul>
 
-      <h2>5. Liên hệ</h2>
-      <p>
-        Mọi thắc mắc về điều khoản dịch vụ, vui lòng liên hệ:
-        <br>
-        📧 <strong>Email:</strong> <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan);">gaming.assist.vn@gmail.com</a>
-      </p>
+        <h2>4. Prohibited Uses</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Reverse engineer, decompile, disassemble, or extract source code from our software.</li>
+          <li>Attempt to manipulate game scores, leaderboard seeds, or fraudulent ad interactions.</li>
+          <li>Use the applications for unlawful or fraudulent financial reporting activities.</li>
+        </ul>
+
+        <h2>5. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by applicable law, Assist Studio provides applications on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages resulting from device failure, local data loss, or reliance on automated tax categorization.
+        </p>
+
+        <h2>6. Contact Us</h2>
+        <p>
+          For inquiries regarding these Terms of Service, contact us at:
+          <br>
+          📧 <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan); font-weight: 600;">gaming.assist.vn@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- VIETNAMESE CONTENT                                                -->
+      <!-- ================================================================= -->
+      <div class="lang-vi" id="terms-content-vi" style="display: none;">
+        <p>
+          Bằng việc tải về, cài đặt và trải nghiệm các ứng dụng hoặc trò chơi do <strong>Assist Gaming & Tech Studio</strong> ("chúng tôi") phát hành trên <strong>Apple App Store</strong> và <strong>Google Play Store</strong>, bạn đồng ý tuân thủ các Điều khoản Dịch vụ dưới đây.
+        </p>
+
+        <h2>1. Quyền sử dụng Giấy phép</h2>
+        <p>
+          Chúng tôi cấp cho bạn quyền cá nhân, không độc quyền, có thể thu hồi để sử dụng ứng dụng trên các thiết bị tương thích nhằm mục đích giải trí và tiện ích quản lý cá nhân theo đúng các điều khoản này.
+        </p>
+
+        <h2>2. Miễn trừ trách nhiệm về Thuế đối với BillSnap AI</h2>
+        <div class="warning-box">
+          <p><strong>⚠️ Lưu ý Quan trọng về Hồ sơ Thuế:</strong> BillSnap AI là công cụ hỗ trợ tự động giúp bạn sắp xếp biên lai và tự chuẩn bị số liệu cho mẫu khai thuế IRS Form 1040 Schedule C. BillSnap AI và Assist Studio KHÔNG cung cấp dịch vụ tư vấn pháp lý, kế toán hay tư vấn thuế được chứng nhận (theo IRS Circular 230). Người dùng chịu trách nhiệm kiểm tra lại tính chính xác của hóa đơn và chứng từ trước khi nộp cho cơ quan thuế.</p>
+        </div>
+
+        <h2>3. Thanh toán Gói PRO & Đăng ký Thuê bao</h2>
+        <ul>
+          <li><strong>Xử lý qua Kho ứng dụng:</strong> Toàn bộ giao dịch thanh toán gói PRO và đăng ký gia hạn đều do Apple App Store (StoreKit) hoặc Google Play Billing xử lý bảo mật.</li>
+          <li><strong>Tự động gia hạn:</strong> Gói thuê bao sẽ tự động gia hạn trừ khi bạn chủ động hủy ít nhất 24 giờ trước khi kết thúc chu kỳ thanh toán trong phần Cài đặt tài khoản Apple / Google.</li>
+          <li><strong>Hoàn tiền:</strong> Mọi yêu cầu hoàn tiền tuân theo chính sách hoàn tiền chính thức của Apple và Google.</li>
+        </ul>
+
+        <h2>4. Hành vi bị Nghiêm cấm</h2>
+        <p>Khi sử dụng ứng dụng, bạn cam kết không:</p>
+        <ul>
+          <li>Dịch ngược, biên dịch đảo ngược hoặc can thiệp vào mã nguồn của phần mềm.</li>
+          <li>Gian lận điểm số, chuỗi thắng hàng ngày hoặc can thiệp trái phép vào hệ thống quảng cáo AdMob.</li>
+          <li>Sử dụng ứng dụng cho các hành vi gian lận tài chính hoặc vi phạm pháp luật hiện hành.</li>
+        </ul>
+
+        <h2>5. Giới hạn Trách nhiệm</h2>
+        <p>
+          Ứng dụng được cung cấp theo nguyên trạng ("AS IS"). Chúng tôi nỗ lực tối đa để đảm bảo ứng dụng vận hành trơn tru và chính xác, tuy nhiên không chịu trách nhiệm đối với các mất mát dữ liệu do hỏng hóc phần cứng hoặc xóa bộ nhớ máy của người dùng.
+        </p>
+
+        <h2>6. Liên hệ</h2>
+        <p>
+          Mọi thắc mắc về điều khoản dịch vụ, vui lòng liên hệ với chúng tôi qua email:
+          <br>
+          📧 <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan); font-weight: 600;">gaming.assist.vn@gmail.com</a>
+        </p>
+      </div>
+
     </div>
   </main>
 
@@ -115,15 +257,46 @@
   <footer class="footer">
     <div class="container footer-content">
       <div>
-        <p>© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.</p>
+        <p>© 2026 Assist Gaming & Tech Studio. All rights reserved.</p>
+        <p style="font-size: 12px; margin-top: 4px; color: var(--text-dim);">Official Developer of BillSnap AI & MinePuzzle Daily.</p>
       </div>
       <div class="footer-links">
-        <a href="index.html">Trang chủ</a>
-        <a href="privacy.html">Quyền riêng tư</a>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" class="active">Terms</a>
         <a href="app-ads.txt" target="_blank">app-ads.txt</a>
       </div>
     </div>
   </footer>
 
+  <script>
+    function setTermsLang(lang) {
+      const allEnEls = document.querySelectorAll('.lang-en');
+      const allViEls = document.querySelectorAll('.lang-vi');
+      const btnEn = document.getElementById('btn-terms-en');
+      const btnVi = document.getElementById('btn-terms-vi');
+
+      if (lang === 'vi') {
+        allEnEls.forEach(el => el.style.display = 'none');
+        allViEls.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block');
+        btnEn.classList.remove('active');
+        btnVi.classList.add('active');
+        document.documentElement.lang = 'vi';
+      } else {
+        allViEls.forEach(el => el.style.display = 'none');
+        allEnEls.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block');
+        btnVi.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      }
+
+      localStorage.setItem('site_lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('site_lang') || 'en';
+      setTermsLang(savedLang);
+    });
+  </script>
 </body>
 </html>

@@ -17,16 +17,17 @@
   {
     "id": "billsnap-ai",
     "name": "BillSnap AI",
-    "tagline": "Smart AI Invoice Scanner & Receipt Expense Tracker with Optical Recognition.",
+    "tagline": "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
     "category": "utilities",
-    "badge": "AI Powered 🤖",
+    "badge": "Flagship 🤖",
     "featured": true,
     "icon": "assets/icons/billsnap_ai.png",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "rating": "5.0 ★",
-    "tags": ["AI Scanner", "Receipt OCR", "Expense Tracker", "Finance"],
-    "description": "Snap receipts and invoices with high-accuracy AI OCR technology. Auto categorize expenses, extract total amounts, and export financial summaries with zero manual typing.",
-    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.assist.billsnap",
+    "tags": ["Gemini AI OCR", "IRS Schedule C", "Expense Tracker", "91 Languages", "Audit Checklist", "Excel & PDF"],
+    "description": "Instant receipt & invoice scanning with Google Gemini Vision AI. Auto-categorize expenses into 28 IRS Schedule C lines, export audit-ready Excel reports, and enjoy 100% on-device privacy with iCloud & Google Drive backup.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.billsnap.ai",
+    "appStoreUrl": "https://apps.apple.com/app/billsnap-ai/id6817136538",
     "privacyUrl": "privacy.html#billsnap"
   },
   {
