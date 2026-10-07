@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     .product-hero {
-      padding: 60px 0 40px;
+      padding: 50px 0 30px;
       text-align: center;
       position: relative;
     }
@@ -41,9 +41,9 @@
       margin-bottom: 20px;
     }
     .product-title {
-      font-size: 48px;
+      font-size: 46px;
       font-weight: 900;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 18px;
       background: linear-gradient(135deg, #FFFFFF 0%, #B4C0FE 50%, #00E5FF 100%);
       -webkit-background-clip: text;
@@ -56,7 +56,7 @@
       font-size: 18px;
       color: var(--text-dim);
       max-width: 760px;
-      margin: 0 auto 32px;
+      margin: 0 auto 30px;
       line-height: 1.7;
     }
     .cta-group {
@@ -66,14 +66,49 @@
       flex-wrap: wrap;
       margin-bottom: 40px;
     }
-    .features-section {
-      padding: 40px 0 60px;
+    
+    /* Device Mockup Frame Showcase */
+    .mockup-showcase {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto 60px;
+      position: relative;
     }
+    .phone-frame {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 40px;
+      border: 10px solid #1A1D2E;
+      background: #000000;
+      box-shadow: 0 25px 60px -15px rgba(0, 229, 255, 0.35);
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 20px;
+      background: #1A1D2E;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      z-index: 10;
+    }
+
     .features-grid-4 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 24px;
-      margin-top: 30px;
+      margin: 30px 0 60px;
     }
     .feature-card {
       background: var(--bg-card);
@@ -111,41 +146,25 @@
       color: var(--text-dim);
       line-height: 1.6;
     }
-    .faq-section {
-      background: rgba(255, 255, 255, 0.02);
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-glass);
-      border-radius: 28px;
-      padding: 40px;
-      margin: 40px 0 70px;
-    }
-    .faq-item {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 20px 0;
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-    .faq-question {
-      font-size: 17px;
-      font-weight: 700;
       color: #FFFFFF;
-      margin-bottom: 8px;
-      display: flex;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      transition: all 0.2s ease;
     }
-    .faq-answer {
-      font-size: 15px;
-      color: var(--text-dim);
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .product-title {
-        font-size: 34px;
-      }
-      .faq-section {
-        padding: 24px;
-      }
+    .lang-btn:hover {
+      background: rgba(0, 229, 255, 0.2);
+      border-color: var(--accent-cyan);
     }
   </style>
 </head>
@@ -159,29 +178,32 @@
         <div class="brand-name">Assist Studio</div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Apps & Games</a></li>
+        <li><a href="index.html" data-i18n="nav_home">← All Apps</a></li>
         <li><a href="billsnap.html" class="active">BillSnap AI</a></li>
-        <li><a href="privacy.html#billsnap">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy/billsnap.html" data-i18n="nav_privacy">Privacy Policy</a></li>
+        <li><a href="terms.html" data-i18n="nav_terms">Terms</a></li>
       </ul>
       <div>
-        <a href="index.html" class="btn-secondary" style="padding: 6px 14px; font-size: 13px;">← Back to Studio</a>
+        <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguage()">
+          <span id="lang-badge">🌐 EN</span>
+        </button>
       </div>
     </div>
   </nav>
 
   <!-- Product Hero -->
   <header class="container product-hero">
-    <div class="product-badge">
-      🤖 AI TAX INTELLIGENCE & EXPENSE ORGANIZER
+    <div class="product-badge" data-i18n="badge_title">
+      🤖 AI TAX INTELLIGENCE & RECEIPT ORGANIZER
     </div>
-    <h1 class="product-title">
-      Turn Paper Receipts into IRS Schedule C Deductions in Seconds.
+    <h1 class="product-title" data-i18n="main_title">
+      Turn Receipts into IRS Schedule C Deductions in Seconds.
     </h1>
-    <p class="product-tagline">
-      BillSnap AI leverages Google Gemini Vision AI to instantly parse messy receipts, calculate write-offs across 28 official IRS Form 1040 Schedule C expense lines, and generate audit-defense workbooks.
+    <p class="product-tagline" data-i18n="main_tagline">
+      Designed for self-employed professionals, freelancers, and small business owners. Gemini Vision OCR extracts receipts instantly with 100% on-device privacy.
     </p>
 
+    <!-- Download Buttons -->
     <div class="cta-group">
       <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
         <span class="btn-store-icon">▶</span>
@@ -197,86 +219,145 @@
           <span class="btn-store-main">App Store</span>
         </div>
       </a>
+      <a href="privacy/billsnap.html" class="btn-secondary" style="padding: 12px 20px;">
+        <span data-i18n="btn_privacy">🛡️ App Privacy Policy</span>
+      </a>
     </div>
 
-    <!-- Feature Grid -->
-    <div class="features-grid-4">
-      <div class="feature-card">
-        <div class="feature-icon-box">🧠</div>
-        <h3>Gemini Vision AI OCR</h3>
-        <p>Advanced optical character recognition handles low light, crumpling, fading, and hand-written numbers with >99% extraction accuracy.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box">🏛️</div>
-        <h3>IRS Schedule C Automation</h3>
-        <p>Auto-allocates expenses to Lines 8-27b including Advertising, Vehicle Expenses, Supplies, Contract Labor, and 50% Meals with strict rules.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box">🛡️</div>
-        <h3>Audit Defense Checklist</h3>
-        <p>Know what the IRS requires before filing. Every category includes statutory citation (§ IRC rules) and qualifying documentation proof.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon-box">☁️</div>
-        <h3>Dual Cloud Sync</h3>
-        <p>100% on-device SQLite database with user-controlled 1-tap backup to Apple iCloud Drive and Google Drive. Zero external server tracking.</p>
+    <!-- Phone Frame Showing Real App UI (Swaps on Language Change) -->
+    <div class="mockup-showcase">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <img id="billsnap-ui-screen" src="assets/billsnap_screen_en.png" alt="BillSnap AI Real App Screen">
       </div>
     </div>
   </header>
 
-  <!-- FAQ Section -->
-  <section class="container">
-    <div class="faq-section">
-      <h2 style="font-size: 26px; color: #FFFFFF; margin-bottom: 24px; text-align: center;">Frequently Asked Questions</h2>
+  <!-- Core Features -->
+  <section class="container features-section">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="font-size: 32px; font-weight: 900; color: #FFFFFF;" data-i18n="features_header">
+        Everything You Need for Tax Season
+      </h2>
+    </div>
 
-      <div class="faq-item">
-        <div class="faq-question">❓ Who is BillSnap AI designed for?</div>
-        <div class="faq-answer">
-          BillSnap AI is crafted specifically for self-employed individuals, independent 1099 contractors, rideshare and delivery drivers (Uber, Lyft, DoorDash), freelancers, salon/nail shop owners, and small business operators who file <strong>IRS Form 1040 Schedule C</strong>.
-        </div>
+    <div class="features-grid-4">
+      <div class="feature-card">
+        <div class="feature-icon-box">🧠</div>
+        <h3 data-i18n="f1_title">Gemini Vision AI</h3>
+        <p data-i18n="f1_desc">>99% OCR accuracy on crumpled, faded, or handwritten receipts across 91 languages.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">❓ How is my receipt data protected?</div>
-        <div class="faq-answer">
-          We operate under a strict <strong>Privacy by Design</strong> standard. All receipt records and tax computations remain isolated on your local phone storage in an encrypted SQLite database. When communicating with the Gemini Vision API, images are transmitted over secure TLS/HTTPS and never stored or used to train public AI models.
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon-box">📊</div>
+        <h3 data-i18n="f2_title">28 IRS Categories</h3>
+        <p data-i18n="f2_desc">Automated mapping to Form 1040 Schedule C Lines 8–27b with audit risk scoring.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">❓ Can I export my data to Excel for my CPA?</div>
-        <div class="faq-answer">
-          Yes! BillSnap AI generates multi-sheet Excel workbooks (.xlsx) with embedded formula calculations, summary KPI scorecards, and formatted itemized breakdowns ready to hand directly to your CPA, tax preparer, or TurboTax / H&R Block.
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon-box">📑</div>
+        <h3 data-i18n="f3_title">Excel & PDF Export</h3>
+        <p data-i18n="f3_desc">1-Click export to multi-sheet formatted Excel workbooks and summary PDF reports ready for your CPA.</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">❓ Does BillSnap AI replace my accountant?</div>
-        <div class="faq-answer">
-          No. BillSnap AI is an automated self-help productivity organizer. Under IRS Circular 230, it is not a substitute for certified legal or CPA advice. It helps you keep spotless, organized records so you never miss a deduction or panic during tax season.
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon-box">🔒</div>
+        <h3 data-i18n="f4_title">100% On-Device Privacy</h3>
+        <p data-i18n="f4_desc">All financial data is processed locally on your device with optional iCloud and Google Drive backup.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <p>© 2026 Assist Gaming & Tech Studio. All rights reserved.</p>
-        <p style="font-size: 12px; margin-top: 4px; color: var(--text-dim);">BillSnap AI is an official trademark of Assist Gaming & Tech Studio.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Studio Home</a>
-        <a href="privacy.html#billsnap">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="mailto:gaming.assist.vn@gmail.com">Contact Support</a>
-      </div>
+  <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
+    <div style="margin-bottom: 12px;">
+      <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Apps & Games</a>
+      <a href="privacy/billsnap.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Privacy Policy</a>
+      <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Terms of Service</a>
+      <a href="mailto:gaming.assist.vn@gmail.com" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Support</a>
     </div>
+    © 2026 Assist Gaming & Tech Studio. All rights reserved.
   </footer>
+
+  <!-- Language Switcher & Image Swap Script -->
+  <script>
+    const translations = {
+      en: {
+        badge: "🌐 EN",
+        nav_home: "← All Apps",
+        nav_privacy: "Privacy Policy",
+        nav_terms: "Terms",
+        badge_title: "🤖 AI TAX INTELLIGENCE & RECEIPT ORGANIZER",
+        main_title: "Turn Receipts into IRS Schedule C Deductions in Seconds.",
+        main_tagline: "Designed for self-employed professionals, freelancers, and small business owners. Gemini Vision OCR extracts receipts instantly with 100% on-device privacy.",
+        btn_privacy: "🛡️ App Privacy Policy",
+        features_header: "Everything You Need for Tax Season",
+        f1_title: "Gemini Vision AI",
+        f1_desc: ">99% OCR accuracy on crumpled, faded, or handwritten receipts across 91 languages.",
+        f2_title: "28 IRS Categories",
+        f2_desc: "Automated mapping to Form 1040 Schedule C Lines 8–27b with audit risk scoring.",
+        f3_title: "Excel & PDF Export",
+        f3_desc: "1-Click export to multi-sheet formatted Excel workbooks and summary PDF reports ready for your CPA.",
+        f4_title: "100% On-Device Privacy",
+        f4_desc: "All financial data is processed locally on your device with optional iCloud and Google Drive backup.",
+        image_src: "assets/billsnap_screen_en.png"
+      },
+      vi: {
+        badge: "🌐 VI",
+        nav_home: "← Toàn bộ Ứng dụng",
+        nav_privacy: "Chính sách bảo mật",
+        nav_terms: "Điều khoản",
+        badge_title: "🤖 TRỢ LÝ QUÉT HÓA ĐƠN & TÍNH THUẾ AI",
+        main_title: "Biến hóa đơn giấy thành chi phí giảm trừ thuế IRS trong vài giây.",
+        main_tagline: "Thiết kế dành riêng cho người làm tự do, tài xế công nghệ và doanh nghiệp nhỏ. Trí tuệ nhân tạo Gemini Vision nhận diện tức thì với bảo mật 100% trên thiết bị.",
+        btn_privacy: "🛡️ Chính sách bảo mật",
+        features_header: "Mọi thứ bạn cần cho mùa quyết toán thuế",
+        f1_title: "Công nghệ Gemini Vision AI",
+        f1_desc: "Độ chính xác >99% trên hóa đơn nhàu nát, mờ hoặc viết tay, hỗ trợ 91 ngôn ngữ.",
+        f2_title: "28 danh mục thuế IRS",
+        f2_desc: "Tự động phân loại vào các dòng từ 8 đến 27b của Mẫu 1040 Schedule C chuẩn kiểm toán.",
+        f3_title: "Xuất Excel & PDF",
+        f3_desc: "Xuất 1 chạm ra file bảng tính Excel đầy đủ hàm tính toán và file báo cáo PDF gửi kế toán.",
+        f4_title: "Bảo mật 100% trên thiết bị",
+        f4_desc: "Mọi dữ liệu tài chính được xử lý cục bộ trên máy, kèm sao lưu iCloud và Google Drive tùy chọn.",
+        image_src: "assets/billsnap_screen_vi.png"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'vi' : 'en';
+      applyLanguage(currentLang);
+      localStorage.setItem('studio_lang', currentLang);
+    }
+
+    function applyLanguage(lang) {
+      const data = translations[lang];
+      document.getElementById('lang-badge').textContent = data.badge;
+      
+      // Update text contents
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (data[key]) {
+          el.textContent = data[key];
+        }
+      });
+
+      // Update screen image based on language (Strict requirement from owner)
+      const screenImg = document.getElementById('billsnap-ui-screen');
+      if (screenImg) {
+        screenImg.src = data.image_src;
+      }
+    }
+
+    // Initialize from storage or default
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('studio_lang') || 'en';
+      currentLang = saved;
+      applyLanguage(currentLang);
+    });
+  </script>
 
 </body>
 </html>

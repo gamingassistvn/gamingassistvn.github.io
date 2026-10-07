@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assist Gaming & Tech Studio | Official Developer Portal</title>
-  <meta name="description" content="Official developer portal for Assist Gaming & Tech Studio. Discover BillSnap AI (IRS Schedule C Receipt Scanner), MinePuzzle Daily (3D Minesweeper), and smart mobile utilities.">
-  <meta name="keywords" content="BillSnap AI, Receipt Scanner, IRS Schedule C, Tax Deductions, MinePuzzle Daily, Minesweeper, Flutter, Android Apps, iOS Games, AdMob verified">
+  <meta name="description" content="Official developer portal for Assist Gaming & Tech Studio. Makers of BillSnap AI, MinePuzzle Daily, and smart mobile utilities.">
+  <meta name="keywords" content="BillSnap AI, MinePuzzle Daily, T11 Auto Helper, Android, iOS, Flutter, Developer Portal">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Assist Gaming & Tech Studio | Official Developer Portal">
-  <meta property="og:description" content="Makers of BillSnap AI (Gemini Vision Receipt & IRS Tax Scanner) and MinePuzzle Daily.">
+  <meta property="og:title" content="Assist Gaming & Tech Studio">
+  <meta property="og:description" content="Discover smart AI utilities and high-performance mobile games.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gamingassistvn.github.io/">
 
@@ -34,22 +34,107 @@
       align-items: center;
       gap: 6px;
       transition: all 0.2s ease;
-      user-select: none;
     }
     .lang-btn:hover {
-      background: rgba(124, 108, 255, 0.35);
+      background: rgba(124, 108, 255, 0.3);
       border-color: var(--accent-purple);
-      box-shadow: 0 0 15px rgba(124, 108, 255, 0.4);
-      transform: scale(1.05);
     }
-    .lang-btn:active {
-      transform: scale(0.95);
+    .products-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .product-showcase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 28px;
+      padding: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+    }
+    @media (min-width: 860px) {
+      .product-showcase-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .product-showcase-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .product-info-col {
+      flex: 1.2;
+    }
+    .product-image-col {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+    .phone-mockup-mini {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 32px;
+      border: 8px solid #1A1D2E;
+      background: #000;
+      box-shadow: 0 20px 40px rgba(0, 229, 255, 0.25);
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-mockup-mini img {
+      width: 100%;
+      display: block;
+    }
+    .store-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 16px;
+    }
+    .app-meta-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .app-meta-links a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .app-meta-links a:hover {
+      text-decoration: underline;
+    }
+    .grid-2-apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .compact-app-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    .compact-app-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation: Clear, Simple, Unambiguous -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand">
@@ -57,11 +142,11 @@
         <div class="brand-name">Assist Studio</div>
       </a>
       <ul class="nav-links">
-        <li><a href="#billsnap-spotlight" data-i18n="nav_spotlight">⭐ BillSnap AI</a></li>
-        <li><a href="#apps" class="active" data-i18n="nav_apps">Apps & Games</a></li>
-        <li><a href="#about" data-i18n="nav_tech">Technology</a></li>
-        <li><a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a></li>
-        <li><a href="terms.html" data-i18n="nav_terms">Terms of Service</a></li>
+        <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+        <li><a href="#apps" data-i18n="nav_apps">Apps & Games</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="privacy.html" data-i18n="nav_privacy">Privacy Center</a></li>
+        <li><a href="terms.html" data-i18n="nav_terms">Terms</a></li>
       </ul>
       <div>
         <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguage()">
@@ -75,64 +160,44 @@
   <header class="hero">
     <div class="container">
       <div class="hero-badge">
-        <span data-i18n="hero_badge">✨ CRAFTING NEXT-GEN EXPERIENCES</span>
+        <span data-i18n="hero_badge">✨ OFFICIAL DEVELOPER PORTAL</span>
       </div>
       <h1 class="hero-title">
-        <span data-i18n="hero_title_1">Intelligent. Fast.</span><br>
-        <span data-i18n="hero_title_2">Boundless Experience.</span>
+        <span data-i18n="hero_title_1">Smart Utilities.</span><br>
+        <span data-i18n="hero_title_2">Next-Gen Experiences.</span>
       </h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        Welcome to the official developer portal of <strong>Assist Gaming & Tech Studio</strong>. Home of modern AI financial organizers and high-performance mobile experiences for global users.
+        We are an independent studio creating AI-powered financial tools and high-performance mobile games. Fast, secure, and privacy-focused.
       </p>
     </div>
   </header>
 
-  <!-- BillSnap AI Spotlight Section -->
-  <section class="container spotlight-section" id="billsnap-spotlight">
-    <div class="spotlight-card">
-      <div class="spotlight-content">
-        <div class="spotlight-badge" data-i18n="spotlight_badge">
-          🤖 FLAGSHIP UTILITY • AI TAX & RECEIPT ORGANIZER
+  <!-- Main Section: Products (Apps & Games) -->
+  <main class="products-container" id="apps">
+    
+    <div style="margin-bottom: 24px;">
+      <h2 style="font-size: 28px; font-weight: 900; color: #FFFFFF;" data-i18n="section_products">
+        Featured Products
+      </h2>
+    </div>
+
+    <!-- Product 1: BillSnap AI (Flagship with Screen Preview) -->
+    <div class="product-showcase-card">
+      <div class="product-info-col">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+          <img src="assets/icons/billsnap_ai.png" alt="BillSnap AI" style="width: 54px; height: 54px; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          <div>
+            <span style="font-size: 11px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 1px;" data-i18n="billsnap_category">AI UTILITY • EXPENSE ORGANIZER</span>
+            <h3 style="font-size: 26px; font-weight: 900; color: #FFFFFF; margin: 2px 0;">BillSnap AI</h3>
+          </div>
         </div>
-        <h2 class="spotlight-title" data-i18n="spotlight_title">
-          BillSnap AI — Smart Receipt Scanner & IRS Schedule C Tax Assistant
-        </h2>
-        <p class="spotlight-desc" data-i18n="spotlight_desc">
-          Powered by Google Gemini AI Vision. Snap receipts and invoices, extract vendor and expense details in seconds, auto-classify into 28 IRS Schedule C categories, and export audit-ready Excel & PDF reports. 100% on-device privacy with iCloud and Google Drive backup.
+
+        <p style="color: var(--text-dim); line-height: 1.7; font-size: 15px;" data-i18n="billsnap_desc">
+          Smart receipt scanner powered by Gemini Vision AI. Automatically extracts vendor, date, and totals, then classifies expenses into 28 IRS Schedule C tax lines. 100% on-device privacy with audit-ready Excel and PDF exports.
         </p>
 
-        <div class="spotlight-features">
-          <div class="spotlight-feat-item">
-            <span class="spotlight-feat-icon">🧠</span>
-            <div>
-              <div class="spotlight-feat-title" data-i18n="spotlight_f1_title">Gemini Vision AI OCR</div>
-              <div class="spotlight-feat-desc" data-i18n="spotlight_f1_desc">>99% accuracy on crumpled, faded, or handwritten receipts across 91 languages.</div>
-            </div>
-          </div>
-          <div class="spotlight-feat-item">
-            <span class="spotlight-feat-icon">📊</span>
-            <div>
-              <div class="spotlight-feat-title" data-i18n="spotlight_f2_title">IRS Form 1040 Schedule C</div>
-              <div class="spotlight-feat-desc" data-i18n="spotlight_f2_desc">Automated mapping to Lines 8-27b with audit risk defense scoring and documentation checklists.</div>
-            </div>
-          </div>
-          <div class="spotlight-feat-item">
-            <span class="spotlight-feat-icon">📑</span>
-            <div>
-              <div class="spotlight-feat-title" data-i18n="spotlight_f3_title">Audit-Ready Excel & PDF</div>
-              <div class="spotlight-feat-desc" data-i18n="spotlight_f3_desc">1-Click export to multi-sheet formatted workbooks with formulas, charts, and summary reports.</div>
-            </div>
-          </div>
-          <div class="spotlight-feat-item">
-            <span class="spotlight-feat-icon">🔒</span>
-            <div>
-              <div class="spotlight-feat-title" data-i18n="spotlight_f4_title">100% On-Device Privacy</div>
-              <div class="spotlight-feat-desc" data-i18n="spotlight_f4_desc">Zero selling of financial data. Stored locally with 1-tap Apple iCloud & Google Drive backup.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="spotlight-cta">
+        <!-- Store Buttons -->
+        <div class="store-btn-row">
           <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
             <span class="btn-store-icon">▶</span>
             <div>
@@ -147,395 +212,216 @@
               <span class="btn-store-main">App Store</span>
             </div>
           </a>
-          <a href="privacy.html#billsnap" class="btn-secondary" style="padding: 12px 18px;">
-            <span data-i18n="btn_billsnap_privacy">🛡️ Privacy Policy & Security</span>
+        </div>
+
+        <!-- Direct Links to Dedicated Screen and Privacy -->
+        <div class="app-meta-links">
+          <a href="billsnap.html" style="color: #FFFFFF; background: rgba(0, 229, 255, 0.15); border: 1px solid var(--accent-cyan); padding: 8px 16px; border-radius: 12px; text-decoration: none;" data-i18n="btn_view_details">
+            View App Details & Screen &rarr;
+          </a>
+          <a href="privacy/billsnap.html" data-i18n="link_billsnap_privacy">
+            🛡️ Privacy Policy
           </a>
         </div>
       </div>
 
-      <!-- Mockup Card -->
-      <div class="spotlight-preview">
-        <div class="preview-card">
-          <div class="preview-header">
-            <div class="preview-app-info">
-              <img src="assets/icons/billsnap_ai.png" alt="BillSnap AI" class="preview-app-icon">
-              <div>
-                <div style="font-weight: 800; font-size: 14px; color: #FFFFFF;">BillSnap AI</div>
-                <div style="font-size: 11px; color: var(--accent-cyan);">Tax Ready • Pro Edition</div>
-              </div>
-            </div>
-            <span style="font-size: 11px; color: #00E676; font-weight: 700; background: rgba(0, 230, 118, 0.15); padding: 2px 8px; border-radius: 6px;">● ACTIVE</span>
+      <!-- Real Phone Screen (Swaps based on language EN/VI) -->
+      <div class="product-image-col">
+        <a href="billsnap.html" title="Click to view BillSnap details">
+          <div class="phone-mockup-mini">
+            <img id="home-billsnap-screen" src="assets/billsnap_screen_en.png" alt="BillSnap AI Screen">
           </div>
+        </a>
+      </div>
+    </div>
 
-          <div class="preview-receipt-box">
-            <div class="preview-line">
-              <span style="color: var(--text-dim);">Merchant:</span>
-              <span style="font-weight: 700; color: #FFFFFF;">The Home Depot</span>
-            </div>
-            <div class="preview-line">
-              <span style="color: var(--text-dim);">Date:</span>
-              <span style="color: #FFFFFF;">Oct 03, 2026</span>
-            </div>
-            <div class="preview-line">
-              <span style="color: var(--text-dim);">Total Amount:</span>
-              <span style="font-weight: 800; color: #00E676; font-size: 15px;">$248.50 USD</span>
-            </div>
-            <div class="preview-tax-pill">
-              🏛️ IRS Line 22: Supplies (100% Deductible)
+    <!-- Other Products Grid -->
+    <div class="grid-2-apps">
+      <!-- Product 2: MinePuzzle Daily -->
+      <div class="compact-app-card">
+        <div>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+            <img src="assets/icons/minepuzzle_daily.png" alt="MinePuzzle Daily" style="width: 48px; height: 48px; border-radius: 12px;">
+            <div>
+              <span style="font-size: 11px; font-weight: 800; color: #B4C0FE; text-transform: uppercase;" data-i18n="mine_category">3D GAME</span>
+              <h3 style="font-size: 20px; font-weight: 800; color: #FFFFFF;">MinePuzzle Daily</h3>
             </div>
           </div>
+          <p style="color: var(--text-dim); font-size: 14px; line-height: 1.6; margin-bottom: 24px;" data-i18n="mine_desc">
+            Cyber-Neon 3D Minesweeper puzzle challenge. Solve daily boards, build winning streaks, and climb global leaderboards.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; pt-4; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
+          <a href="https://play.google.com/store/apps" target="_blank" rel="noopener" class="btn-store" style="padding: 8px 16px;">
+            <span class="btn-store-icon">▶</span>
+            <div><span class="btn-store-main" style="font-size: 13px;">Google Play</span></div>
+          </a>
+          <a href="privacy/minepuzzle.html" style="font-size: 13px; color: var(--text-dim); text-decoration: none;" data-i18n="link_privacy">Privacy Policy</a>
+        </div>
+      </div>
 
-          <div class="preview-stats-row">
-            <div class="preview-stat-card">
-              <div class="preview-stat-val">100%</div>
-              <div class="preview-stat-lbl">Audit Score</div>
-            </div>
-            <div class="preview-stat-card">
-              <div class="preview-stat-val" style="color: var(--accent-cyan);">$74.55</div>
-              <div class="preview-stat-lbl">Tax Savings Est.</div>
+      <!-- Product 3: T11 Auto Helper -->
+      <div class="compact-app-card">
+        <div>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+            <img src="assets/icons/t11_helper.png" alt="T11 Auto Helper" style="width: 48px; height: 48px; border-radius: 12px;">
+            <div>
+              <span style="font-size: 11px; font-weight: 800; color: #00E676; text-transform: uppercase;" data-i18n="t11_category">ANDROID UTILITY</span>
+              <h3 style="font-size: 20px; font-weight: 800; color: #FFFFFF;">T11 Auto Helper</h3>
             </div>
           </div>
-
-          <div style="margin-top: 14px; text-align: center;">
-            <span style="font-size: 11px; color: var(--text-dim);">☁️ Synced with Apple iCloud & Google Drive</span>
-          </div>
+          <p style="color: var(--text-dim); font-size: 14px; line-height: 1.6; margin-bottom: 24px;" data-i18n="t11_desc">
+            Smart automation utility for Android. Automate repetitive workflow routines with on-device gesture scheduling.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
+          <a href="https://play.google.com/store/apps" target="_blank" rel="noopener" class="btn-store" style="padding: 8px 16px;">
+            <span class="btn-store-icon">▶</span>
+            <div><span class="btn-store-main" style="font-size: 13px;">Download</span></div>
+          </a>
+          <a href="privacy/t11.html" style="font-size: 13px; color: var(--text-dim); text-decoration: none;" data-i18n="link_privacy">Privacy Policy</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Main Catalog Section -->
-  <main class="container" id="apps">
-    <div class="catalog-header">
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All Products</button>
-        <button class="filter-btn" data-filter="utilities" data-i18n="filter_utilities">⚡ Utilities & AI</button>
-        <button class="filter-btn" data-filter="games" data-i18n="filter_games">🎮 Games</button>
-      </div>
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" placeholder="Search apps & games...">
-      </div>
-    </div>
-
-    <!-- Dynamic Apps Grid -->
-    <div class="apps-grid" id="apps-container">
-      <!-- Dynamic cards rendered by JS -->
-    </div>
-
-    <!-- Tech & Quality Standards -->
-    <section class="tech-banner" id="about">
+    <!-- About Section -->
+    <section class="tech-banner" id="about" style="margin-bottom: 60px;">
       <div class="tech-grid">
         <div class="tech-item">
-          <div class="tech-icon">🚀</div>
+          <div class="tech-icon">🛡️</div>
           <div>
-            <h4 class="tech-title" data-i18n="tech_1_title">Native 60-120 FPS Performance</h4>
-            <p class="tech-desc" data-i18n="tech_1_desc">Engineered on Flutter with C++ acceleration for silky-smooth response and minimal battery draw.</p>
+            <h4 class="tech-title" data-i18n="tech_1_title">On-Device Privacy</h4>
+            <p class="tech-desc" data-i18n="tech_1_desc">Zero sale of user financial data. All calculations run strictly on your device.</p>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">🌐</div>
           <div>
-            <h4 class="tech-title" data-i18n="tech_2_title">91-Language Auto Detection</h4>
-            <p class="tech-desc" data-i18n="tech_2_desc">Seamlessly localizes to user device settings across 177 countries worldwide.</p>
+            <h4 class="tech-title" data-i18n="tech_2_title">91-Language Support</h4>
+            <p class="tech-desc" data-i18n="tech_2_desc">Seamless native experience matching user device locales across 177 countries.</p>
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-icon">🛡️</div>
+          <div class="tech-icon">🚀</div>
           <div>
-            <h4 class="tech-title" data-i18n="tech_3_title">Privacy by Design</h4>
-            <p class="tech-desc" data-i18n="tech_3_desc">100% compliant with GDPR, CCPA, Google Play Families & App Store Data Protection standards.</p>
-          </div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">💎</div>
-          <div>
-            <h4 class="tech-title" data-i18n="tech_4_title">Google AdMob & Apple Verified</h4>
-            <p class="tech-desc" data-i18n="tech_4_desc">Official app distribution with valid root app-ads.txt records and StoreKit compliance.</p>
+            <h4 class="tech-title" data-i18n="tech_3_title">Native 60–120 FPS</h4>
+            <p class="tech-desc" data-i18n="tech_3_desc">Built with Flutter and high-performance native engines for smooth responsiveness.</p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <p data-i18n="footer_rights">© 2026 Assist Gaming & Tech Studio. All rights reserved.</p>
-        <p style="font-size: 12px; margin-top: 4px;" data-i18n="footer_store">Published on Google Play Store & Apple App Store.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#billsnap-spotlight">BillSnap AI</a>
-        <a href="privacy.html" data-i18n="nav_privacy">Privacy Policy</a>
-        <a href="terms.html" data-i18n="nav_terms">Terms of Service</a>
-        <a href="app-ads.txt" target="_blank">app-ads.txt</a>
-        <a href="mailto:gaming.assist.vn@gmail.com" data-i18n="footer_contact">Support & Contact</a>
-      </div>
+  <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
+    <div style="margin-bottom: 12px;">
+      <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Home</a>
+      <a href="#apps" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Apps & Games</a>
+      <a href="privacy.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Privacy Center</a>
+      <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Terms of Service</a>
+      <a href="mailto:gaming.assist.vn@gmail.com" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Contact Support</a>
     </div>
+    © 2026 Assist Gaming & Tech Studio. All rights reserved.
   </footer>
 
-  <!-- Bulletproof Self-Contained Script -->
+  <!-- Language Switcher & Dual Image Swapping Script -->
   <script>
-    const appsData = [
-      {
-        id: "billsnap-ai",
-        name: "BillSnap AI",
-        tagline: {
-          en: "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
-          vi: "Trợ lý Quét Hóa đơn AI & Tự động Phân loại Thuế IRS Schedule C chuẩn kiểm toán."
-        },
-        category: "utilities",
-        badge: "Flagship 🤖",
-        icon: "assets/icons/billsnap_ai.png",
-        rating: "5.0 ★",
-        tags: ["Gemini AI OCR", "IRS Schedule C", "Expense Tracker", "91 Languages", "Excel & PDF"],
-        playStoreUrl: "https://play.google.com/store/apps/details?id=com.billsnap.ai",
-        appStoreUrl: "https://apps.apple.com/app/billsnap-ai/id6817136538",
-        privacyUrl: "privacy.html#billsnap"
-      },
-      {
-        id: "minepuzzle-daily",
-        name: "MinePuzzle Daily",
-        tagline: {
-          en: "Next-Gen 3D Cyber-Neon Minesweeper with Global Daily Challenges & Streaks.",
-          vi: "Game Dò Mìn 3D Cyber-Neon đỉnh cao với Thử thách Hàng ngày & Chuỗi thắng toàn cầu."
-        },
-        category: "games",
-        badge: "Hot 🚀",
-        icon: "assets/icons/minepuzzle_daily.png",
-        rating: "5.0 ★",
-        tags: ["Puzzle", "Cyber 3D", "Daily Challenge", "12 Languages"],
-        playStoreUrl: "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
-        appStoreUrl: "",
-        privacyUrl: "privacy.html#games"
-      },
-      {
-        id: "t11-auto-helper",
-        name: "T11 Auto Helper",
-        tagline: {
-          en: "Intelligent Automation & Smart Workflow Assistant for Android.",
-          vi: "Trợ lý Tự động hóa & Tối ưu hóa quy trình thông minh cho Android."
-        },
-        category: "utilities",
-        badge: "Utility 🔒",
-        icon: "assets/icons/t11_helper.png",
-        rating: "4.9 ★",
-        tags: ["Productivity", "Automation", "Smart Tools"],
-        playStoreUrl: "https://play.google.com/store/apps/details?id=com.assist.t11helper",
-        appStoreUrl: "",
-        privacyUrl: "privacy.html#utilities"
-      }
-    ];
-
     const translations = {
       en: {
-        nav_spotlight: "⭐ BillSnap AI",
+        badge: "🌐 EN",
+        nav_home: "Home",
         nav_apps: "Apps & Games",
-        nav_tech: "Technology",
-        nav_privacy: "Privacy Policy",
-        nav_terms: "Terms of Service",
-        hero_badge: "✨ CRAFTING NEXT-GEN EXPERIENCES",
-        hero_title_1: "Intelligent. Fast.",
-        hero_title_2: "Boundless Experience.",
-        hero_desc: "Welcome to the official developer portal of <strong>Assist Gaming & Tech Studio</strong>. Home of modern AI financial organizers and high-performance mobile experiences for global users.",
-        spotlight_badge: "🤖 FLAGSHIP UTILITY • AI TAX & RECEIPT ORGANIZER",
-        spotlight_title: "BillSnap AI — Smart Receipt Scanner & IRS Schedule C Tax Assistant",
-        spotlight_desc: "Powered by Google Gemini AI Vision. Snap receipts and invoices, extract vendor and expense details in seconds, auto-classify into 28 IRS Schedule C categories, and export audit-ready Excel & PDF reports. 100% on-device privacy with iCloud and Google Drive backup.",
-        spotlight_f1_title: "Gemini Vision AI OCR",
-        spotlight_f1_desc: ">99% accuracy on crumpled, faded, or handwritten receipts across 91 languages.",
-        spotlight_f2_title: "IRS Form 1040 Schedule C",
-        spotlight_f2_desc: "Automated mapping to Lines 8-27b with audit risk defense scoring and documentation checklists.",
-        spotlight_f3_title: "Audit-Ready Excel & PDF",
-        spotlight_f3_desc: "1-Click export to multi-sheet formatted workbooks with formulas, charts, and summary reports.",
-        spotlight_f4_title: "100% On-Device Privacy",
-        spotlight_f4_desc: "Zero selling of financial data. Stored locally with 1-tap Apple iCloud & Google Drive backup.",
-        btn_billsnap_privacy: "🛡️ Privacy Policy & Security",
-        filter_all: "All Products",
-        filter_games: "🎮 Games",
-        filter_utilities: "⚡ Utilities & AI",
-        search_placeholder: "Search apps & games...",
-        no_results_title: "No applications found",
-        no_results_desc: "Try searching with different keywords or switch categories.",
-        btn_play: "📱 Google Play",
-        btn_appstore: "🍏 App Store",
-        btn_privacy: "🛡️ Privacy Policy",
-        tech_1_title: "Native 60-120 FPS Performance",
-        tech_1_desc: "Engineered on Flutter with C++ acceleration for silky-smooth response and minimal battery draw.",
-        tech_2_title: "91-Language Auto Detection",
-        tech_2_desc: "Seamlessly localizes to user device settings across 177 countries worldwide.",
-        tech_3_title: "Privacy by Design",
-        tech_3_desc: "100% compliant with GDPR, CCPA, Google Play Families & App Store Data Protection standards.",
-        tech_4_title: "Google AdMob & Apple Verified",
-        tech_4_desc: "Official app distribution with valid root app-ads.txt records and StoreKit compliance.",
-        footer_rights: "© 2026 Assist Gaming & Tech Studio. All rights reserved.",
-        footer_store: "Published on Google Play Store & Apple App Store.",
-        footer_contact: "Support & Contact"
+        nav_about: "About",
+        nav_privacy: "Privacy Center",
+        nav_terms: "Terms",
+        hero_badge: "✨ OFFICIAL DEVELOPER PORTAL",
+        hero_title_1: "Smart Utilities.",
+        hero_title_2: "Next-Gen Experiences.",
+        hero_desc: "We are an independent studio creating AI-powered financial tools and high-performance mobile games. Fast, secure, and privacy-focused.",
+        section_products: "Featured Products",
+        billsnap_category: "AI UTILITY • EXPENSE ORGANIZER",
+        billsnap_desc: "Smart receipt scanner powered by Gemini Vision AI. Automatically extracts vendor, date, and totals, then classifies expenses into 28 IRS Schedule C tax lines. 100% on-device privacy with audit-ready Excel and PDF exports.",
+        btn_view_details: "View App Details & Screen →",
+        link_billsnap_privacy: "🛡️ Privacy Policy",
+        mine_category: "3D GAME",
+        mine_desc: "Cyber-Neon 3D Minesweeper puzzle challenge. Solve daily boards, build winning streaks, and climb global leaderboards.",
+        t11_category: "ANDROID UTILITY",
+        t11_desc: "Smart automation utility for Android. Automate repetitive workflow routines with on-device gesture scheduling.",
+        link_privacy: "Privacy Policy",
+        tech_1_title: "On-Device Privacy",
+        tech_1_desc: "Zero sale of user financial data. All calculations run strictly on your device.",
+        tech_2_title: "91-Language Support",
+        tech_2_desc: "Seamless native experience matching user device locales across 177 countries.",
+        tech_3_title: "Native 60–120 FPS",
+        tech_3_desc: "Built with Flutter and high-performance native engines for smooth responsiveness.",
+        image_src: "assets/billsnap_screen_en.png"
       },
       vi: {
-        nav_spotlight: "⭐ BillSnap AI",
-        nav_apps: "Ứng dụng",
-        nav_tech: "Công nghệ",
-        nav_privacy: "Quyền riêng tư",
+        badge: "🌐 VI",
+        nav_home: "Trang chủ",
+        nav_apps: "Sản phẩm",
+        nav_about: "Giới thiệu",
+        nav_privacy: "Chính sách bảo mật",
         nav_terms: "Điều khoản",
-        hero_badge: "✨ KIẾN TẠO TRẢI NGHIỆM ĐỈNH CAO",
-        hero_title_1: "Thông minh. Tốc độ.",
-        hero_title_2: "Trải nghiệm Không giới hạn.",
-        hero_desc: "Chào mừng bạn đến với cổng thông tin chính thức của <strong>Assist Gaming & Tech Studio</strong>. Nơi quy tụ các ứng dụng tài chính AI thông minh và tiện ích di động hiệu năng cao toàn cầu.",
-        spotlight_badge: "🤖 SẢN PHẨM TIÊU BIỂU • TRỢ LÝ THUẾ & QUÉT HÓA ĐƠN AI",
-        spotlight_title: "BillSnap AI — Trợ lý Quét Hóa đơn & Báo cáo Thuế IRS Schedule C",
-        spotlight_desc: "Trang bị trí tuệ nhân tạo thị giác Google Gemini AI Vision. Chụp quét hóa đơn, tự động nhận diện tiền và người bán tức thì, phân loại 28 hạng mục chi phí thuế IRS, xuất file Excel & PDF chuẩn kiểm toán. Bảo mật 100% trên máy với sao lưu iCloud & Google Drive.",
-        spotlight_f1_title: "Gemini Vision AI OCR",
-        spotlight_f1_desc: "Độ chính xác >99% ngay cả với hóa đơn mờ, nhăn hoặc viết tay hỗ trợ 91 ngôn ngữ.",
-        spotlight_f2_title: "IRS Form 1040 Schedule C",
-        spotlight_f2_desc: "Tự động phân loại Line 8-27b, chấm điểm rủi ro kiểm toán và cung cấp danh mục chứng từ bắt buộc.",
-        spotlight_f3_title: "Xuất Excel & PDF Chuẩn Kiểm toán",
-        spotlight_f3_desc: "Xuất file bảng tính đa trang kèm công thức tính tự động, biểu đồ KPI và chi tiết từng giao dịch.",
-        spotlight_f4_title: "Bảo mật 100% trên Thiết bị",
-        spotlight_f4_desc: "Cam kết không bán dữ liệu tài chính. Lưu cục bộ an toàn kèm đồng bộ 1 chạm iCloud & Google Drive.",
-        btn_billsnap_privacy: "🛡️ Điều khoản Bảo mật & Quyền riêng tư",
-        filter_all: "Tất cả sản phẩm",
-        filter_games: "🎮 Trò chơi (Games)",
-        filter_utilities: "⚡ Tiện ích & AI",
-        search_placeholder: "Tìm kiếm ứng dụng...",
-        no_results_title: "Không tìm thấy ứng dụng phù hợp",
-        no_results_desc: "Thử tìm kiếm với từ khóa khác hoặc chuyển danh mục.",
-        btn_play: "📱 Google Play",
-        btn_appstore: "🍏 App Store",
-        btn_privacy: "🛡️ Quyền riêng tư",
-        tech_1_title: "Hiệu năng Native 60-120 FPS",
-        tech_1_desc: "Được xây dựng trên Flutter tăng tốc C++ cho chuyển động mượt mà và tiết kiệm pin tối đa.",
-        tech_2_title: "Tương thích 91 Ngôn ngữ",
-        tech_2_desc: "Tự động bản địa hóa theo thiết bị người dùng trên 177 quốc gia toàn cầu.",
-        tech_3_title: "Bảo mật từ Thiết kế",
-        tech_3_desc: "Tuân thủ 100% chuẩn GDPR, CCPA, Google Play Families & App Store Data Protection.",
-        tech_4_title: "Google AdMob & Apple Verified",
-        tech_4_desc: "Hệ thống phân phối chính hãng với tệp app-ads.txt hợp lệ và chứng thực StoreKit.",
-        footer_rights: "© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.",
-        footer_store: "Tất cả ứng dụng được phát hành trên Google Play Store & Apple App Store.",
-        footer_contact: "Hỗ trợ & Liên hệ"
+        hero_badge: "✨ CỔNG THÔNG TIN NHÀ PHÁT TRIỂN",
+        hero_title_1: "Tiện ích Thông minh.",
+        hero_title_2: "Trải nghiệm Đỉnh cao.",
+        hero_desc: "Chúng tôi là studio độc lập chuyên phát triển các công cụ tài chính ứng dụng AI và trò chơi di động chất lượng cao. Tốc độ, an toàn và bảo mật tối đa.",
+        section_products: "Sản phẩm Tiêu biểu",
+        billsnap_category: "TIỆN ÍCH AI • QUẢN LÝ THUẾ",
+        billsnap_desc: "Trợ lý quét hóa đơn thông minh ứng dụng Gemini Vision AI. Tự động trích xuất thông tin biên lai và phân loại chi phí vào 28 danh mục thuế IRS Schedule C. Bảo mật 100% trên thiết bị, xuất báo cáo Excel và PDF chuẩn kiểm toán.",
+        btn_view_details: "Xem chi tiết & Màn hình App →",
+        link_billsnap_privacy: "🛡️ Chính sách bảo mật",
+        mine_category: "TRÒ CHƠI 3D",
+        mine_desc: "Trò chơi Dò Mìn 3D phong cách Cyber-Neon. Thử thách giải đố mỗi ngày, xây dựng chuỗi thắng và thi đua bảng xếp hạng toàn cầu.",
+        t11_category: "TIỆN ÍCH ANDROID",
+        t11_desc: "Công cụ tự động hóa thông minh cho Android. Tự động hóa các thao tác lặp đi lặp lại bằng kịch bản cử chỉ chạy cục bộ an toàn.",
+        link_privacy: "Chính sách bảo mật",
+        tech_1_title: "Bảo mật trên Thiết bị",
+        tech_1_desc: "Mọi dữ liệu tài chính được xử lý cục bộ trên thiết bị.",
+        tech_2_title: "Hỗ trợ 91 Ngôn ngữ",
+        tech_2_desc: "Trải nghiệm mượt mà tự động đồng bộ theo ngôn ngữ thiết bị tại 177 quốc gia.",
+        tech_3_title: "Hiệu năng 60–120 FPS",
+        tech_3_desc: "Xây dựng trên nền tảng Flutter và engine gốc hiệu năng cao cho phản hồi tức thì.",
+        image_src: "assets/billsnap_screen_vi.png"
       }
     };
 
-    let currentLang = localStorage.getItem('site_lang') || 'en';
-    let currentCategory = 'all';
+    let currentLang = 'en';
 
     function toggleLanguage() {
       currentLang = currentLang === 'en' ? 'vi' : 'en';
-      localStorage.setItem('site_lang', currentLang);
       applyLanguage(currentLang);
-      renderApps();
+      localStorage.setItem('studio_lang', currentLang);
     }
 
     function applyLanguage(lang) {
-      const dict = translations[lang] || translations.en;
+      const data = translations[lang];
+      document.getElementById('lang-badge').textContent = data.badge;
+
+      // Update text
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) el.innerHTML = dict[key];
+        if (data[key]) {
+          el.textContent = data[key];
+        }
       });
 
-      const searchInput = document.getElementById('search-input');
-      if (searchInput && dict.search_placeholder) {
-        searchInput.placeholder = dict.search_placeholder;
+      // Update home screen preview (Strictly swap between VI and EN image)
+      const homeImg = document.getElementById('home-billsnap-screen');
+      if (homeImg) {
+        homeImg.src = data.image_src;
       }
-
-      const langBadge = document.getElementById('lang-badge');
-      if (langBadge) {
-        langBadge.textContent = lang === 'en' ? '🌐 EN' : '🇻🇳 VI';
-      }
-
-      document.documentElement.lang = lang;
     }
 
-    function renderApps() {
-      const container = document.getElementById('apps-container');
-      if (!container) return;
-
-      const dict = translations[currentLang] || translations.en;
-      const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
-
-      const filtered = appsData.filter(app => {
-        const matchCategory = (currentCategory === 'all') || (app.category === currentCategory);
-        const taglineText = typeof app.tagline === 'object' ? (app.tagline[currentLang] || app.tagline.en) : app.tagline;
-        const matchSearch = !searchVal || 
-          app.name.toLowerCase().includes(searchVal) || 
-          taglineText.toLowerCase().includes(searchVal) ||
-          (app.tags && app.tags.some(t => t.toLowerCase().includes(searchVal)));
-
-        return matchCategory && matchSearch;
-      });
-
-      if (filtered.length === 0) {
-        container.innerHTML = `
-          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-dim);">
-            <p style="font-size: 36px; margin-bottom: 12px;">🔍</p>
-            <h3>${dict.no_results_title}</h3>
-            <p>${dict.no_results_desc}</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = filtered.map(app => {
-        const tagline = typeof app.tagline === 'object' ? (app.tagline[currentLang] || app.tagline.en) : app.tagline;
-        return `
-          <article class="app-card" data-category="${app.category}">
-            <div>
-              <div class="card-top">
-                <img src="${app.icon}" alt="${app.name} Icon" class="app-icon" onerror="this.src='https://placehold.co/144x144/1a1e36/ffffff?text=App'">
-                <div class="card-title-group">
-                  <span class="card-badge">${app.badge || 'Live'}</span>
-                  <h3 class="app-name">${app.name}</h3>
-                  <div class="app-rating">${app.rating || '5.0 ★'} • ${app.category === 'games' ? (currentLang === 'en' ? 'Game' : 'Trò chơi') : (currentLang === 'en' ? 'Utility & AI' : 'Tiện ích & AI')}</div>
-                </div>
-              </div>
-
-              <p class="app-tagline">${tagline}</p>
-
-              <div class="app-tags">
-                ${(app.tags || []).map(t => `<span class="tag-item">${t}</span>`).join('')}
-              </div>
-            </div>
-
-            <div class="card-actions">
-              ${app.playStoreUrl ? `
-                <a href="${app.playStoreUrl}" target="_blank" rel="noopener" class="btn-primary" style="padding: 10px 14px; font-size: 13px;">
-                  <span>${dict.btn_play}</span>
-                </a>
-              ` : ''}
-              ${app.appStoreUrl ? `
-                <a href="${app.appStoreUrl}" target="_blank" rel="noopener" class="btn-primary" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); padding: 10px 14px; font-size: 13px;">
-                  <span>${dict.btn_appstore}</span>
-                </a>
-              ` : ''}
-              <a href="${app.privacyUrl || 'privacy.html'}" class="btn-secondary" style="padding: 10px 14px; font-size: 13px;">
-                <span>${dict.btn_privacy}</span>
-              </a>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
+    // Auto initialize from storage or default
     document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('studio_lang') || 'en';
+      currentLang = saved;
       applyLanguage(currentLang);
-      renderApps();
-
-      // Filter tabs
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentCategory = btn.getAttribute('data-filter');
-          renderApps();
-        });
-      });
-
-      // Search input
-      document.getElementById('search-input')?.addEventListener('input', () => {
-        renderApps();
-      });
     });
   </script>
+
 </body>
 </html>

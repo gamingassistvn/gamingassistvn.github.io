@@ -3,207 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | Chính sách Quyền riêng tư - Assist Studio</title>
-  <meta name="description" content="Official Privacy Policy for Assist Gaming & Tech Studio apps including BillSnap AI, MinePuzzle Daily, and utilities on Google Play Store and Apple App Store.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Privacy Policy - Assist Gaming & Tech Studio">
-  <meta property="og:description" content="Comprehensive privacy disclosures for BillSnap AI, MinePuzzle Daily, and Assist Studio applications.">
-  <meta property="og:type" content="website">
-
-  <!-- Google Fonts -->
+  <title>Privacy Policies | Assist Gaming & Tech Studio</title>
+  <meta name="description" content="Official Privacy Policies for Assist Gaming & Tech Studio and all published applications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
   <style>
     .legal-content {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
-      border-radius: 28px;
-      padding: 44px;
-      margin: 36px auto 70px;
-      max-width: 960px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      color: #E0E0E0;
     }
-    .legal-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 24px;
-      margin-bottom: 28px;
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 32px 0 48px;
     }
-    .legal-title {
-      font-size: 32px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.5px;
-    }
-    .date-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0, 229, 255, 0.1);
-      border: 1px solid rgba(0, 229, 255, 0.3);
-      color: var(--accent-cyan);
-      padding: 6px 14px;
+    .policy-card {
+      background: var(--bg-card, rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .lang-switcher-bar {
-      display: flex;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 4px;
-      border-radius: 12px;
-      border: 1px solid var(--border-glass);
-    }
-    .lang-tab {
-      background: transparent;
-      border: none;
-      color: var(--text-dim);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .lang-tab.active {
-      background: var(--accent-purple);
-      color: #FFFFFF;
-      box-shadow: 0 0 15px rgba(124, 108, 255, 0.4);
-    }
-    .toc-container {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-glass);
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 32px;
-    }
-    .toc-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-    .toc-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .toc-pill {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-glass);
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 13px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-    }
-    .toc-pill:hover {
-      background: rgba(124, 108, 255, 0.2);
-      border-color: var(--accent-purple);
-      color: #FFFFFF;
-    }
-    .legal-content h2 {
-      font-size: 22px;
-      margin: 36px 0 16px;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 8px;
-    }
-    .legal-content h3 {
-      font-size: 17px;
-      margin: 20px 0 10px;
-      color: #FFFFFF;
-    }
-    .legal-content p, .legal-content li {
-      color: var(--text-dim);
-      font-size: 15px;
-      line-height: 1.75;
-      margin-bottom: 12px;
-    }
-    .legal-content ul, .legal-content ol {
-      padding-left: 24px;
-      margin-bottom: 18px;
-    }
-    .legal-content strong {
-      color: #FFFFFF;
-    }
-    .app-section {
-      background: rgba(255, 255, 255, 0.03);
       padding: 28px;
-      border-radius: 20px;
-      border: 1px solid var(--border-glass);
-      margin: 28px 0;
-      transition: border-color 0.3s ease;
-    }
-    .app-section.featured-billsnap {
-      background: linear-gradient(145deg, rgba(0, 229, 255, 0.05), rgba(124, 108, 255, 0.05));
-      border: 1px solid rgba(0, 229, 255, 0.3);
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.08);
-    }
-    .app-section:target {
-      border-color: var(--accent-cyan);
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
-    }
-    .badge-pill {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-    .badge-blue { background: rgba(0, 229, 255, 0.2); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
-    .badge-purple { background: rgba(124, 108, 255, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
-    .badge-gold { background: rgba(255, 209, 102, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
-    .badge-green { background: rgba(0, 230, 118, 0.2); color: #00E676; border: 1px solid #00E676; }
-
-    .highlight-box {
-      background: rgba(0, 229, 255, 0.06);
-      border-left: 4px solid var(--accent-cyan);
-      padding: 16px 20px;
-      border-radius: 0 12px 12px 0;
-      margin: 16px 0;
-    }
-    .highlight-box p {
-      margin: 0;
-      color: #E0E7FF;
-      font-size: 14px;
-    }
-    .contact-card {
-      background: rgba(124, 108, 255, 0.08);
-      border: 1px solid rgba(124, 108, 255, 0.3);
-      padding: 24px;
-      border-radius: 16px;
-      margin-top: 24px;
+      transition: all 0.3s ease;
       display: flex;
-      align-items: center;
-      gap: 16px;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .contact-icon {
+    .policy-card:hover {
+      border-color: var(--accent-cyan, #00E5FF);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 229, 255, 0.15);
+    }
+    .policy-icon {
       font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .policy-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .policy-desc {
+      font-size: 14px;
+      color: var(--text-dim, #A0A5B5);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .policy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-cyan, #00E5FF);
+      text-decoration: none;
+    }
+    .general-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+      border-radius: 24px;
+      padding: 36px;
+      line-height: 1.8;
+      color: var(--text-dim, #A0A5B5);
+    }
+    .general-card h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 12px;
     }
   </style>
 </head>
@@ -218,408 +89,93 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Apps & Games</a></li>
-        <li><a href="index.html#billsnap-spotlight">BillSnap AI</a></li>
-        <li><a href="privacy.html" class="active">Privacy Policy</a></li>
+        <li><a href="billsnap.html">BillSnap AI</a></li>
+        <li><a href="privacy.html" class="active">Privacy</a></li>
         <li><a href="terms.html">Terms</a></li>
       </ul>
-      <div class="lang-switcher-bar">
-        <button class="lang-tab" id="btn-lang-en" onclick="setPolicyLang('en')">🌐 English</button>
-        <button class="lang-tab" id="btn-lang-vi" onclick="setPolicyLang('vi')">🇻🇳 Tiếng Việt</button>
+      <div>
+        <a href="index.html" class="btn-secondary" style="padding: 6px 14px; font-size: 13px;">← Back to Studio</a>
       </div>
     </div>
   </nav>
 
-  <!-- Legal Main Container -->
-  <main class="container">
-    <div class="legal-content">
+  <main class="legal-content">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <h1 style="font-size: 38px; font-weight: 900; color: #FFFFFF; margin-bottom: 12px;">
+        Privacy Center
+      </h1>
+      <p style="color: var(--text-dim, #A0A5B5); font-size: 16px; max-width: 600px; margin: 0 auto;">
+        Assist Gaming & Tech Studio enforces strict data privacy standards. Select an application below to view its specific privacy policy.
+      </p>
+    </div>
 
-      <!-- Header -->
-      <div class="legal-header">
+    <!-- Per-App Privacy Grid -->
+    <div class="policy-grid">
+      <!-- BillSnap AI -->
+      <div class="policy-card">
         <div>
-          <h1 class="legal-title lang-en">Privacy Policy</h1>
-          <h1 class="legal-title lang-vi" style="display: none;">Chính sách Quyền riêng tư</h1>
-          <div style="margin-top: 8px;">
-            <span class="date-badge lang-en">🗓️ Last Updated: October 4, 2026</span>
-            <span class="date-badge lang-vi" style="display: none;">🗓️ Cập nhật lần cuối: Ngày 04 tháng 10 năm 2026</span>
-          </div>
+          <div class="policy-icon">🧾</div>
+          <h3 class="policy-title">BillSnap AI</h3>
+          <p class="policy-desc">
+            Smart Receipt Scanner & IRS Schedule C Tax Assistant. On-device financial data storage, Gemini Vision OCR, and zero data monetization.
+          </p>
         </div>
+        <a href="privacy/billsnap.html" class="policy-btn">
+          Read Policy &rarr;
+        </a>
       </div>
 
-      <!-- Table of Contents -->
-      <div class="toc-container">
-        <div class="toc-title lang-en">Quick Navigation</div>
-        <div class="toc-title lang-vi" style="display: none;">Mục lục nhanh</div>
-        <div class="toc-pills">
-          <a href="#overview" class="toc-pill">1. Overview</a>
-          <a href="#billsnap" class="toc-pill">🤖 BillSnap AI Policy</a>
-          <a href="#games" class="toc-pill">🎮 Game Titles</a>
-          <a href="#utilities" class="toc-pill">⚡ System Utilities</a>
-          <a href="#third-party" class="toc-pill">2. Third-Party Services</a>
-          <a href="#children" class="toc-pill">3. Children's Privacy</a>
-          <a href="#rights" class="toc-pill">4. Your Data Rights</a>
-          <a href="#contact" class="toc-pill">5. Contact Us</a>
+      <!-- MinePuzzle Daily -->
+      <div class="policy-card">
+        <div>
+          <div class="policy-icon">🎮</div>
+          <h3 class="policy-title">MinePuzzle Daily</h3>
+          <p class="policy-desc">
+            3D Cyber-Neon Minesweeper game. Details on local progress storage, Google AdMob compliance, and anonymous leaderboard metrics.
+          </p>
         </div>
+        <a href="privacy/minepuzzle.html" class="policy-btn">
+          Read Policy &rarr;
+        </a>
       </div>
 
-      <!-- ================================================================= -->
-      <!-- ENGLISH CONTENT                                                  -->
-      <!-- ================================================================= -->
-      <div class="policy-section lang-en" id="policy-content-en">
-        <div id="overview">
-          <h2>1. Overview & Developer Commitment</h2>
-          <p>
-            Welcome to <strong>Assist Gaming & Tech Studio</strong> ("we", "us", or "our"). We are committed to protecting the privacy, security, and confidentiality of our users across our mobile applications distributed on the <strong>Apple App Store</strong> and <strong>Google Play Store</strong>.
-          </p>
-          <p>
-            Our core development philosophy is <strong>Privacy by Design</strong>: we prioritize on-device data processing and minimized data collection. We never sell, monetize, broker, or exploit personal or financial user data.
+      <!-- T11 Auto Helper -->
+      <div class="policy-card">
+        <div>
+          <div class="policy-icon">🤖</div>
+          <h3 class="policy-title">T11 Auto Helper</h3>
+          <p class="policy-desc">
+            Android workflow automation utility. Full disclosure on Android AccessibilityService API usage and strictly local script execution.
           </p>
         </div>
-
-        <!-- Section: BillSnap AI -->
-        <div class="app-section featured-billsnap" id="billsnap">
-          <h2 style="margin-top: 0; color: var(--accent-cyan);">
-            🤖 BillSnap AI — Dedicated Privacy Disclosures
-            <span class="badge-pill badge-blue">Official Disclosures</span>
-          </h2>
-          <p>
-            <strong>BillSnap AI</strong> (Bundle Identifier: <code>com.billsnap.ai</code>) is an intelligent receipt scanner, expense tracker, and IRS Form 1040 Schedule C tax organization assistant. Due to the financial nature of receipt and tax records, the following strict privacy principles apply:
-          </p>
-
-          <h3>A. Camera and Photo Library Access</h3>
-          <ul>
-            <li><strong>Camera Permission:</strong> Used solely when you actively take a photo of a physical receipt, invoice, or tax slip. Real-time camera feeds are never recorded or streamed.</li>
-            <li><strong>Photos / Media Permission:</strong> Used solely to allow you to import existing receipt images or PDF invoices from your device storage.</li>
-          </ul>
-
-          <h3>B. AI Optical Character Recognition (OCR) & Google Gemini Processing</h3>
-          <div class="highlight-box">
-            <p><strong>🔒 Zero-Training Guarantee:</strong> Receipt images sent for AI text extraction are processed in transient volatile memory. Neither Assist Studio nor Google uses your personal receipts, tax deductions, or financial transactions to train public artificial intelligence models.</p>
-          </div>
-          <ul>
-            <li>Receipt images are securely transmitted to Google Gemini Vision API endpoints using industry-standard <strong>TLS/HTTPS 256-bit encryption</strong>.</li>
-            <li>Processing is strictly stateless: once receipt fields (vendor, date, total, tax, currency, and line items) are parsed, the image payload is discarded from memory.</li>
-          </ul>
-
-          <h3>C. 100% On-Device Local Storage (SQLite)</h3>
-          <ul>
-            <li>All your parsed receipts, category assignments, merchant notes, and IRS Schedule C tax profiles are stored exclusively on your device in an isolated, sandboxed SQLite database.</li>
-            <li>Assist Studio does <strong>not</strong> operate a remote cloud database holding your receipts or tax records. If you are offline, BillSnap AI continues to function locally.</li>
-          </ul>
-
-          <h3>D. Cloud Backup Options (Apple iCloud Drive & Google Drive)</h3>
-          <ul>
-            <li>Cloud backups are <strong>100% optional and user-directed</strong>.</li>
-            <li><strong>iOS (iCloud Drive):</strong> Backup files are saved directly into your personal iCloud Drive container or shared via the native iOS Files app.</li>
-            <li><strong>Android (Google Drive):</strong> Backup files are saved into your private Google Drive app folder via authenticated Google OAuth.</li>
-            <li>We do not have access to your iCloud or Google Drive credentials, encryption keys, or backup files.</li>
-          </ul>
-
-          <h3>E. In-App Purchases & Subscriptions</h3>
-          <ul>
-            <li>In-app purchases and PRO subscriptions are handled entirely by <strong>Apple App Store (StoreKit)</strong> on iOS and <strong>Google Play Billing</strong> on Android.</li>
-            <li>Assist Studio never sees, processes, or retains your credit card details, bank account numbers, or billing addresses.</li>
-          </ul>
-
-          <h3>F. IRS Form 1040 Schedule C & Financial Disclaimer</h3>
-          <ul>
-            <li>BillSnap AI organizes expenses according to standard IRS Schedule C expense categories (Lines 8 through 27b) and provides tax reference checklists.</li>
-            <li>BillSnap AI is an automated productivity tool designed for self-preparation. It does not provide certified legal, certified public accounting (CPA), or financial advice (IRS Circular 230). Users remain responsible for verifying their final tax filings.</li>
-          </ul>
-
-          <h3>G. Complete Right to Data Deletion</h3>
-          <ul>
-            <li>You maintain total ownership of your data. You can delete individual receipts or purge your entire database at any time via <strong>Settings → Clear All Data</strong>.</li>
-            <li>Uninstalling the app immediately deletes all locally stored data.</li>
-          </ul>
-        </div>
-
-        <!-- Section: MinePuzzle Daily -->
-        <div class="app-section" id="games">
-          <h2 style="margin-top: 0; color: var(--accent-gold);">
-            🎮 MinePuzzle Daily — Game Privacy Policy
-            <span class="badge-pill badge-gold">Game</span>
-          </h2>
-          <p>
-            <strong>MinePuzzle Daily</strong> (Package: <code>com.minepuzzle.daily</code>) is a 3D cyber-neon logic puzzle game.
-          </p>
-          <ul>
-            <li><strong>No Account Required:</strong> You can play all daily puzzles, practice boards, and challenges anonymously without creating an account.</li>
-            <li><strong>Local Game Progress:</strong> Your win streaks, statistics, and high scores are saved locally on your phone.</li>
-            <li><strong>Advertising (Google AdMob):</strong> The game utilizes Google AdMob to display rewarded video ads (e.g. for Revive / Hint). AdMob may use device advertising identifiers (IDFA/GAID) in accordance with Google's policies.</li>
-          </ul>
-        </div>
-
-        <!-- Section: T11 Auto Helper -->
-        <div class="app-section" id="utilities">
-          <h2 style="margin-top: 0; color: var(--accent-purple);">
-            ⚡ T11 Auto Helper — Utility Policy
-            <span class="badge-pill badge-purple">Tool</span>
-          </h2>
-          <p>
-            <strong>T11 Auto Helper</strong> uses Android Accessibility Service APIs strictly to execute automated workflows configured explicitly by the user. The app does not collect, log, or transmit any typed keystrokes, personal messages, or screen contents.
-          </p>
-        </div>
-
-        <!-- Section: Third Party Services -->
-        <div id="third-party">
-          <h2>2. Third-Party Service Providers</h2>
-          <p>We work with trusted industry leaders to provide infrastructure, analytics, and monetization:</p>
-          <ul>
-            <li><strong>Google AdMob:</strong> For serving banner, interstitial, and rewarded ads. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" style="color: var(--accent-cyan);">Google Advertising Policy</a>.</li>
-            <li><strong>Firebase Crashlytics & Analytics:</strong> For anonymous crash reports and application stability metrics. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener" style="color: var(--accent-cyan);">Firebase Privacy</a>.</li>
-            <li><strong>Google Gemini API:</strong> For state-of-the-art visual receipt OCR extraction under encrypted API agreements.</li>
-            <li><strong>Apple App Store / Google Play:</strong> For secure app distribution, binary validation, and subscription management.</li>
-          </ul>
-        </div>
-
-        <!-- Section: Children's Privacy -->
-        <div id="children">
-          <h2>3. Children's Privacy (COPPA & GDPR-K)</h2>
-          <p>
-            Our applications are designed for general audiences and comply with the <strong>Children's Online Privacy Protection Act (COPPA)</strong> and European GDPR-K regulations. We do not knowingly collect or solicit personal information from children under the age of 13 (or under 16 in certain EU jurisdictions).
-          </p>
-        </div>
-
-        <!-- Section: User Rights -->
-        <div id="rights">
-          <h2>4. Your Legal Rights (GDPR & CCPA/CPRA Compliance)</h2>
-          <p>Depending on your jurisdiction, you have the right to:</p>
-          <ul>
-            <li><strong>Access:</strong> Inquire about any data processed by our applications.</li>
-            <li><strong>Erasure (Right to be Forgotten):</strong> Permanently delete all receipt and usage data directly in-app.</li>
-            <li><strong>Opt-Out of Personalized Advertising:</strong> Disable personalized ads in your iOS Settings (Tracking) or Android Settings (Ads).</li>
-          </ul>
-        </div>
-
-        <!-- Section: Contact -->
-        <div id="contact">
-          <h2>5. Contact Information & Developer Support</h2>
-          <p>
-            If you have questions, feedback, or data privacy requests concerning any Assist Studio product, please contact our data protection team:
-          </p>
-          <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <div>
-              <div style="font-weight: 700; color: #FFFFFF; font-size: 16px;">Assist Gaming & Tech Studio — Official Support</div>
-              <div style="color: var(--text-dim); font-size: 14px; margin-top: 4px;">
-                Email: <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan); font-weight: 600;">gaming.assist.vn@gmail.com</a>
-              </div>
-              <div style="color: var(--text-dim); font-size: 12px; margin-top: 4px;">Response time: Within 24-48 business hours.</div>
-            </div>
-          </div>
-        </div>
+        <a href="privacy/t11.html" class="policy-btn">
+          Read Policy &rarr;
+        </a>
       </div>
+    </div>
 
-
-      <!-- ================================================================= -->
-      <!-- VIETNAMESE CONTENT                                                -->
-      <!-- ================================================================= -->
-      <div class="policy-section lang-vi" id="policy-content-vi" style="display: none;">
-        <div id="overview-vi">
-          <h2>1. Tổng quan & Cam kết của Nhà phát triển</h2>
-          <p>
-            Chào mừng bạn đến với <strong>Assist Gaming & Tech Studio</strong> ("chúng tôi"). Chúng tôi cam kết tuyệt đối trong việc bảo vệ quyền riêng tư, an toàn thông tin và bảo mật dữ liệu của người dùng khi trải nghiệm các ứng dụng trên <strong>Apple App Store</strong> và <strong>Google Play Store</strong>.
-          </p>
-          <p>
-            Nguyên tắc phát triển cốt lõi của chúng tôi là <strong>Bảo mật từ thiết kế (Privacy by Design)</strong>: ưu tiên xử lý dữ liệu ngay trên thiết bị và tối giản hóa việc thu thập thông tin. Chúng tôi <strong>không bao giờ bán, thương mại hóa hay chia sẻ</strong> dữ liệu tài chính hoặc thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào.
-          </p>
-        </div>
-
-        <!-- Section: BillSnap AI -->
-        <div class="app-section featured-billsnap">
-          <h2 style="margin-top: 0; color: var(--accent-cyan);">
-            🤖 BillSnap AI — Điều khoản Bảo mật & Quyền riêng tư
-            <span class="badge-pill badge-blue">Quy định chính thức</span>
-          </h2>
-          <p>
-            <strong>BillSnap AI</strong> (Mã định danh gói: <code>com.billsnap.ai</code>) là ứng dụng quét hóa đơn thông minh, quản lý chi tiêu và tự động hóa hồ sơ thuế IRS Form 1040 Schedule C. Xuất phát từ tính bảo mật của hồ sơ tài chính, ứng dụng tuân thủ nghiêm ngặt các quy tắc sau:
-          </p>
-
-          <h3>A. Quyền truy cập Máy ảnh và Thư viện ảnh</h3>
-          <ul>
-            <li><strong>Quyền Máy ảnh (Camera):</strong> Chỉ được kích hoạt khi bạn chủ động nhấn nút chụp ảnh hóa đơn, biên lai hoặc chứng từ thuế. Ứng dụng không bao giờ tự ý quay phim hay truyền tải hình ảnh ngoài mục đích quét.</li>
-            <li><strong>Quyền Thư viện ảnh (Photo Library / Media):</strong> Chỉ dùng để bạn chọn ảnh hóa đơn hoặc tệp PDF đã lưu sẵn trên máy để nhận diện.</li>
-          </ul>
-
-          <h3>B. Công nghệ nhận diện AI OCR & Xử lý với Google Gemini</h3>
-          <div class="highlight-box">
-            <p><strong>🔒 Cam kết Không huấn luyện dữ liệu (Zero-Training Guarantee):</strong> Hình ảnh hóa đơn gửi lên máy chủ AI chỉ được xử lý tức thời trong bộ nhớ đệm (volatile memory). Cả Assist Studio lẫn Google đều không sử dụng hóa đơn hay dữ liệu khấu trừ thuế của bạn để huấn luyện mô hình AI công cộng.</p>
-          </div>
-          <ul>
-            <li>Hình ảnh biên lai được truyền tải qua giao thức mã hóa an toàn <strong>TLS/HTTPS 256-bit</strong> đến máy chủ Google Gemini Vision API.</li>
-            <li>Quá trình xử lý là phi trạng thái (stateless): ngay sau khi trích xuất xong các trường thông tin (tên cửa hàng, ngày tháng, tổng tiền, thuế, danh mục), dữ liệu ảnh lập tức được giải phóng khỏi bộ nhớ đệm.</li>
-          </ul>
-
-          <h3>C. Lưu trữ 100% Cục bộ trên Thiết bị (On-Device SQLite)</h3>
-          <ul>
-            <li>Toàn bộ hóa đơn đã quét, phân loại chi phí, ghi chú và hồ sơ thuế IRS được lưu cục bộ trong cơ sở dữ liệu SQLite khép kín trên điện thoại của bạn.</li>
-            <li>Assist Studio <strong>không duy trì máy chủ từ xa nào</strong> lưu trữ hóa đơn của bạn. Khi không có kết nối Internet, BillSnap AI vẫn hoạt động bình thường với dữ liệu sẵn có trên máy.</li>
-          </ul>
-
-          <h3>D. Tùy chọn Sao lưu Đám mây (iCloud Drive & Google Drive)</h3>
-          <ul>
-            <li>Tính năng sao lưu đám mây là <strong>hoàn toàn tùy chọn và do người dùng quyết định</strong>.</li>
-            <li><strong>Trên iOS (iCloud Drive):</strong> Bản sao lưu được lưu trực tiếp vào tài khoản iCloud Drive cá nhân của bạn thông qua ứng dụng Tệp (Files) của Apple.</li>
-            <li><strong>Trên Android (Google Drive):</strong> Bản sao lưu được chuyển trực tiếp vào Google Drive cá nhân thông qua cơ chế xác thực an toàn của Google.</li>
-            <li>Chúng tôi hoàn toàn không thể xem hoặc truy cập vào tài khoản đám mây hay tệp sao lưu của bạn.</li>
-          </ul>
-
-          <h3>E. Thanh toán Gói PRO & Đăng ký Thuê bao</h3>
-          <ul>
-            <li>Mọi giao dịch thanh toán gói PRO đều được xử lý trực tiếp bởi <strong>Apple App Store (StoreKit)</strong> trên iOS và <strong>Google Play Billing</strong> trên Android.</li>
-            <li>Chúng tôi không thu thập và không bao giờ lưu trữ số thẻ ngân hàng, số thẻ tín dụng hay thông tin thanh toán của bạn.</li>
-          </ul>
-
-          <h3>F. Miễn trừ trách nhiệm về Thuế IRS Schedule C</h3>
-          <ul>
-            <li>BillSnap AI hỗ trợ phân loại 28 hạng mục chi phí kinh doanh theo mẫu IRS Schedule C (Line 8 đến 27b) và cung cấp danh mục kiểm tra hồ sơ thuế.</li>
-            <li>Ứng dụng là công cụ phần mềm hỗ trợ tự ghi chép và chuẩn bị hồ sơ; ứng dụng không đóng vai trò đại lý khai thuế được ủy quyền hay cung cấp ý kiến tư vấn pháp lý/kế toán chuyên nghiệp (theo IRS Circular 230). Người dùng chịu trách nhiệm cuối cùng đối với hồ sơ khai thuế của mình.</li>
-          </ul>
-
-          <h3>G. Quyền xóa Dữ liệu Tuyệt đối</h3>
-          <ul>
-            <li>Bạn có toàn quyền sở hữu dữ liệu của mình. Bạn có thể xóa từng biên lai hoặc xóa toàn bộ cơ sở dữ liệu bất kỳ lúc nào trong <strong>Cài đặt → Xóa toàn bộ dữ liệu</strong>.</li>
-            <li>Khi bạn gỡ cài đặt ứng dụng, toàn bộ dữ liệu lưu trữ cục bộ trên máy sẽ bị xóa sạch ngay lập tức.</li>
-          </ul>
-        </div>
-
-        <!-- Section: MinePuzzle Daily -->
-        <div class="app-section">
-          <h2 style="margin-top: 0; color: var(--accent-gold);">
-            🎮 MinePuzzle Daily — Chính sách Trò chơi
-            <span class="badge-pill badge-gold">Trò chơi</span>
-          </h2>
-          <p>
-            <strong>MinePuzzle Daily</strong> (Mã gói: <code>com.minepuzzle.daily</code>) là trò chơi giải đố mìn không gian 3D Cyber-Neon.
-          </p>
-          <ul>
-            <li><strong>Không cần đăng ký tài khoản:</strong> Bạn có thể trải nghiệm toàn bộ bảng chơi hàng ngày hoàn toàn ẩn danh.</li>
-            <li><strong>Tiến trình lưu trên máy:</strong> Chuỗi thắng, kỷ lục thời gian và cài đặt được lưu trực tiếp trên bộ nhớ điện thoại.</li>
-            <li><strong>Quảng cáo Google AdMob:</strong> Trò chơi tích hợp quảng cáo video có thưởng để hỗ trợ tính năng Hồi sinh / Gợi ý miễn phí theo đúng chính sách quảng cáo của Google.</li>
-          </ul>
-        </div>
-
-        <!-- Section: T11 Auto Helper -->
-        <div class="app-section">
-          <h2 style="margin-top: 0; color: var(--accent-purple);">
-            ⚡ T11 Auto Helper — Tiện ích Tự động hóa
-            <span class="badge-pill badge-purple">Công cụ</span>
-          </h2>
-          <p>
-            <strong>T11 Auto Helper</strong> sử dụng Dịch vụ Hỗ trợ tiếp cận (Accessibility Service) của Android duy nhất nhằm mục đích thực thi các chuỗi thao tác tự động do chính bạn thiết lập. Ứng dụng cam kết 100% không ghi lại thao tác bàn phím, mật khẩu hay tin nhắn riêng tư.
-          </p>
-        </div>
-
-        <!-- Section: Third Party Services -->
-        <div>
-          <h2>2. Các Dịch vụ Bên thứ Ba</h2>
-          <p>Chúng tôi hợp tác với các nhà cung cấp nền tảng công nghệ hàng đầu thế giới:</p>
-          <ul>
-            <li><strong>Google AdMob:</strong> Phân phối quảng cáo hiển thị chuẩn mực và an toàn.</li>
-            <li><strong>Firebase Crashlytics & Analytics:</strong> Thu thập nhật ký báo cáo sự cố ẩn danh giúp sửa lỗi ứng dụng nhanh chóng.</li>
-            <li><strong>Google Gemini API:</strong> Cung cấp năng lực AI thị giác trích xuất hóa đơn siêu tốc qua đường truyền mã hóa.</li>
-            <li><strong>Apple & Google:</strong> Đảm bảo quy trình cài đặt ứng dụng và thanh toán thuê bao an toàn tuyệt đối.</li>
-          </ul>
-        </div>
-
-        <!-- Section: Children's Privacy -->
-        <div>
-          <h2>3. Quyền riêng tư của Trẻ em</h2>
-          <p>
-            Các sản phẩm của chúng tôi tuân thủ Đạo luật Bảo vệ Quyền riêng tư của Trẻ em trên Mạng (COPPA) và chính sách Gia đình của Google Play. Chúng tôi không cố ý thu thập thông tin từ trẻ em dưới 13 tuổi.
-          </p>
-        </div>
-
-        <!-- Section: User Rights -->
-        <div>
-          <h2>4. Quyền của Người dùng</h2>
-          <p>Bạn luôn có quyền:</p>
-          <ul>
-            <li>Truy xuất toàn bộ danh sách hóa đơn và báo cáo thuế dưới dạng tệp Excel/PDF bất cứ lúc nào.</li>
-            <li>Xóa toàn bộ dữ liệu trên thiết bị chỉ với 1 thao tác.</li>
-            <li>Tắt tính năng theo dõi quảng cáo cá nhân hóa trong phần Cài đặt của iOS hoặc Android.</li>
-          </ul>
-        </div>
-
-        <!-- Section: Contact -->
-        <div>
-          <h2>5. Thông tin Liên hệ & Hỗ trợ</h2>
-          <p>
-            Mọi câu hỏi, phản ánh hoặc yêu cầu liên quan đến chính sách quyền riêng tư, vui lòng liên hệ trực tiếp với chúng tôi:
-          </p>
-          <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <div>
-              <div style="font-weight: 700; color: #FFFFFF; font-size: 16px;">Assist Gaming & Tech Studio — Bộ phận Hỗ trợ</div>
-              <div style="color: var(--text-dim); font-size: 14px; margin-top: 4px;">
-                Email: <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan); font-weight: 600;">gaming.assist.vn@gmail.com</a>
-              </div>
-              <div style="color: var(--text-dim); font-size: 12px; margin-top: 4px;">Thời gian phản hồi: Trong vòng 24-48 giờ làm việc.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <!-- Studio General Statement -->
+    <div class="general-card">
+      <h2>Studio Privacy Commitment</h2>
+      <p>
+        Across all products developed by <strong>Assist Gaming & Tech Studio</strong>, we adhere to the principle of <strong>Privacy by Design</strong>:
+      </p>
+      <ul style="padding-left: 20px; margin-top: 10px;">
+        <li>We do not sell personal data to data brokers or advertising exchanges.</li>
+        <li>All critical financial and personal calculations occur on-device.</li>
+        <li>We comply with Apple App Store Guidelines, Google Play Developer Policies, GDPR, and CCPA.</li>
+      </ul>
+      <p style="margin-top: 20px;">
+        For privacy inquiries or data rights requests, contact our Data Protection Officer at:
+        <br>
+        <strong>Email:</strong> <a href="mailto:gaming.assist.vn@gmail.com" style="color: var(--accent-cyan, #00E5FF);">gaming.assist.vn@gmail.com</a>
+      </p>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div>
-        <p>© 2026 Assist Gaming & Tech Studio. All rights reserved.</p>
-        <p style="font-size: 12px; margin-top: 4px; color: var(--text-dim);">Official Developer of BillSnap AI & MinePuzzle Daily.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="privacy.html" class="active">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="app-ads.txt" target="_blank">app-ads.txt</a>
-      </div>
-    </div>
+  <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
+    © 2026 Assist Gaming & Tech Studio. All rights reserved.
   </footer>
 
-  <script>
-    function setPolicyLang(lang) {
-      const enSection = document.getElementById('policy-content-en');
-      const viSection = document.getElementById('policy-content-vi');
-      const btnEn = document.getElementById('btn-lang-en');
-      const btnVi = document.getElementById('btn-lang-vi');
-      const allEnEls = document.querySelectorAll('.lang-en');
-      const allViEls = document.querySelectorAll('.lang-vi');
-
-      if (lang === 'vi') {
-        allEnEls.forEach(el => el.style.display = 'none');
-        allViEls.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block');
-        btnEn.classList.remove('active');
-        btnVi.classList.add('active');
-        document.documentElement.lang = 'vi';
-      } else {
-        allViEls.forEach(el => el.style.display = 'none');
-        allEnEls.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block');
-        btnVi.classList.remove('active');
-        btnEn.classList.add('active');
-        document.documentElement.lang = 'en';
-      }
-
-      localStorage.setItem('site_lang', lang);
-    }
-
-    // Auto initialize language on load
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('site_lang') || 'en';
-      setPolicyLang(savedLang);
-
-      // Handle anchor auto-scroll
-      if (window.location.hash) {
-        setTimeout(() => {
-          const target = document.querySelector(window.location.hash);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
-      }
-    });
-  </script>
 </body>
 </html>
