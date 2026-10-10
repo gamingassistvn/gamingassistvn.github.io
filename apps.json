@@ -1,5 +1,21 @@
 [
   {
+    "id": "billsnap-ai",
+    "name": "BillSnap AI",
+    "tagline": "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
+    "category": "utilities",
+    "badge": "Flagship 🤖",
+    "featured": true,
+    "icon": "assets/billsnap/app_icon.png",
+    "version": "1.0.4",
+    "rating": "5.0 ★",
+    "tags": ["Gemini AI OCR", "IRS Schedule C", "Expense Tracker", "91 Languages", "Cross-Platform Backup", "Excel & PDF"],
+    "description": "Instant receipt & invoice scanning with Google Gemini Vision AI. Auto-categorize expenses into 48 IRS Schedule C lines, export audit-ready Excel & PDF reports, and enjoy 100% on-device privacy with cross-platform backup across all devices.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.billsnap.ai",
+    "appStoreUrl": "https://apps.apple.com/app/billsnap-ai/id6817136538",
+    "privacyUrl": "privacy/billsnap.html"
+  },
+  {
     "id": "minepuzzle-daily",
     "name": "MinePuzzle Daily",
     "tagline": "Next-Gen 3D Cyber-Neon Minesweeper with Global Daily Challenges & Streaks.",
@@ -13,22 +29,6 @@
     "description": "Challenge your logic every day with the global puzzle seed! Features smooth pinch-to-zoom controls, fast chord flagging, revive mechanics, player statistics, and 12-language auto localization.",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
     "privacyUrl": "privacy.html#minepuzzle"
-  },
-  {
-    "id": "billsnap-ai",
-    "name": "BillSnap AI",
-    "tagline": "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
-    "category": "utilities",
-    "badge": "Flagship 🤖",
-    "featured": true,
-    "icon": "assets/icons/billsnap_ai.png",
-    "version": "1.0.2",
-    "rating": "5.0 ★",
-    "tags": ["Gemini AI OCR", "IRS Schedule C", "Expense Tracker", "91 Languages", "Audit Checklist", "Excel & PDF"],
-    "description": "Instant receipt & invoice scanning with Google Gemini Vision AI. Auto-categorize expenses into 28 IRS Schedule C lines, export audit-ready Excel reports, and enjoy 100% on-device privacy with iCloud & Google Drive backup.",
-    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.billsnap.ai",
-    "appStoreUrl": "https://apps.apple.com/app/billsnap-ai/id6817136538",
-    "privacyUrl": "privacy.html#billsnap"
   },
   {
     "id": "t11-auto-helper",

@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BillSnap AI — Smart Receipt Scanner & IRS Schedule C Tax Assistant</title>
-  <meta name="description" content="AI-powered receipt & invoice scanner for freelancers, gig drivers, and small businesses. Auto-categorize 28 IRS Schedule C tax lines with 100% on-device privacy.">
-  <meta name="keywords" content="BillSnap AI, Receipt Scanner, IRS Form 1040 Schedule C, Tax Deductions, Gemini Vision AI, Freelancer Taxes, Uber Driver Tax, Mileage & Receipts">
+  <title>BillSnap AI — Smart Receipt Scanner & Tax Deduction Organizer</title>
+  <meta name="description" content="AI-powered receipt & expense organizer for freelancers, contractors, and small businesses. 48 IRS Schedule C tax lines, 91 languages, 100% on-device privacy.">
+  <meta name="keywords" content="BillSnap AI, Receipt Scanner, IRS Form 1040 Schedule C, Tax Deductions, Gemini Vision AI, Freelancer Taxes, Uber Driver Tax, Mileage & Receipts, 91 languages">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="BillSnap AI — Smart Receipt Scanner & IRS Schedule C Tax Assistant">
-  <meta property="og:description" content="Snap receipts, extract totals with Gemini Vision AI, and organize your IRS Schedule C tax deductions automatically.">
-  <meta property="og:image" content="https://gamingassistvn.github.io/assets/icons/billsnap_ai.png">
+  <meta property="og:title" content="BillSnap AI — Smart Receipt Scanner & Tax Deduction Organizer">
+  <meta property="og:description" content="Snap paper receipts, auto-categorize 48 IRS Schedule C lines with Google Gemini AI, and enjoy 100% on-device privacy.">
+  <meta property="og:image" content="https://gamingassistvn.github.io/assets/billsnap/app_icon.png">
   <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" href="assets/billsnap/app_icon.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +22,9 @@
 
   <link rel="stylesheet" href="css/style.css">
   <style>
+    /* BillSnap Product Page Custom Styling */
     .product-hero {
-      padding: 50px 0 30px;
+      padding: 60px 0 40px;
       text-align: center;
       position: relative;
     }
@@ -32,31 +35,31 @@
       background: rgba(0, 229, 255, 0.12);
       border: 1px solid var(--accent-cyan);
       color: var(--accent-cyan);
-      padding: 8px 18px;
+      padding: 8px 20px;
       border-radius: 24px;
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .product-title {
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 900;
       line-height: 1.2;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       background: linear-gradient(135deg, #FFFFFF 0%, #B4C0FE 50%, #00E5FF 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      max-width: 900px;
+      max-width: 920px;
       margin-left: auto;
       margin-right: auto;
     }
     .product-tagline {
       font-size: 18px;
       color: var(--text-dim);
-      max-width: 760px;
-      margin: 0 auto 30px;
+      max-width: 780px;
+      margin: 0 auto 32px;
       line-height: 1.7;
     }
     .cta-group {
@@ -64,21 +67,39 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin-bottom: 28px;
     }
-    
-    /* Device Mockup Frame Showcase */
+    .trust-badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .trust-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      padding: 6px 14px;
+      border-radius: 16px;
+    }
+
+    /* Device Mockup Showcase */
     .mockup-showcase {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 20px auto 60px;
+      margin: 20px auto 70px;
       position: relative;
     }
     .phone-frame {
       width: 100%;
       max-width: 320px;
-      border-radius: 40px;
+      border-radius: 44px;
       border: 10px solid #1A1D2E;
       background: #000000;
       box-shadow: 0 25px 60px -15px rgba(0, 229, 255, 0.35);
@@ -91,39 +112,48 @@
       display: block;
       transition: opacity 0.3s ease;
     }
-    .phone-notch {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110px;
-      height: 20px;
-      background: #1A1D2E;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      z-index: 10;
-    }
 
-    .features-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin: 30px 0 60px;
+    /* 8 Pillars Grid */
+    .pillars-section {
+      padding: 60px 0;
     }
-    .feature-card {
+    .section-header-center {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    .section-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .pillars-grid-8 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pillar-card {
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
       border-radius: 20px;
       padding: 28px;
       backdrop-filter: blur(12px);
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .feature-card:hover {
+    .pillar-card:hover {
       border-color: var(--accent-cyan);
       transform: translateY(-4px);
       box-shadow: 0 15px 35px rgba(0, 229, 255, 0.15);
     }
-    .feature-icon-box {
+    .pillar-icon-box {
       width: 52px;
       height: 52px;
       border-radius: 14px;
@@ -135,135 +165,440 @@
       font-size: 26px;
       margin-bottom: 18px;
     }
-    .feature-card h3 {
+    .pillar-card h3 {
       font-size: 18px;
       font-weight: 800;
       color: #FFFFFF;
       margin-bottom: 10px;
     }
-    .feature-card p {
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Screenshots Gallery Track */
+    .gallery-section {
+      padding: 60px 0;
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .gallery-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 20px 10px 40px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-cyan) rgba(255, 255, 255, 0.05);
+    }
+    .gallery-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .gallery-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+    }
+    .gallery-card-frame {
+      background: #0B1528;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gallery-card-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+    .gallery-card-info {
+      padding: 16px;
+    }
+    .gallery-card-info h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .gallery-card-info p {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* Video Walkthrough Section */
+    .video-section {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .video-container {
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: 40px;
+      border: 10px solid #1A1D2E;
+      background: #000;
+      box-shadow: 0 25px 60px -15px rgba(0, 229, 255, 0.35);
+      overflow: hidden;
+      position: relative;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Comparison Table */
+    .comparison-section {
+      padding: 60px 0;
+    }
+    .comparison-table-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 10px;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .comparison-table th {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .comparison-table td {
       font-size: 14px;
       color: var(--text-dim);
       line-height: 1.6;
     }
-
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border-glass);
-      color: #FFFFFF;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
+    .comparison-table tr:last-child td {
+      border-bottom: none;
     }
-    .lang-btn:hover {
-      background: rgba(0, 229, 255, 0.2);
-      border-color: var(--accent-cyan);
+    .td-highlight {
+      color: #00E5FF !important;
+      font-weight: 600;
+    }
+
+    /* Target Audience Grid */
+    .audience-section {
+      padding: 60px 0;
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .audience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .audience-card h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .audience-card p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 70px 0 50px;
+      text-align: center;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 229, 255, 0.05) 100%);
+    }
+
+    @media (max-width: 768px) {
+      .product-title {
+        font-size: 34px;
+      }
+      .product-tagline {
+        font-size: 16px;
+      }
+      .section-title {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation (Clean & Minimalist — No Manual Language Toggle) -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand">
-        <div class="brand-logo">⚡</div>
-        <div class="brand-name">Assist Studio</div>
+        <img src="assets/billsnap/app_icon.png" alt="BillSnap Logo" style="width: 32px; height: 32px; border-radius: 8px;">
+        <div class="brand-name">BillSnap AI</div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav_home">← All Apps</a></li>
-        <li><a href="billsnap.html" class="active">BillSnap AI</a></li>
+        <li><a href="index.html" data-i18n="nav_all_apps">← All Apps</a></li>
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#comparison" data-i18n="nav_comparison">Comparison</a></li>
         <li><a href="privacy/billsnap.html" data-i18n="nav_privacy">Privacy Policy</a></li>
         <li><a href="terms.html" data-i18n="nav_terms">Terms</a></li>
       </ul>
       <div>
-        <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguage()">
-          <span id="lang-badge">🌐 EN</span>
-        </button>
+        <a href="https://apps.apple.com/app/billsnap-ai/id6817136538" target="_blank" rel="noopener" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">
+          <span>Get App</span>
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Product Hero -->
   <header class="container product-hero">
-    <div class="product-badge" data-i18n="badge_title">
+    <div class="product-badge" data-i18n="hero_badge">
       🤖 AI TAX INTELLIGENCE & RECEIPT ORGANIZER
     </div>
-    <h1 class="product-title" data-i18n="main_title">
-      Turn Receipts into IRS Schedule C Deductions in Seconds.
+    <h1 class="product-title" data-i18n="hero_title">
+      Turn Receipts into Tax Deductions in Seconds.
     </h1>
-    <p class="product-tagline" data-i18n="main_tagline">
-      Designed for self-employed professionals, freelancers, and small business owners. Gemini Vision OCR extracts receipts instantly with 100% on-device privacy.
+    <p class="product-tagline" data-i18n="hero_tagline">
+      The smart expense assistant for freelancers, independent contractors, and small businesses. Snap paper receipts, auto-categorize 48 IRS Schedule C lines with Google Gemini AI, and enjoy 100% on-device privacy.
     </p>
 
     <!-- Download Buttons -->
     <div class="cta-group">
-      <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
-        <span class="btn-store-icon">▶</span>
-        <div>
-          <span class="btn-store-sub">GET IT ON</span>
-          <span class="btn-store-main">Google Play</span>
-        </div>
-      </a>
       <a href="https://apps.apple.com/app/billsnap-ai/id6817136538" target="_blank" rel="noopener" class="btn-store">
         <span class="btn-store-icon">🍏</span>
         <div>
-          <span class="btn-store-sub">DOWNLOAD ON THE</span>
-          <span class="btn-store-main">App Store</span>
+          <span class="btn-store-sub" data-i18n="btn_store_sub_apple">DOWNLOAD ON THE</span>
+          <span class="btn-store-main" data-i18n="btn_store_main_apple">App Store</span>
         </div>
       </a>
-      <a href="privacy/billsnap.html" class="btn-secondary" style="padding: 12px 20px;">
-        <span data-i18n="btn_privacy">🛡️ App Privacy Policy</span>
+      <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
+        <span class="btn-store-icon">▶</span>
+        <div>
+          <span class="btn-store-sub" data-i18n="btn_store_sub_google">GET IT ON</span>
+          <span class="btn-store-main" data-i18n="btn_store_main_google">Google Play</span>
+        </div>
       </a>
     </div>
 
-    <!-- Phone Frame Showing Real App UI (Swaps on Language Change) -->
+    <!-- Trust Badges -->
+    <div class="trust-badges-row">
+      <span class="trust-badge-item" data-i18n="trust_1">🔒 100% Offline Database</span>
+      <span class="trust-badge-item" data-i18n="trust_2">⚡ Zero Account Setup</span>
+      <span class="trust-badge-item" data-i18n="trust_3">🌐 91 Languages Supported</span>
+      <span class="trust-badge-item" data-i18n="trust_4">🔄 Cross-Platform (iOS ⇄ Android)</span>
+    </div>
+
+    <!-- Phone Frame Showing Localized Real App Screen -->
     <div class="mockup-showcase">
       <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <img id="billsnap-ui-screen" src="assets/billsnap_screen_en.png" alt="BillSnap AI Real App Screen">
+        <img id="hero-mockup-img" src="assets/billsnap/screens/en/01_home_ledger.png" alt="BillSnap AI Real App Interface">
       </div>
     </div>
   </header>
 
-  <!-- Core Features -->
-  <section class="container features-section">
-    <div style="text-align: center; margin-bottom: 20px;">
-      <h2 style="font-size: 32px; font-weight: 900; color: #FFFFFF;" data-i18n="features_header">
-        Everything You Need for Tax Season
-      </h2>
+  <!-- 8 Value Pillars Section -->
+  <section id="features" class="container pillars-section">
+    <div class="section-header-center">
+      <h2 class="section-title" data-i18n="pillars_heading">Everything You Need for Stress-Free Tax Season</h2>
+      <p class="section-sub" data-i18n="pillars_sub">8 Core Superpowers Engineered into BillSnap AI for Global Freelancers & Businesses</p>
     </div>
 
-    <div class="features-grid-4">
-      <div class="feature-card">
-        <div class="feature-icon-box">🧠</div>
-        <h3 data-i18n="f1_title">Gemini Vision AI</h3>
-        <p data-i18n="f1_desc">>99% OCR accuracy on crumpled, faded, or handwritten receipts across 91 languages.</p>
+    <div class="pillars-grid-8">
+      <!-- Pillar 1 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">🧠</div>
+        <h3 data-i18n="p1_title">Gemini Vision AI OCR</h3>
+        <p data-i18n="p1_desc">Instant high-accuracy extraction of merchant name, date, total amount, taxes, and itemized lines even from crumpled, thermal, or faded paper receipts.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">📊</div>
-        <h3 data-i18n="f2_title">28 IRS Categories</h3>
-        <p data-i18n="f2_desc">Automated mapping to Form 1040 Schedule C Lines 8–27b with audit risk scoring.</p>
+      <!-- Pillar 2 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">🗂️</div>
+        <h3 data-i18n="p2_title">Smart Receipt Storage & Vault</h3>
+        <p data-i18n="p2_desc">Centralized digital receipt storage with automated categorization, custom tagging, and quick search. Tame messy expense records in seconds.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">📑</div>
-        <h3 data-i18n="f3_title">Excel & PDF Export</h3>
-        <p data-i18n="f3_desc">1-Click export to multi-sheet formatted Excel workbooks and summary PDF reports ready for your CPA.</p>
+      <!-- Pillar 3 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">🌐</div>
+        <h3 data-i18n="p3_title">Zero-Touch Device Language Detection</h3>
+        <p data-i18n="p3_desc">Automatically detects your phone's system language and adapts the entire interface natively across 91 languages without requiring any manual setup.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon-box">🔒</div>
-        <h3 data-i18n="f4_title">100% On-Device Privacy</h3>
-        <p data-i18n="f4_desc">All financial data is processed locally on your device with optional iCloud and Google Drive backup.</p>
+      <!-- Pillar 4 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">📊</div>
+        <h3 data-i18n="p4_title">IRS Schedule C Form 1040 Tax Hub</h3>
+        <p data-i18n="p4_desc">Automatically maps expenses to 48 standard IRS deduction categories (Vehicle, Home Office, Advertising, Travel, Supplies). Complete tax peace of mind.</p>
+      </div>
+
+      <!-- Pillar 5 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">📘</div>
+        <h3 data-i18n="p5_title">Built-In Tax Rules Guide in 91 Languages</h3>
+        <p data-i18n="p5_desc">Line-by-line tax deduction rules, qualifying document checklists, and deduction thresholds explained clearly in your native mother tongue.</p>
+      </div>
+
+      <!-- Pillar 6 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">📑</div>
+        <h3 data-i18n="p6_title">1-Tap Audit-Ready Reports Export</h3>
+        <p data-i18n="p6_desc">Generate professional Excel worksheets formatted for CPA accountants, paired with high-resolution PDF annexes compiling all original receipt photos.</p>
+      </div>
+
+      <!-- Pillar 7 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">🔄</div>
+        <h3 data-i18n="p7_title">Universal Cross-Platform Backup & Restore</h3>
+        <p data-i18n="p7_desc">Seamlessly transfer ledger records between iPhone and Android (Samsung, Xiaomi, etc.). Backup via Google Drive, iCloud, or portable ZIP archive.</p>
+      </div>
+
+      <!-- Pillar 8 -->
+      <div class="pillar-card">
+        <div class="pillar-icon-box">🔒</div>
+        <h3 data-i18n="p8_title">100% On-Device Privacy (Offline-First)</h3>
+        <p data-i18n="p8_desc">Your financial records stay strictly on your device. Encrypted local SQLite database, zero tracking servers, zero account registration needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Screenshots Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-title">Visual Tour & Key Screens</h2>
+        <p class="section-sub">Real screenshots showcasing the intuitive, elegant interface of BillSnap AI</p>
+      </div>
+      <div id="screenshot-gallery-track" class="gallery-track">
+        <!-- Injected dynamically by media-provider.js according to locale -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Walkthrough Section -->
+  <section class="container video-section">
+    <div class="section-header-center">
+      <h2 class="section-title" data-i18n="video_heading">See BillSnap AI in Action</h2>
+      <p class="section-sub" data-i18n="video_sub">Real-device walkthrough running on iOS — lightning fast, intuitive, and private.</p>
+    </div>
+    <div class="video-container">
+      <video id="demo-video-player" playsinline controls muted loop preload="metadata">
+        <source src="assets/billsnap/demo_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section id="comparison" class="container comparison-section">
+    <div class="section-header-center">
+      <h2 class="section-title" data-i18n="comparison_heading">Why Professionals Switch to BillSnap AI</h2>
+      <p class="section-sub" data-i18n="comparison_sub">See how smart AI automation replaces chaotic manual bookkeeping</p>
+    </div>
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th data-i18n="th_feature">Workflow / Feature</th>
+            <th data-i18n="th_traditional">Traditional Method</th>
+            <th class="td-highlight" data-i18n="th_billsnap">With BillSnap AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="comp_1_label">Receipt Preservation</td>
+            <td data-i18n="comp_1_trad">Paper receipts easily fade, crumple, or get lost in shoeboxes.</td>
+            <td class="td-highlight" data-i18n="comp_1_billsnap">Instant 2-second camera scan, preserved digitally & permanently.</td>
+          </tr>
+          <tr>
+            <td data-i18n="comp_2_label">Expense Data Entry</td>
+            <td data-i18n="comp_2_trad">Hours wasted manually typing numbers into spreadsheets every week.</td>
+            <td class="td-highlight" data-i18n="comp_2_billsnap">Gemini AI auto-fills totals, taxes, vendor & date in 3 seconds.</td>
+          </tr>
+          <tr>
+            <td data-i18n="comp_3_label">Tax Deductions & Audit</td>
+            <td data-i18n="comp_3_trad">High stress, missed tax write-offs, risk of severe audit penalties.</td>
+            <td class="td-highlight" data-i18n="comp_3_billsnap">48 IRS lines categorized automatically; 1-tap Excel & PDF proof export.</td>
+          </tr>
+          <tr>
+            <td data-i18n="comp_4_label">Device Portability</td>
+            <td data-i18n="comp_4_trad">Locked into a single phone brand or trapped in expensive monthly clouds.</td>
+            <td class="td-highlight" data-i18n="comp_4_billsnap">Universal ZIP backup: switch freely between Android and iPhone.</td>
+          </tr>
+          <tr>
+            <td data-i18n="comp_5_label">Privacy & Data Security</td>
+            <td data-i18n="comp_5_trad">Financial data uploaded to public servers; mandatory accounts & ads tracking.</td>
+            <td class="td-highlight" data-i18n="comp_5_billsnap">100% offline encrypted SQLite. No account required. Your data is yours.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Target Audience Section -->
+  <section class="container audience-section">
+    <div class="section-header-center">
+      <h2 class="section-title" data-i18n="audience_heading">Engineered Specifically For Your Work</h2>
+      <p class="section-sub" data-i18n="audience_sub">Built for independent professionals who value their time and hard-earned money</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h4 data-i18n="aud_1_title">Freelancers & Solopreneurs</h4>
+        <p data-i18n="aud_1_desc">Eliminate tax chaos, track client-reimbursable expenses, and maximize deductions.</p>
+      </div>
+      <div class="audience-card">
+        <h4 data-i18n="aud_2_title">Rideshare & Gig Drivers</h4>
+        <p data-i18n="aud_2_desc">Capture fuel, tolls, car maintenance, and meals on the go between trips.</p>
+      </div>
+      <div class="audience-card">
+        <h4 data-i18n="aud_3_title">Small Business Owners</h4>
+        <p data-i18n="aud_3_desc">Streamline daily ledger bookkeeping and hand audit-ready reports directly to your CPA.</p>
+      </div>
+      <div class="audience-card">
+        <h4 data-i18n="aud_4_title">Independent Contractors</h4>
+        <p data-i18n="aud_4_desc">Preserve every material invoice, tool receipt, and subcontractor expense on-site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="section-title" data-i18n="cta_heading">Ready to Simplify Your Receipts & Taxes?</h2>
+      <p class="section-sub" style="margin-bottom: 30px;" data-i18n="cta_sub">Download BillSnap AI today on your device. Zero setup, 100% private, works instantly.</p>
+      <div class="cta-group">
+        <a href="https://apps.apple.com/app/billsnap-ai/id6817136538" target="_blank" rel="noopener" class="btn-store">
+          <span class="btn-store-icon">🍏</span>
+          <div>
+            <span class="btn-store-sub" data-i18n="btn_store_sub_apple">DOWNLOAD ON THE</span>
+            <span class="btn-store-main" data-i18n="btn_store_main_apple">App Store</span>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
+          <span class="btn-store-icon">▶</span>
+          <div>
+            <span class="btn-store-sub" data-i18n="btn_store_sub_google">GET IT ON</span>
+            <span class="btn-store-main" data-i18n="btn_store_main_google">Google Play</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -271,93 +606,19 @@
   <!-- Footer -->
   <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
     <div style="margin-bottom: 12px;">
-      <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Apps & Games</a>
-      <a href="privacy/billsnap.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Privacy Policy</a>
-      <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Terms of Service</a>
+      <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="nav_all_apps">← All Apps</a>
+      <a href="privacy/billsnap.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="footer_terms">Terms of Service</a>
       <a href="mailto:gaming.assist.vn@gmail.com" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Support</a>
     </div>
-    © 2026 Assist Gaming & Tech Studio. All rights reserved.
+    <div data-i18n="footer_rights">© 2026 Assist Gaming & Tech Studio. All rights reserved.</div>
   </footer>
 
-  <!-- Language Switcher & Image Swap Script -->
-  <script>
-    const translations = {
-      en: {
-        badge: "🌐 EN",
-        nav_home: "← All Apps",
-        nav_privacy: "Privacy Policy",
-        nav_terms: "Terms",
-        badge_title: "🤖 AI TAX INTELLIGENCE & RECEIPT ORGANIZER",
-        main_title: "Turn Receipts into IRS Schedule C Deductions in Seconds.",
-        main_tagline: "Designed for self-employed professionals, freelancers, and small business owners. Gemini Vision OCR extracts receipts instantly with 100% on-device privacy.",
-        btn_privacy: "🛡️ App Privacy Policy",
-        features_header: "Everything You Need for Tax Season",
-        f1_title: "Gemini Vision AI",
-        f1_desc: ">99% OCR accuracy on crumpled, faded, or handwritten receipts across 91 languages.",
-        f2_title: "28 IRS Categories",
-        f2_desc: "Automated mapping to Form 1040 Schedule C Lines 8–27b with audit risk scoring.",
-        f3_title: "Excel & PDF Export",
-        f3_desc: "1-Click export to multi-sheet formatted Excel workbooks and summary PDF reports ready for your CPA.",
-        f4_title: "100% On-Device Privacy",
-        f4_desc: "All financial data is processed locally on your device with optional iCloud and Google Drive backup.",
-        image_src: "assets/billsnap_screen_en.png"
-      },
-      vi: {
-        badge: "🌐 VI",
-        nav_home: "← Toàn bộ Ứng dụng",
-        nav_privacy: "Chính sách bảo mật",
-        nav_terms: "Điều khoản",
-        badge_title: "🤖 TRỢ LÝ QUÉT HÓA ĐƠN & TÍNH THUẾ AI",
-        main_title: "Biến hóa đơn giấy thành chi phí giảm trừ thuế IRS trong vài giây.",
-        main_tagline: "Thiết kế dành riêng cho người làm tự do, tài xế công nghệ và doanh nghiệp nhỏ. Trí tuệ nhân tạo Gemini Vision nhận diện tức thì với bảo mật 100% trên thiết bị.",
-        btn_privacy: "🛡️ Chính sách bảo mật",
-        features_header: "Mọi thứ bạn cần cho mùa quyết toán thuế",
-        f1_title: "Công nghệ Gemini Vision AI",
-        f1_desc: "Độ chính xác >99% trên hóa đơn nhàu nát, mờ hoặc viết tay, hỗ trợ 91 ngôn ngữ.",
-        f2_title: "28 danh mục thuế IRS",
-        f2_desc: "Tự động phân loại vào các dòng từ 8 đến 27b của Mẫu 1040 Schedule C chuẩn kiểm toán.",
-        f3_title: "Xuất Excel & PDF",
-        f3_desc: "Xuất 1 chạm ra file bảng tính Excel đầy đủ hàm tính toán và file báo cáo PDF gửi kế toán.",
-        f4_title: "Bảo mật 100% trên thiết bị",
-        f4_desc: "Mọi dữ liệu tài chính được xử lý cục bộ trên máy, kèm sao lưu iCloud và Google Drive tùy chọn.",
-        image_src: "assets/billsnap_screen_vi.png"
-      }
-    };
-
-    let currentLang = 'en';
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'vi' : 'en';
-      applyLanguage(currentLang);
-      localStorage.setItem('studio_lang', currentLang);
-    }
-
-    function applyLanguage(lang) {
-      const data = translations[lang];
-      document.getElementById('lang-badge').textContent = data.badge;
-      
-      // Update text contents
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (data[key]) {
-          el.textContent = data[key];
-        }
-      });
-
-      // Update screen image based on language (Strict requirement from owner)
-      const screenImg = document.getElementById('billsnap-ui-screen');
-      if (screenImg) {
-        screenImg.src = data.image_src;
-      }
-    }
-
-    // Initialize from storage or default
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('studio_lang') || 'en';
-      currentLang = saved;
-      applyLanguage(currentLang);
-    });
-  </script>
+  <!-- Modular Scripts: Locales, Media Provider & Geo-IP Core Engine -->
+  <script src="js/i18n/locales/en.js"></script>
+  <script src="js/i18n/locales/vi.js"></script>
+  <script src="js/i18n/media-provider.js"></script>
+  <script src="js/i18n/i18n-core.js"></script>
 
 </body>
 </html>
