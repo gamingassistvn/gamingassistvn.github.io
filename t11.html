@@ -26,46 +26,84 @@
     :root {
       --t11-green: #00E676;
       --t11-green-glow: rgba(0, 230, 118, 0.32);
-      --t11-red: #FF5252;
     }
 
-    /* Language Segmented Tabs (EN / VI) */
-    .lang-tabs {
+    /* Navbar Language Dropdown + Geo-IP Indicator */
+    .lang-select-wrap {
       display: inline-flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-glass);
-      border-radius: 24px;
-      padding: 3px;
-      gap: 2px;
+      gap: 8px;
     }
-    .lang-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-dim);
-      padding: 6px 14px;
+    .geo-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--t11-green);
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      padding: 4px 10px;
+      border-radius: 16px;
+      white-space: nowrap;
+    }
+    .lang-select {
+      background: rgba(26, 30, 54, 0.92);
+      border: 1px solid rgba(0, 230, 118, 0.45);
+      color: #FFFFFF;
+      padding: 7px 14px;
       border-radius: 20px;
       font-family: inherit;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 13px;
       cursor: pointer;
+      outline: none;
       transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
     }
-    .lang-tab-btn:hover {
+    .lang-select:hover, .lang-select:focus {
+      border-color: var(--t11-green);
+      box-shadow: 0 0 14px rgba(0, 230, 118, 0.3);
+    }
+    .lang-select option {
+      background: #0F1324;
       color: #FFFFFF;
     }
-    .lang-tab-btn.active {
+
+    /* 10-Language Quick Video Pills */
+    .video-lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      max-width: 340px;
+      margin-bottom: 14px;
+      background: rgba(26, 30, 54, 0.85);
+      border: 1px solid var(--border-glass);
+      padding: 6px;
+      border-radius: 18px;
+    }
+    .lang-pill-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-dim);
+      padding: 4px 9px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 11.5px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .lang-pill-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .lang-pill-btn.active {
       background: linear-gradient(135deg, #00C853, #00E676);
-      color: #06150D;
-      box-shadow: 0 2px 12px rgba(0, 230, 118, 0.35);
+      color: #04150B;
+      box-shadow: 0 2px 10px rgba(0, 230, 118, 0.35);
     }
 
     /* Hero 2-Column Layout */
     .t11-hero {
-      padding: 48px 0 56px;
+      padding: 46px 0 54px;
     }
     .t11-hero-grid {
       display: grid;
@@ -171,16 +209,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .video-lang-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      background: rgba(26, 30, 54, 0.85);
-      border: 1px solid var(--border-glass);
-      padding: 5px;
-      border-radius: 24px;
     }
     .video-frame {
       width: 100%;
@@ -378,7 +406,7 @@
       .t11-title {
         font-size: 32px;
       }
-      .nav-links {
+      .nav-links, .geo-pill {
         display: none;
       }
     }
@@ -386,7 +414,7 @@
 </head>
 <body>
 
-  <!-- Top Navigation with Explicit EN / VI Language Tabs -->
+  <!-- Top Navigation with Geo-IP Status & 10-Language Selector -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand">
@@ -400,14 +428,25 @@
         <li><a href="#setup-guide" data-i18n="nav_guide">Setup Steps</a></li>
         <li><a href="privacy/t11.html" data-i18n="nav_privacy">Privacy Policy</a></li>
       </ul>
-      <div class="lang-tabs" role="tablist" aria-label="Language Switcher">
-        <button type="button" class="lang-tab-btn active" id="nav-tab-en" onclick="setLanguage('en')">🇬🇧 EN</button>
-        <button type="button" class="lang-tab-btn" id="nav-tab-vi" onclick="setLanguage('vi')">🇻🇳 VI</button>
+      <div class="lang-select-wrap">
+        <span class="geo-pill" id="geo-status-pill" style="display: none;">📍 IP</span>
+        <select id="lang-dropdown" class="lang-select" aria-label="Select Language" onchange="selectLanguageManual(this.value)">
+          <option value="en">🇬🇧 English</option>
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="pt">🇧🇷 Português</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="id">🇮🇩 Indonesia</option>
+          <option value="th">🇹🇭 ภาษาไทย</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="it">🇮🇹 Italiano</option>
+        </select>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section + Localized EN/VI Video Player -->
+  <!-- Hero Section + 10-Language Geo-IP Localized Video Player -->
   <header class="container t11-hero" id="video-demo">
     <div class="t11-hero-grid">
       <!-- Left Info & Google Play CTA -->
@@ -443,15 +482,19 @@
         </div>
       </div>
 
-      <!-- Right Phone Video Player (Swaps EN video / VI video per active tab) -->
+      <!-- Right Phone Video Player (Auto-switches across 10 languages via Geo-IP) -->
       <div class="video-showcase-col">
-        <div class="video-lang-bar" role="tablist" aria-label="Video Language">
-          <button type="button" class="lang-tab-btn active" id="vid-tab-en" onclick="setLanguage('en')">
-            🇬🇧 English Video
-          </button>
-          <button type="button" class="lang-tab-btn" id="vid-tab-vi" onclick="setLanguage('vi')">
-            🇻🇳 Video Tiếng Việt
-          </button>
+        <div class="video-lang-bar" id="video-lang-pills" role="tablist" aria-label="Video Language">
+          <button type="button" class="lang-pill-btn active" data-lang="en" onclick="selectLanguageManual('en')">🇬🇧 EN</button>
+          <button type="button" class="lang-pill-btn" data-lang="vi" onclick="selectLanguageManual('vi')">🇻🇳 VI</button>
+          <button type="button" class="lang-pill-btn" data-lang="tr" onclick="selectLanguageManual('tr')">🇹🇷 TR</button>
+          <button type="button" class="lang-pill-btn" data-lang="pt" onclick="selectLanguageManual('pt')">🇧🇷 PT</button>
+          <button type="button" class="lang-pill-btn" data-lang="es" onclick="selectLanguageManual('es')">🇪🇸 ES</button>
+          <button type="button" class="lang-pill-btn" data-lang="id" onclick="selectLanguageManual('id')">🇮🇩 ID</button>
+          <button type="button" class="lang-pill-btn" data-lang="th" onclick="selectLanguageManual('th')">🇹🇭 TH</button>
+          <button type="button" class="lang-pill-btn" data-lang="de" onclick="selectLanguageManual('de')">🇩🇪 DE</button>
+          <button type="button" class="lang-pill-btn" data-lang="fr" onclick="selectLanguageManual('fr')">🇫🇷 FR</button>
+          <button type="button" class="lang-pill-btn" data-lang="it" onclick="selectLanguageManual('it')">🇮🇹 IT</button>
         </div>
 
         <div class="video-frame">
@@ -511,12 +554,12 @@
     </div>
   </section>
 
-  <!-- Visual Step-by-Step Guide (Localized EN / VI Images) -->
+  <!-- Visual Step-by-Step Guide (Auto-switches across 10 localized screenshot sets) -->
   <section id="setup-guide" class="guide-section">
     <div class="container">
       <div class="section-header-center">
         <h2 class="section-title" data-i18n="guide_heading">Quick 3-Minute Setup Guide</h2>
-        <p class="section-sub" data-i18n="guide_sub">Step-by-step visual instructions matching the English &amp; Vietnamese app interface</p>
+        <p class="section-sub" data-i18n="guide_sub">Step-by-step visual instructions matching your language</p>
       </div>
 
       <div class="guide-track">
@@ -600,172 +643,167 @@
     <div data-i18n="footer_rights">© 2026 Assist Gaming &amp; Tech Studio. All rights reserved.</div>
   </footer>
 
-  <!-- EN / VI Tab Switcher + Video Swapper + Play Store Referrer Pass-Through -->
+  <!-- 10-Language Dictionary + 3-Layer Geo-IP Auto-Localization Engine -->
+  <script src="js/t11-locales.js"></script>
   <script>
-    const t11Translations = {
-      en: {
-        page_title: "T11 Auto Helper — Daily Condition, Rest & Morale Assistant for Android",
-        nav_all_apps: "← All Apps",
-        nav_video: "Video Guide",
-        nav_features: "Features",
-        nav_guide: "Setup Steps",
-        nav_privacy: "Privacy Policy",
-        nav_terms: "Terms of Service",
-        hero_badge: "⚽ DAILY CONDITION & MORALE ASSISTANT • ANDROID 11+",
-        hero_title: "Keep Your Squad Fresh & Match-Ready Every Day.",
-        hero_tagline: "T11 Auto Helper streamlines repetitive daily Rest (Green) and Morale (Red) routines using standard Android Accessibility touch gestures. Simple 6-point calibration, floating one-tap control bar, and 100% on-device privacy.",
-        gp_sub: "GET IT ON GOOGLE PLAY",
-        gp_main: "Download Free Trial",
-        gp_main_bottom: "Open on Google Play Store",
-        pill_downloads: "🔥 5,000+ Downloads on Google Play",
-        pill_android: "📱 Android 11.0+ Required",
-        pill_safe: "🛡️ Standard Accessibility API",
-        pill_langs: "🌐 15 Languages",
-        btn_unmute: "Tap for Sound",
-        btn_mute: "Sound On",
-        video_caption: "Real Android walkthrough (English) — setup permissions & daily routine guide",
-        feat_heading: "Built for Busy Football Managers",
-        feat_sub: "Save 15–20 minutes of repetitive screen tapping every single day while keeping full control on your screen.",
-        f1_title: "Green, Red & Dual Modes",
-        f1_desc: "Choose GREEN (Condition/Rest), RED (Morale), or BOTH to run your daily recovery workflow sequentially with a single tap.",
-        f2_title: "One-Time Visual Calibration",
-        f2_desc: "Set your screen's tap positions once using the guided visual target markers. Coordinates are saved locally for your exact screen size.",
-        f3_title: "Compact Floating Control Bar",
-        f3_desc: "Start, switch modes, adjust wait timer, or press STOP instantly at any moment right from the non-intrusive floating bar.",
-        f4_title: "100% On-Device & Safe",
-        f4_desc: "Simulates standard touch gestures only. Never reads private messages, never modifies external app files, and requires no root access.",
-        guide_heading: "Quick 3-Minute Setup Guide",
-        guide_sub: "Step-by-step visual instructions in English",
-        g1_tag: "STEP 1 • FLOATING BAR",
-        g1_title: "Enable \"Appear on Top\" Permission",
-        g1_desc: "Allows T11 Auto Helper to display the compact Start/Stop control bar on screen.",
-        g2_tag: "STEP 2 • GESTURE ENGINE",
-        g2_title: "Enable Accessibility Touch Service",
-        g2_desc: "Turn on Auto Click Service inside Android Settings → Accessibility → Installed Apps.",
-        g3_tag: "STEP 3 • GREEN ROUTINE",
-        g3_title: "Calibrate Green Condition Points",
-        g3_desc: "Drag the numbered target marker onto your screen's Green icon, Free button, and Close button.",
-        g4_tag: "STEP 4 • RED ROUTINE",
-        g4_title: "Calibrate Red Morale Points & Run",
-        g4_desc: "Save the Red Morale positions once, then tap GREEN, RED, or BOTH anytime you need.",
-        disc_title: "Accessibility Service & Privacy Disclosure",
-        disc_body: "T11 Auto Helper is an independent Android productivity & gesture utility developed by Assist Gaming & Tech Studio. It uses the official Android AccessibilityService API solely to perform user-configured screen taps and countdown timers initiated explicitly by the user. It does not collect personal data, does not access accounts or files of other apps, and can be turned off at any time in Android Settings. Requires Android 11.0 or newer.",
-        cta_heading: "Ready to Try T11 Auto Helper on Android?",
-        cta_sub: "Download officially from Google Play Store. Includes free trial access — setup takes under 3 minutes.",
-        footer_rights: "© 2026 Assist Gaming & Tech Studio. All rights reserved.",
-        video_src: "assets/t11/demo_en.mp4",
-        poster_src: "assets/t11/poster_en.jpg",
-        img_1: "assets/t11/screens/en/01_overlay_guide.png",
-        img_2: "assets/t11/screens/en/02_accessibility_guide.png",
-        img_3: "assets/t11/screens/en/03_step1_green_pack_icon.jpg",
-        img_4: "assets/t11/screens/en/06_step4_red_pack_icon.jpg"
-      },
-      vi: {
-        page_title: "T11 Auto Helper — Trợ Lý Thể Lực & Tinh Thần Hằng Ngày Cho Android",
-        nav_all_apps: "← Tất cả Ứng dụng",
-        nav_video: "Video Hướng dẫn",
-        nav_features: "Tính năng",
-        nav_guide: "Các bước Cài đặt",
-        nav_privacy: "Chính sách bảo mật",
-        nav_terms: "Điều khoản",
-        hero_badge: "⚽ TRỢ LÝ THỂ LỰC & TINH THẦN HẰNG NGÀY • ANDROID 11+",
-        hero_title: "Giữ Đội Hình Sung Sức & Sẵn Sàng Thi Đấu Mỗi Ngày.",
-        hero_tagline: "T11 Auto Helper hỗ trợ tự động hóa thao tác nhận gói Xanh (Thể lực) và Đỏ (Tinh thần) hằng ngày thông qua dịch vụ Trợ năng chuẩn của Android. Chấm tọa độ 1 lần duy nhất, thanh điều khiển nổi gọn nhẹ, an toàn 100% trên thiết bị.",
-        gp_sub: "TẢI TRÊN GOOGLE PLAY",
-        gp_main: "Tải về Dùng thử Miễn phí",
-        gp_main_bottom: "Mở trên Cửa hàng Google Play",
-        pill_downloads: "🔥 5.000+ Lượt tải trên Google Play",
-        pill_android: "📱 Yêu cầu Android 11.0 trở lên",
-        pill_safe: "🛡️ Chuẩn Trợ năng Android (An toàn)",
-        pill_langs: "🌐 Hỗ trợ 15 Ngôn ngữ",
-        btn_unmute: "Bật âm thanh",
-        btn_mute: "Đang bật tiếng",
-        video_caption: "Video hướng dẫn thực tế trên máy Android (Tiếng Việt) — cấp quyền & chạy thử",
-        feat_heading: "Trợ Thủ Đắc Lực Cho HLV Bận Rộn",
-        feat_sub: "Tiết kiệm 15–20 phút bấm lặp đi lặp lại mỗi ngày mà vẫn chủ động kiểm soát hoàn toàn trên màn hình.",
-        f1_title: "3 Chế Độ: Xanh, Đỏ & Cả Hai",
-        f1_desc: "Tùy chọn chạy riêng gói XANH (Thể lực), ĐỎ (Tinh thần) hoặc CẢ HAI nối tiếp nhau chỉ bằng 1 chạm.",
-        f2_title: "Chấm Tọa Độ Trực Quan 1 Lần",
-        f2_desc: "Kéo tâm ngắm đánh dấu vị trí nút bấm 1 lần duy nhất theo đúng kích thước màn hình máy của bạn.",
-        f3_title: "Thanh Điều Khiển Nổi Gọn Nhẹ",
-        f3_desc: "Bắt đầu, chuyển chế độ, chỉnh thời gian chờ hoặc bấm DỪNG (STOP) ngay lập tức bất cứ lúc nào.",
-        f4_title: "An Toàn 100% Trên Thiết Bị",
-        f4_desc: "Chỉ mô phỏng chạm màn hình tự nhiên qua Trợ năng Android. Không can thiệp tệp tin ứng dụng khác, không cần root máy.",
-        guide_heading: "Hướng Dẫn Cài Đặt Nhanh Trong 3 Phút",
-        guide_sub: "Hình ảnh hướng dẫn chi tiết từng bước bằng Tiếng Việt",
-        g1_tag: "BƯỚC 1 • THANH MENU NỔI",
-        g1_title: "Cấp Quyền \"Xuất Hiện Trên Cùng\"",
-        g1_desc: "Cho phép T11 Auto Helper hiển thị thanh điều khiển Bật/Dừng nhỏ gọn trên màn hình.",
-        g2_tag: "BƯỚC 2 • DỊCH VỤ CHẠM TỰ ĐỘNG",
-        g2_title: "Bật Dịch Vụ Trợ Năng (Accessibility)",
-        g2_desc: "Vào Cài đặt → Hỗ trợ (Trợ năng) → Ứng dụng đã cài đặt → Bật Auto Click Service.",
-        g3_tag: "BƯỚC 3 • THIẾT LẬP GÓI XANH",
-        g3_title: "Đặt Tâm Ngắm Cho Gói Thể Lực",
-        g3_desc: "Kéo tâm ngắm vào biểu tượng Gói Xanh, nút Nhận miễn phí và nút Đóng theo hướng dẫn trên màn hình.",
-        g4_tag: "BƯỚC 4 • THIẾT LẬP GÓI ĐỎ & CHẠY",
-        g4_title: "Lưu Vị Trí Gói Tinh Thần & Bắt Đầu",
-        g4_desc: "Lưu tọa độ Gói Đỏ 1 lần, từ các ngày sau chỉ cần mở thanh điều khiển và bấm chạy.",
-        disc_title: "Minh Bạch Quyền Trợ Năng & Bảo Mật Dữ Liệu",
-        disc_body: "T11 Auto Helper là tiện ích hỗ trợ thao tác độc lập trên Android do Assist Gaming & Tech Studio phát triển. Ứng dụng chỉ sử dụng API AccessibilityService chính thức của Android để mô phỏng thao tác chạm màn hình theo tọa độ do chính người dùng thiết lập và kích hoạt. Ứng dụng không thu thập dữ liệu cá nhân, không can thiệp dữ liệu của ứng dụng khác và có thể tắt bất cứ lúc nào trong Cài đặt Android. Yêu cầu Android 11.0 trở lên.",
-        cta_heading: "Sẵn Sàng Trải Nghiệm T11 Auto Helper?",
-        cta_sub: "Tải chính thức trên Google Play Store. Có sẵn thời gian dùng thử miễn phí — thiết lập chỉ mất chưa đầy 3 phút.",
-        footer_rights: "© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.",
-        video_src: "assets/t11/demo_vi.mp4",
-        poster_src: "assets/t11/poster_vi.jpg",
-        img_1: "assets/t11/screens/vi/01_overlay_guide.png",
-        img_2: "assets/t11/screens/vi/02_accessibility_guide.png",
-        img_3: "assets/t11/screens/vi/03_step1_green_pack_icon.jpg",
-        img_4: "assets/t11/screens/vi/06_step4_red_pack_icon.jpg"
-      }
+    const SUPPORTED_LANGS = ['en', 'vi', 'tr', 'th', 'id', 'pt', 'es', 'de', 'fr', 'it'];
+
+    // Map ISO-3166 Country Codes -> 10 Supported T11 Languages
+    const COUNTRY_TO_LANG = {
+      VN: 'vi',
+      TR: 'tr', AZ: 'tr', CY: 'tr',
+      TH: 'th',
+      ID: 'id', MY: 'id',
+      BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt', CV: 'pt',
+      ES: 'es', MX: 'es', AR: 'es', CO: 'es', CL: 'es', PE: 'es', VE: 'es',
+      EC: 'es', GT: 'es', CU: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es',
+      SV: 'es', NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es',
+      DE: 'de', AT: 'de', LI: 'de',
+      FR: 'fr', BE: 'fr', MC: 'fr', LU: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', DZ: 'fr', MA: 'fr', TN: 'fr',
+      IT: 'it', SM: 'it', VA: 'it'
     };
+
+    // Fallback Timezone -> Language map (works 100% offline or under strict ad-blockers)
+    function detectFromTimezoneAndBrowser() {
+      try {
+        const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+        if (tz.includes('ho_chi_minh') || tz.includes('saigon') || tz.includes('bangkok') && (navigator.language || '').toLowerCase().startsWith('vi')) return 'vi';
+        if (tz.includes('istanbul')) return 'tr';
+        if (tz.includes('bangkok')) return 'th';
+        if (tz.includes('jakarta') || tz.includes('makassar') || tz.includes('jayapura')) return 'id';
+        if (tz.includes('sao_paulo') || tz.includes('fortaleza') || tz.includes('recife') || tz.includes('manaus') || tz.includes('lisbon')) return 'pt';
+        if (tz.includes('madrid') || tz.includes('mexico') || tz.includes('buenos_aires') || tz.includes('bogota') || tz.includes('lima') || tz.includes('santiago')) return 'es';
+        if (tz.includes('berlin') || tz.includes('vienna')) return 'de';
+        if (tz.includes('paris') || tz.includes('brussels')) return 'fr';
+        if (tz.includes('rome')) return 'it';
+      } catch (e) {}
+
+      const nav = (navigator.language || navigator.userLanguage || '').toLowerCase().slice(0, 2);
+      if (SUPPORTED_LANGS.includes(nav)) return nav;
+      return 'en';
+    }
+
+    async function fetchWithTimeout(url, ms) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), ms);
+      try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        clearTimeout(timer);
+        if (res.ok) return await res.json();
+      } catch (e) {
+        clearTimeout(timer);
+      }
+      return null;
+    }
+
+    // 3-Layer Geo-IP Country Resolver (< 150ms via Cloudflare edge, fallback ipapi.co, fallback TZ/Browser)
+    async function detectBestLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = (params.get('lang') || '').toLowerCase();
+      if (SUPPORTED_LANGS.includes(urlLang)) {
+        return { lang: urlLang, country: urlLang.toUpperCase(), source: 'url' };
+      }
+
+      const manual = sessionStorage.getItem('t11_manual_lang');
+      if (manual && SUPPORTED_LANGS.includes(manual)) {
+        return { lang: manual, country: null, source: 'manual' };
+      }
+
+      // Layer 1: Cloudflare-backed api.country.is (fast, CORS-friendly, no strict rate limits)
+      let countryCode = null;
+      const d1 = await fetchWithTimeout('https://api.country.is/', 1200);
+      if (d1 && d1.country) {
+        countryCode = String(d1.country).toUpperCase();
+      } else {
+        // Layer 2: Fallback ipapi.co
+        const d2 = await fetchWithTimeout('https://ipapi.co/json/', 1500);
+        if (d2 && d2.country_code) {
+          countryCode = String(d2.country_code).toUpperCase();
+        }
+      }
+
+      if (countryCode) {
+        if (countryCode === 'CH') {
+          const nav2 = (navigator.language || '').toLowerCase().slice(0, 2);
+          const chLang = ['de', 'fr', 'it'].includes(nav2) ? nav2 : 'de';
+          return { lang: chLang, country: 'CH', source: 'ip' };
+        }
+        const mapped = COUNTRY_TO_LANG[countryCode] || 'en';
+        return { lang: mapped, country: countryCode, source: 'ip' };
+      }
+
+      // Layer 3: Timezone + Browser Locale fallback
+      return { lang: detectFromTimezoneAndBrowser(), country: null, source: 'tz' };
+    }
 
     let activeLang = 'en';
 
-    function setLanguage(lang) {
-      if (!t11Translations[lang]) lang = 'en';
+    function selectLanguageManual(lang) {
+      if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
+      sessionStorage.setItem('t11_manual_lang', lang);
+      if (lang === 'vi' || lang === 'en') {
+        localStorage.setItem('studio_lang', lang);
+      }
+      applyLanguage(lang, null);
+    }
+
+    function applyLanguage(lang, countryBadge) {
+      if (!window.T11_LOCALES || !window.T11_LOCALES[lang]) lang = 'en';
       activeLang = lang;
-      localStorage.setItem('studio_lang', lang);
       document.documentElement.lang = lang;
 
-      const d = t11Translations[lang];
+      const d = window.T11_LOCALES[lang];
       document.title = d.page_title;
 
-      // Update active state on both top navbar tabs and video tabs
-      ['nav-tab-en', 'vid-tab-en'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.toggle('active', lang === 'en');
-      });
-      ['nav-tab-vi', 'vid-tab-vi'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.toggle('active', lang === 'vi');
+      // Sync top dropdown
+      const dropdown = document.getElementById('lang-dropdown');
+      if (dropdown && dropdown.value !== lang) {
+        dropdown.value = lang;
+      }
+
+      // Sync Geo-IP indicator pill if detected from IP
+      const geoPill = document.getElementById('geo-status-pill');
+      if (geoPill && countryBadge) {
+        geoPill.textContent = '📍 ' + countryBadge;
+        geoPill.style.display = 'inline-block';
+      }
+
+      // Sync 10 quick video pills
+      document.querySelectorAll('#video-lang-pills .lang-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
       });
 
-      // Swap all localized text nodes
+      // Swap all text strings
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (d[key]) el.textContent = d[key];
       });
 
-      // Swap localized guide screenshots
+      // Swap 4 localized setup guide screenshots
+      const baseScreen = 'assets/t11/screens/' + lang + '/';
       const g1 = document.getElementById('guide-img-1');
       const g2 = document.getElementById('guide-img-2');
       const g3 = document.getElementById('guide-img-3');
       const g4 = document.getElementById('guide-img-4');
-      if (g1) g1.src = d.img_1;
-      if (g2) g2.src = d.img_2;
-      if (g3) g3.src = d.img_3;
-      if (g4) g4.src = d.img_4;
+      if (g1) g1.src = baseScreen + '01_overlay_guide.png';
+      if (g2) g2.src = baseScreen + '02_accessibility_guide.png';
+      if (g3) g3.src = baseScreen + '03_step1_green_pack_icon.jpg';
+      if (g4) g4.src = baseScreen + '06_step4_red_pack_icon.jpg';
 
-      // Swap video player between English MP4 and Vietnamese MP4
+      // Swap video player & poster to matching language MP4
+      const videoSrc = 'assets/t11/demo_' + lang + '.mp4';
+      const posterSrc = 'assets/t11/poster_' + lang + '.jpg';
       const video = document.getElementById('t11-video-player');
       const source = document.getElementById('t11-video-source');
-      if (video && source && source.getAttribute('src') !== d.video_src) {
-        const wasPaused = video.paused;
-        video.poster = d.poster_src;
-        source.setAttribute('src', d.video_src);
-        video.load();
-        if (!wasPaused) {
-          video.play().catch(() => {});
+      if (video && source) {
+        video.poster = posterSrc;
+        if (source.getAttribute('src') !== videoSrc) {
+          const wasPaused = video.paused;
+          source.setAttribute('src', videoSrc);
+          video.load();
+          if (!wasPaused) {
+            video.play().catch(() => {});
+          }
         }
       }
 
@@ -785,14 +823,13 @@
     function updateMuteButtonLabel() {
       const video = document.getElementById('t11-video-player');
       const btn = document.getElementById('unmute-toggle');
-      if (!video || !btn) return;
-      const d = t11Translations[activeLang];
+      if (!video || !btn || !window.T11_LOCALES) return;
+      const d = window.T11_LOCALES[activeLang] || window.T11_LOCALES.en;
       btn.innerHTML = video.muted
         ? '🔇 <span>' + d.btn_unmute + '</span>'
         : '🔊 <span>' + d.btn_mute + '</span>';
     }
 
-    // Forward campaign UTM / Google Ads gclid into Google Play referrer & verify human interaction
     function decoratePlayStoreLinks() {
       const params = new URLSearchParams(window.location.search);
       const refParts = [];
@@ -808,25 +845,16 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const urlLang = (params.get('lang') || '').toLowerCase();
-      const savedLang = localStorage.getItem('studio_lang');
-      const browserVi = (navigator.language || '').toLowerCase().startsWith('vi');
-
-      let initialLang = 'en';
-      if (urlLang === 'vi' || urlLang === 'en') {
-        initialLang = urlLang;
-      } else if (savedLang === 'vi' || savedLang === 'en') {
-        initialLang = savedLang;
-      } else if (browserVi) {
-        initialLang = 'vi';
-      }
-
-      setLanguage(initialLang);
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Apply quick instant guess from Timezone/Browser while Geo-IP resolves (~100ms)
+      const quickGuess = detectFromTimezoneAndBrowser();
+      applyLanguage(quickGuess, null);
       decoratePlayStoreLinks();
 
-      // Mark genuine human pointer/touch gesture
+      // Resolve authoritative Geo-IP country & apply immediately
+      const result = await detectBestLanguage();
+      applyLanguage(result.lang, result.country);
+
       const markHuman = () => document.body.setAttribute('data-human-verified', '1');
       window.addEventListener('pointerdown', markHuman, { once: true, passive: true });
       window.addEventListener('touchstart', markHuman, { once: true, passive: true });

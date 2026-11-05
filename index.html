@@ -473,6 +473,7 @@
     function setLanguage(lang) {
       if (!translations[lang]) lang = 'en';
       currentLang = lang;
+      sessionStorage.setItem('studio_manual_lang', currentLang);
       localStorage.setItem('studio_lang', currentLang);
       document.documentElement.lang = currentLang;
       applyLanguage(currentLang);
@@ -516,22 +517,55 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    async function fetchGeoCountry(url, ms) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), ms);
+      try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        clearTimeout(timer);
+        if (res.ok) return await res.json();
+      } catch (e) {
+        clearTimeout(timer);
+      }
+      return null;
+    }
+
+    async function detectPortalLangByIP() {
       const params = new URLSearchParams(window.location.search);
       const urlLang = (params.get('lang') || '').toLowerCase();
-      const saved = localStorage.getItem('studio_lang');
-      const browserVi = (navigator.language || '').toLowerCase().startsWith('vi');
+      if (urlLang === 'vi' || urlLang === 'en') return urlLang;
 
-      if (urlLang === 'vi' || urlLang === 'en') {
-        currentLang = urlLang;
-      } else if (saved === 'vi' || saved === 'en') {
-        currentLang = saved;
-      } else if (browserVi) {
-        currentLang = 'vi';
-      } else {
-        currentLang = 'en';
+      const manual = sessionStorage.getItem('studio_manual_lang');
+      if (manual === 'vi' || manual === 'en') return manual;
+
+      // Primary Geo-IP: api.country.is -> Fallback: ipapi.co
+      const d1 = await fetchGeoCountry('https://api.country.is/', 1200);
+      if (d1 && d1.country) {
+        return String(d1.country).toUpperCase() === 'VN' ? 'vi' : 'en';
       }
+      const d2 = await fetchGeoCountry('https://ipapi.co/json/', 1500);
+      if (d2 && d2.country_code) {
+        return String(d2.country_code).toUpperCase() === 'VN' ? 'vi' : 'en';
+      }
+
+      // Fallback: Timezone / Browser language
+      try {
+        const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+        if (tz.includes('ho_chi_minh') || tz.includes('saigon')) return 'vi';
+      } catch (e) {}
+      return (navigator.language || '').toLowerCase().startsWith('vi') ? 'vi' : 'en';
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const tzGuess = ((Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase().includes('ho_chi_minh') || (navigator.language || '').toLowerCase().startsWith('vi')) ? 'vi' : 'en';
+      currentLang = sessionStorage.getItem('studio_manual_lang') || tzGuess;
       applyLanguage(currentLang);
+
+      const detected = await detectPortalLangByIP();
+      if (detected !== currentLang) {
+        currentLang = detected;
+        applyLanguage(currentLang);
+      }
     });
   </script>
 
