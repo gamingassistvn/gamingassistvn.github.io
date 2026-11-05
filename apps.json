@@ -1,5 +1,21 @@
 [
   {
+    "id": "t11-auto-helper",
+    "name": "T11 Auto Helper",
+    "tagline": "Daily Squad Condition, Rest & Morale Assistant for Android 11+.",
+    "category": "utilities",
+    "badge": "5,000+ Installs ⚡",
+    "featured": true,
+    "icon": "assets/icons/t11_helper.png",
+    "version": "6.0.7",
+    "rating": "4.9 ★",
+    "tags": ["Condition & Morale", "Android 11+", "Accessibility Gesture", "15 Languages", "Floating Bar"],
+    "description": "Streamline daily squad rest (Green) and morale (Red) routines on Android 11+ using official Accessibility touch gestures. Simple 1-time calibration, compact floating bar, and 100% on-device privacy.",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.top11.autocollector",
+    "detailsUrl": "t11.html",
+    "privacyUrl": "privacy/t11.html"
+  },
+  {
     "id": "billsnap-ai",
     "name": "BillSnap AI",
     "tagline": "AI Receipt Scanner & IRS Schedule C Tax Organizer with Gemini Vision OCR.",
@@ -13,6 +29,7 @@
     "description": "Instant receipt & invoice scanning with Google Gemini Vision AI. Auto-categorize expenses into 48 IRS Schedule C lines, export audit-ready Excel & PDF reports, and enjoy 100% on-device privacy with cross-platform backup across all devices.",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.billsnap.ai",
     "appStoreUrl": "https://apps.apple.com/app/billsnap-ai/id6817136538",
+    "detailsUrl": "billsnap.html",
     "privacyUrl": "privacy/billsnap.html"
   },
   {
@@ -28,21 +45,6 @@
     "tags": ["Puzzle", "Cyber 3D", "Daily Challenge", "12 Languages", "Multiplayer Seed"],
     "description": "Challenge your logic every day with the global puzzle seed! Features smooth pinch-to-zoom controls, fast chord flagging, revive mechanics, player statistics, and 12-language auto localization.",
     "playStoreUrl": "https://play.google.com/store/apps/details?id=com.minepuzzle.daily",
-    "privacyUrl": "privacy.html#minepuzzle"
-  },
-  {
-    "id": "t11-auto-helper",
-    "name": "T11 Auto Helper",
-    "tagline": "Intelligent Automation & Smart Workflow Assistant for Android.",
-    "category": "utilities",
-    "badge": "Testing 🔒",
-    "featured": false,
-    "icon": "assets/icons/t11_helper.png",
-    "version": "5.9.0",
-    "rating": "4.9 ★",
-    "tags": ["Productivity", "Automation", "Smart Tools", "Utility"],
-    "description": "High-performance smart helper designed to streamline daily tasks, automate repetitive actions, and boost user productivity with zero battery drain.",
-    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.assist.t11helper",
-    "privacyUrl": "privacy.html#t11"
+    "privacyUrl": "privacy/minepuzzle.html"
   }
 ]

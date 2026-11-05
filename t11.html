@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T11 Auto Helper — Daily Condition, Rest & Morale Assistant for Android</title>
+  <meta name="description" content="Official Android utility assistant for daily squad condition, rest, and morale routines. Powered by standard Android Accessibility Service, 15 languages, 100% on-device privacy.">
+  <meta name="keywords" content="T11 Auto Helper, Top Eleven Assistant, Squad Condition Assistant, Rest and Morale Helper, Android Accessibility Utility, Assist Studio">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="T11 Auto Helper — Daily Condition & Morale Assistant">
+  <meta property="og:description" content="Streamline your daily squad rest and morale routine on Android 11+. Safe on-device gesture assistant trusted by 5,000+ football managers.">
+  <meta property="og:image" content="https://gamingassistvn.github.io/assets/t11/app_icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gamingassistvn.github.io/t11.html">
+
+  <link rel="icon" type="image/png" href="assets/t11/app_icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --t11-green: #00E676;
+      --t11-green-glow: rgba(0, 230, 118, 0.32);
+      --t11-red: #FF5252;
+    }
+
+    /* Language Segmented Tabs (EN / VI) */
+    .lang-tabs {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .lang-tab-btn:hover {
+      color: #FFFFFF;
+    }
+    .lang-tab-btn.active {
+      background: linear-gradient(135deg, #00C853, #00E676);
+      color: #06150D;
+      box-shadow: 0 2px 12px rgba(0, 230, 118, 0.35);
+    }
+
+    /* Hero 2-Column Layout */
+    .t11-hero {
+      padding: 48px 0 56px;
+    }
+    .t11-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .t11-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.45);
+      color: var(--t11-green);
+      padding: 7px 18px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .t11-title {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.16;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #D2FFE8 55%, #00E676 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .t11-tagline {
+      font-size: 17px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* Prominent Google Play CTA */
+    .play-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .btn-google-play-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #00C853 0%, #00E676 100%);
+      color: #04130B;
+      padding: 14px 28px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 10px 30px rgba(0, 230, 118, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-google-play-hero:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 14px 36px rgba(0, 230, 118, 0.5);
+      filter: brightness(1.05);
+    }
+    .btn-google-play-hero .gp-sub {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      line-height: 1.1;
+    }
+    .btn-google-play-hero .gp-main {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      padding: 6px 13px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #D5D9EB;
+    }
+
+    /* Phone Video Showcase Column */
+    .video-showcase-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-lang-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      background: rgba(26, 30, 54, 0.85);
+      border: 1px solid var(--border-glass);
+      padding: 5px;
+      border-radius: 24px;
+    }
+    .video-frame {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 40px;
+      border: 9px solid #1A1E32;
+      background: #000000;
+      box-shadow: 0 25px 60px -12px var(--t11-green-glow);
+      overflow: hidden;
+      position: relative;
+    }
+    .video-frame video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 9 / 16;
+      display: block;
+      background: #000;
+    }
+    .unmute-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(9, 11, 20, 0.82);
+      border: 1px solid rgba(0, 230, 118, 0.5);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+      transition: all 0.2s ease;
+    }
+    .unmute-btn:hover {
+      background: rgba(0, 230, 118, 0.25);
+    }
+
+    /* Features Grid */
+    .section-block {
+      padding: 56px 0;
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 38px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      font-size: 15.5px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .features-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
+    }
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 22px;
+      padding: 26px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    .feat-card:hover {
+      border-color: rgba(0, 230, 118, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0, 230, 118, 0.12);
+    }
+    .feat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(0, 230, 118, 0.12);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .feat-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .feat-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* Visual Setup Guide Gallery */
+    .guide-section {
+      padding: 56px 0;
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .guide-track {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+    .guide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .guide-card:hover {
+      border-color: rgba(0, 230, 118, 0.4);
+      transform: translateY(-3px);
+    }
+    .guide-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #080C16;
+    }
+    .guide-card-body {
+      padding: 16px 18px;
+    }
+    .guide-step-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--t11-green);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .guide-card-body h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .guide-card-body p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* Transparency & Accessibility Disclosure Box */
+    .disclosure-box {
+      max-width: 880px;
+      margin: 0 auto;
+      background: rgba(0, 230, 118, 0.05);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+      border-radius: 22px;
+      padding: 28px 32px;
+    }
+    .disclosure-box h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .disclosure-box p {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      padding: 64px 0 54px;
+      text-align: center;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 230, 118, 0.06) 100%);
+    }
+
+    @media (max-width: 900px) {
+      .t11-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .play-cta-row, .trust-pills {
+        justify-content: center;
+      }
+      .t11-title {
+        font-size: 32px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation with Explicit EN / VI Language Tabs -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/t11/app_icon.png" alt="T11 Auto Helper" style="width: 38px; height: 38px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,230,118,0.25);">
+        <div class="brand-name">T11 Auto Helper</div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_all_apps">← All Apps</a></li>
+        <li><a href="#video-demo" data-i18n="nav_video">Video Guide</a></li>
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#setup-guide" data-i18n="nav_guide">Setup Steps</a></li>
+        <li><a href="privacy/t11.html" data-i18n="nav_privacy">Privacy Policy</a></li>
+      </ul>
+      <div class="lang-tabs" role="tablist" aria-label="Language Switcher">
+        <button type="button" class="lang-tab-btn active" id="nav-tab-en" onclick="setLanguage('en')">🇬🇧 EN</button>
+        <button type="button" class="lang-tab-btn" id="nav-tab-vi" onclick="setLanguage('vi')">🇻🇳 VI</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section + Localized EN/VI Video Player -->
+  <header class="container t11-hero" id="video-demo">
+    <div class="t11-hero-grid">
+      <!-- Left Info & Google Play CTA -->
+      <div>
+        <div class="t11-badge" data-i18n="hero_badge">
+          ⚽ DAILY CONDITION &amp; MORALE ASSISTANT • ANDROID 11+
+        </div>
+        <h1 class="t11-title" data-i18n="hero_title">
+          Keep Your Squad Fresh &amp; Match-Ready Every Day.
+        </h1>
+        <p class="t11-tagline" data-i18n="hero_tagline">
+          T11 Auto Helper streamlines repetitive daily Rest (Green) and Morale (Red) routines using standard Android Accessibility touch gestures. Simple 6-point calibration, floating one-tap control bar, and 100% on-device privacy.
+        </p>
+
+        <div class="play-cta-row">
+          <a href="https://play.google.com/store/apps/details?id=com.top11.autocollector"
+             target="_blank"
+             rel="noopener"
+             class="btn-google-play-hero js-play-link">
+            <span style="font-size: 26px; line-height: 1;">▶</span>
+            <span>
+              <span class="gp-sub" data-i18n="gp_sub">GET IT ON GOOGLE PLAY</span>
+              <span class="gp-main" data-i18n="gp_main">Download Free Trial</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="trust-pills">
+          <span class="trust-pill" data-i18n="pill_downloads">🔥 5,000+ Downloads on Google Play</span>
+          <span class="trust-pill" data-i18n="pill_android">📱 Android 11.0+ Required</span>
+          <span class="trust-pill" data-i18n="pill_safe">🛡️ Standard Accessibility API</span>
+          <span class="trust-pill" data-i18n="pill_langs">🌐 15 Languages</span>
+        </div>
+      </div>
+
+      <!-- Right Phone Video Player (Swaps EN video / VI video per active tab) -->
+      <div class="video-showcase-col">
+        <div class="video-lang-bar" role="tablist" aria-label="Video Language">
+          <button type="button" class="lang-tab-btn active" id="vid-tab-en" onclick="setLanguage('en')">
+            🇬🇧 English Video
+          </button>
+          <button type="button" class="lang-tab-btn" id="vid-tab-vi" onclick="setLanguage('vi')">
+            🇻🇳 Video Tiếng Việt
+          </button>
+        </div>
+
+        <div class="video-frame">
+          <button type="button" class="unmute-btn" id="unmute-toggle" onclick="toggleMute()">
+            🔇 <span data-i18n="btn_unmute">Tap for Sound</span>
+          </button>
+          <video id="t11-video-player"
+                 poster="assets/t11/poster_en.jpg"
+                 autoplay
+                 muted
+                 loop
+                 playsinline
+                 controls
+                 preload="metadata">
+            <source id="t11-video-source" src="assets/t11/demo_en.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-dim); margin-top: 10px; text-align: center;" data-i18n="video_caption">
+          Real Android walkthrough — setup permissions &amp; daily routine guide
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Core Features -->
+  <section id="features" class="container section-block">
+    <div class="section-header-center">
+      <h2 class="section-title" data-i18n="feat_heading">Built for Busy Football Managers</h2>
+      <p class="section-sub" data-i18n="feat_sub">Save 15–20 minutes of repetitive screen tapping every single day while keeping full control on your screen.</p>
+    </div>
+
+    <div class="features-grid-4">
+      <div class="feat-card">
+        <div class="feat-icon">🟢</div>
+        <h3 data-i18n="f1_title">Green, Red &amp; Dual Modes</h3>
+        <p data-i18n="f1_desc">Choose GREEN (Condition/Rest), RED (Morale), or BOTH to run your daily recovery workflow sequentially with a single tap.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h3 data-i18n="f2_title">One-Time Visual Calibration</h3>
+        <p data-i18n="f2_desc">Set your screen's tap positions once using the guided visual target markers. Coordinates are saved locally for your exact screen size.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🎛️</div>
+        <h3 data-i18n="f3_title">Compact Floating Control Bar</h3>
+        <p data-i18n="f3_desc">Start, switch modes, adjust wait timer, or press STOP instantly at any moment right from the non-intrusive floating bar.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h3 data-i18n="f4_title">100% On-Device &amp; Safe</h3>
+        <p data-i18n="f4_desc">Simulates standard touch gestures only. Never reads private messages, never modifies external app files, and requires no root access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Step-by-Step Guide (Localized EN / VI Images) -->
+  <section id="setup-guide" class="guide-section">
+    <div class="container">
+      <div class="section-header-center">
+        <h2 class="section-title" data-i18n="guide_heading">Quick 3-Minute Setup Guide</h2>
+        <p class="section-sub" data-i18n="guide_sub">Step-by-step visual instructions matching the English &amp; Vietnamese app interface</p>
+      </div>
+
+      <div class="guide-track">
+        <div class="guide-card">
+          <img id="guide-img-1" src="assets/t11/screens/en/01_overlay_guide.png" alt="Step 1 Overlay Permission" loading="lazy">
+          <div class="guide-card-body">
+            <span class="guide-step-tag" data-i18n="g1_tag">STEP 1 • FLOATING BAR</span>
+            <h4 data-i18n="g1_title">Enable "Appear on Top" Permission</h4>
+            <p data-i18n="g1_desc">Allows T11 Auto Helper to display the compact Start/Stop control bar on screen.</p>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <img id="guide-img-2" src="assets/t11/screens/en/02_accessibility_guide.png" alt="Step 2 Accessibility Permission" loading="lazy">
+          <div class="guide-card-body">
+            <span class="guide-step-tag" data-i18n="g2_tag">STEP 2 • GESTURE ENGINE</span>
+            <h4 data-i18n="g2_title">Enable Accessibility Touch Service</h4>
+            <p data-i18n="g2_desc">Turn on Auto Click Service inside Android Settings → Accessibility → Installed Apps.</p>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <img id="guide-img-3" src="assets/t11/screens/en/03_step1_green_pack_icon.jpg" alt="Step 3 Green Calibration" loading="lazy">
+          <div class="guide-card-body">
+            <span class="guide-step-tag" data-i18n="g3_tag">STEP 3 • GREEN ROUTINE</span>
+            <h4 data-i18n="g3_title">Calibrate Green Condition Points</h4>
+            <p data-i18n="g3_desc">Drag the numbered target marker onto your screen's Green icon, Free button, and Close button.</p>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <img id="guide-img-4" src="assets/t11/screens/en/06_step4_red_pack_icon.jpg" alt="Step 4 Red Calibration" loading="lazy">
+          <div class="guide-card-body">
+            <span class="guide-step-tag" data-i18n="g4_tag">STEP 4 • RED ROUTINE</span>
+            <h4 data-i18n="g4_title">Calibrate Red Morale Points &amp; Run</h4>
+            <p data-i18n="g4_desc">Save the Red Morale positions once, then tap GREEN, RED, or BOTH anytime you need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessibility & Policy Transparency Section -->
+  <section class="container section-block">
+    <div class="disclosure-box">
+      <h3>🛡️ <span data-i18n="disc_title">Accessibility Service &amp; Privacy Disclosure</span></h3>
+      <p data-i18n="disc_body">
+        T11 Auto Helper is an independent Android productivity &amp; gesture utility developed by Assist Gaming &amp; Tech Studio. It uses the official Android AccessibilityService API solely to perform user-configured screen taps and countdown timers initiated explicitly by the user. It does not collect personal data, does not access accounts or files of other apps, and can be turned off at any time in Android Settings. Requires Android 11.0 or newer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final Download CTA -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2 class="section-title" data-i18n="cta_heading">Ready to Try T11 Auto Helper on Android?</h2>
+      <p class="section-sub" style="margin-bottom: 28px;" data-i18n="cta_sub">Download officially from Google Play Store. Includes free trial access — setup takes under 3 minutes.</p>
+      <div class="play-cta-row" style="justify-content: center; margin-bottom: 0;">
+        <a href="https://play.google.com/store/apps/details?id=com.top11.autocollector"
+           target="_blank"
+           rel="noopener"
+           class="btn-google-play-hero js-play-link">
+          <span style="font-size: 26px; line-height: 1;">▶</span>
+          <span>
+            <span class="gp-sub" data-i18n="gp_sub">GET IT ON GOOGLE PLAY</span>
+            <span class="gp-main" data-i18n="gp_main_bottom">Open on Google Play Store</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
+    <div style="margin-bottom: 12px;">
+      <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="nav_all_apps">← All Apps</a>
+      <a href="privacy/t11.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="nav_privacy">Privacy Policy</a>
+      <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;" data-i18n="nav_terms">Terms of Service</a>
+      <a href="mailto:gaming.assist.vn@gmail.com" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">gaming.assist.vn@gmail.com</a>
+    </div>
+    <div data-i18n="footer_rights">© 2026 Assist Gaming &amp; Tech Studio. All rights reserved.</div>
+  </footer>
+
+  <!-- EN / VI Tab Switcher + Video Swapper + Play Store Referrer Pass-Through -->
+  <script>
+    const t11Translations = {
+      en: {
+        page_title: "T11 Auto Helper — Daily Condition, Rest & Morale Assistant for Android",
+        nav_all_apps: "← All Apps",
+        nav_video: "Video Guide",
+        nav_features: "Features",
+        nav_guide: "Setup Steps",
+        nav_privacy: "Privacy Policy",
+        nav_terms: "Terms of Service",
+        hero_badge: "⚽ DAILY CONDITION & MORALE ASSISTANT • ANDROID 11+",
+        hero_title: "Keep Your Squad Fresh & Match-Ready Every Day.",
+        hero_tagline: "T11 Auto Helper streamlines repetitive daily Rest (Green) and Morale (Red) routines using standard Android Accessibility touch gestures. Simple 6-point calibration, floating one-tap control bar, and 100% on-device privacy.",
+        gp_sub: "GET IT ON GOOGLE PLAY",
+        gp_main: "Download Free Trial",
+        gp_main_bottom: "Open on Google Play Store",
+        pill_downloads: "🔥 5,000+ Downloads on Google Play",
+        pill_android: "📱 Android 11.0+ Required",
+        pill_safe: "🛡️ Standard Accessibility API",
+        pill_langs: "🌐 15 Languages",
+        btn_unmute: "Tap for Sound",
+        btn_mute: "Sound On",
+        video_caption: "Real Android walkthrough (English) — setup permissions & daily routine guide",
+        feat_heading: "Built for Busy Football Managers",
+        feat_sub: "Save 15–20 minutes of repetitive screen tapping every single day while keeping full control on your screen.",
+        f1_title: "Green, Red & Dual Modes",
+        f1_desc: "Choose GREEN (Condition/Rest), RED (Morale), or BOTH to run your daily recovery workflow sequentially with a single tap.",
+        f2_title: "One-Time Visual Calibration",
+        f2_desc: "Set your screen's tap positions once using the guided visual target markers. Coordinates are saved locally for your exact screen size.",
+        f3_title: "Compact Floating Control Bar",
+        f3_desc: "Start, switch modes, adjust wait timer, or press STOP instantly at any moment right from the non-intrusive floating bar.",
+        f4_title: "100% On-Device & Safe",
+        f4_desc: "Simulates standard touch gestures only. Never reads private messages, never modifies external app files, and requires no root access.",
+        guide_heading: "Quick 3-Minute Setup Guide",
+        guide_sub: "Step-by-step visual instructions in English",
+        g1_tag: "STEP 1 • FLOATING BAR",
+        g1_title: "Enable \"Appear on Top\" Permission",
+        g1_desc: "Allows T11 Auto Helper to display the compact Start/Stop control bar on screen.",
+        g2_tag: "STEP 2 • GESTURE ENGINE",
+        g2_title: "Enable Accessibility Touch Service",
+        g2_desc: "Turn on Auto Click Service inside Android Settings → Accessibility → Installed Apps.",
+        g3_tag: "STEP 3 • GREEN ROUTINE",
+        g3_title: "Calibrate Green Condition Points",
+        g3_desc: "Drag the numbered target marker onto your screen's Green icon, Free button, and Close button.",
+        g4_tag: "STEP 4 • RED ROUTINE",
+        g4_title: "Calibrate Red Morale Points & Run",
+        g4_desc: "Save the Red Morale positions once, then tap GREEN, RED, or BOTH anytime you need.",
+        disc_title: "Accessibility Service & Privacy Disclosure",
+        disc_body: "T11 Auto Helper is an independent Android productivity & gesture utility developed by Assist Gaming & Tech Studio. It uses the official Android AccessibilityService API solely to perform user-configured screen taps and countdown timers initiated explicitly by the user. It does not collect personal data, does not access accounts or files of other apps, and can be turned off at any time in Android Settings. Requires Android 11.0 or newer.",
+        cta_heading: "Ready to Try T11 Auto Helper on Android?",
+        cta_sub: "Download officially from Google Play Store. Includes free trial access — setup takes under 3 minutes.",
+        footer_rights: "© 2026 Assist Gaming & Tech Studio. All rights reserved.",
+        video_src: "assets/t11/demo_en.mp4",
+        poster_src: "assets/t11/poster_en.jpg",
+        img_1: "assets/t11/screens/en/01_overlay_guide.png",
+        img_2: "assets/t11/screens/en/02_accessibility_guide.png",
+        img_3: "assets/t11/screens/en/03_step1_green_pack_icon.jpg",
+        img_4: "assets/t11/screens/en/06_step4_red_pack_icon.jpg"
+      },
+      vi: {
+        page_title: "T11 Auto Helper — Trợ Lý Thể Lực & Tinh Thần Hằng Ngày Cho Android",
+        nav_all_apps: "← Tất cả Ứng dụng",
+        nav_video: "Video Hướng dẫn",
+        nav_features: "Tính năng",
+        nav_guide: "Các bước Cài đặt",
+        nav_privacy: "Chính sách bảo mật",
+        nav_terms: "Điều khoản",
+        hero_badge: "⚽ TRỢ LÝ THỂ LỰC & TINH THẦN HẰNG NGÀY • ANDROID 11+",
+        hero_title: "Giữ Đội Hình Sung Sức & Sẵn Sàng Thi Đấu Mỗi Ngày.",
+        hero_tagline: "T11 Auto Helper hỗ trợ tự động hóa thao tác nhận gói Xanh (Thể lực) và Đỏ (Tinh thần) hằng ngày thông qua dịch vụ Trợ năng chuẩn của Android. Chấm tọa độ 1 lần duy nhất, thanh điều khiển nổi gọn nhẹ, an toàn 100% trên thiết bị.",
+        gp_sub: "TẢI TRÊN GOOGLE PLAY",
+        gp_main: "Tải về Dùng thử Miễn phí",
+        gp_main_bottom: "Mở trên Cửa hàng Google Play",
+        pill_downloads: "🔥 5.000+ Lượt tải trên Google Play",
+        pill_android: "📱 Yêu cầu Android 11.0 trở lên",
+        pill_safe: "🛡️ Chuẩn Trợ năng Android (An toàn)",
+        pill_langs: "🌐 Hỗ trợ 15 Ngôn ngữ",
+        btn_unmute: "Bật âm thanh",
+        btn_mute: "Đang bật tiếng",
+        video_caption: "Video hướng dẫn thực tế trên máy Android (Tiếng Việt) — cấp quyền & chạy thử",
+        feat_heading: "Trợ Thủ Đắc Lực Cho HLV Bận Rộn",
+        feat_sub: "Tiết kiệm 15–20 phút bấm lặp đi lặp lại mỗi ngày mà vẫn chủ động kiểm soát hoàn toàn trên màn hình.",
+        f1_title: "3 Chế Độ: Xanh, Đỏ & Cả Hai",
+        f1_desc: "Tùy chọn chạy riêng gói XANH (Thể lực), ĐỎ (Tinh thần) hoặc CẢ HAI nối tiếp nhau chỉ bằng 1 chạm.",
+        f2_title: "Chấm Tọa Độ Trực Quan 1 Lần",
+        f2_desc: "Kéo tâm ngắm đánh dấu vị trí nút bấm 1 lần duy nhất theo đúng kích thước màn hình máy của bạn.",
+        f3_title: "Thanh Điều Khiển Nổi Gọn Nhẹ",
+        f3_desc: "Bắt đầu, chuyển chế độ, chỉnh thời gian chờ hoặc bấm DỪNG (STOP) ngay lập tức bất cứ lúc nào.",
+        f4_title: "An Toàn 100% Trên Thiết Bị",
+        f4_desc: "Chỉ mô phỏng chạm màn hình tự nhiên qua Trợ năng Android. Không can thiệp tệp tin ứng dụng khác, không cần root máy.",
+        guide_heading: "Hướng Dẫn Cài Đặt Nhanh Trong 3 Phút",
+        guide_sub: "Hình ảnh hướng dẫn chi tiết từng bước bằng Tiếng Việt",
+        g1_tag: "BƯỚC 1 • THANH MENU NỔI",
+        g1_title: "Cấp Quyền \"Xuất Hiện Trên Cùng\"",
+        g1_desc: "Cho phép T11 Auto Helper hiển thị thanh điều khiển Bật/Dừng nhỏ gọn trên màn hình.",
+        g2_tag: "BƯỚC 2 • DỊCH VỤ CHẠM TỰ ĐỘNG",
+        g2_title: "Bật Dịch Vụ Trợ Năng (Accessibility)",
+        g2_desc: "Vào Cài đặt → Hỗ trợ (Trợ năng) → Ứng dụng đã cài đặt → Bật Auto Click Service.",
+        g3_tag: "BƯỚC 3 • THIẾT LẬP GÓI XANH",
+        g3_title: "Đặt Tâm Ngắm Cho Gói Thể Lực",
+        g3_desc: "Kéo tâm ngắm vào biểu tượng Gói Xanh, nút Nhận miễn phí và nút Đóng theo hướng dẫn trên màn hình.",
+        g4_tag: "BƯỚC 4 • THIẾT LẬP GÓI ĐỎ & CHẠY",
+        g4_title: "Lưu Vị Trí Gói Tinh Thần & Bắt Đầu",
+        g4_desc: "Lưu tọa độ Gói Đỏ 1 lần, từ các ngày sau chỉ cần mở thanh điều khiển và bấm chạy.",
+        disc_title: "Minh Bạch Quyền Trợ Năng & Bảo Mật Dữ Liệu",
+        disc_body: "T11 Auto Helper là tiện ích hỗ trợ thao tác độc lập trên Android do Assist Gaming & Tech Studio phát triển. Ứng dụng chỉ sử dụng API AccessibilityService chính thức của Android để mô phỏng thao tác chạm màn hình theo tọa độ do chính người dùng thiết lập và kích hoạt. Ứng dụng không thu thập dữ liệu cá nhân, không can thiệp dữ liệu của ứng dụng khác và có thể tắt bất cứ lúc nào trong Cài đặt Android. Yêu cầu Android 11.0 trở lên.",
+        cta_heading: "Sẵn Sàng Trải Nghiệm T11 Auto Helper?",
+        cta_sub: "Tải chính thức trên Google Play Store. Có sẵn thời gian dùng thử miễn phí — thiết lập chỉ mất chưa đầy 3 phút.",
+        footer_rights: "© 2026 Assist Gaming & Tech Studio. Bảo lưu mọi quyền.",
+        video_src: "assets/t11/demo_vi.mp4",
+        poster_src: "assets/t11/poster_vi.jpg",
+        img_1: "assets/t11/screens/vi/01_overlay_guide.png",
+        img_2: "assets/t11/screens/vi/02_accessibility_guide.png",
+        img_3: "assets/t11/screens/vi/03_step1_green_pack_icon.jpg",
+        img_4: "assets/t11/screens/vi/06_step4_red_pack_icon.jpg"
+      }
+    };
+
+    let activeLang = 'en';
+
+    function setLanguage(lang) {
+      if (!t11Translations[lang]) lang = 'en';
+      activeLang = lang;
+      localStorage.setItem('studio_lang', lang);
+      document.documentElement.lang = lang;
+
+      const d = t11Translations[lang];
+      document.title = d.page_title;
+
+      // Update active state on both top navbar tabs and video tabs
+      ['nav-tab-en', 'vid-tab-en'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', lang === 'en');
+      });
+      ['nav-tab-vi', 'vid-tab-vi'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', lang === 'vi');
+      });
+
+      // Swap all localized text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (d[key]) el.textContent = d[key];
+      });
+
+      // Swap localized guide screenshots
+      const g1 = document.getElementById('guide-img-1');
+      const g2 = document.getElementById('guide-img-2');
+      const g3 = document.getElementById('guide-img-3');
+      const g4 = document.getElementById('guide-img-4');
+      if (g1) g1.src = d.img_1;
+      if (g2) g2.src = d.img_2;
+      if (g3) g3.src = d.img_3;
+      if (g4) g4.src = d.img_4;
+
+      // Swap video player between English MP4 and Vietnamese MP4
+      const video = document.getElementById('t11-video-player');
+      const source = document.getElementById('t11-video-source');
+      if (video && source && source.getAttribute('src') !== d.video_src) {
+        const wasPaused = video.paused;
+        video.poster = d.poster_src;
+        source.setAttribute('src', d.video_src);
+        video.load();
+        if (!wasPaused) {
+          video.play().catch(() => {});
+        }
+      }
+
+      updateMuteButtonLabel();
+    }
+
+    function toggleMute() {
+      const video = document.getElementById('t11-video-player');
+      if (!video) return;
+      video.muted = !video.muted;
+      if (!video.muted && video.paused) {
+        video.play().catch(() => {});
+      }
+      updateMuteButtonLabel();
+    }
+
+    function updateMuteButtonLabel() {
+      const video = document.getElementById('t11-video-player');
+      const btn = document.getElementById('unmute-toggle');
+      if (!video || !btn) return;
+      const d = t11Translations[activeLang];
+      btn.innerHTML = video.muted
+        ? '🔇 <span>' + d.btn_unmute + '</span>'
+        : '🔊 <span>' + d.btn_mute + '</span>';
+    }
+
+    // Forward campaign UTM / Google Ads gclid into Google Play referrer & verify human interaction
+    function decoratePlayStoreLinks() {
+      const params = new URLSearchParams(window.location.search);
+      const refParts = [];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'gclid'].forEach(k => {
+        if (params.get(k)) refParts.push(k + '=' + encodeURIComponent(params.get(k)));
+      });
+      if (refParts.length === 0) {
+        refParts.push('utm_source=assist_web&utm_medium=landing_t11');
+      }
+      const playUrl = 'https://play.google.com/store/apps/details?id=com.top11.autocollector&referrer=' + encodeURIComponent(refParts.join('&'));
+      document.querySelectorAll('.js-play-link').forEach(a => {
+        a.href = playUrl;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = (params.get('lang') || '').toLowerCase();
+      const savedLang = localStorage.getItem('studio_lang');
+      const browserVi = (navigator.language || '').toLowerCase().startsWith('vi');
+
+      let initialLang = 'en';
+      if (urlLang === 'vi' || urlLang === 'en') {
+        initialLang = urlLang;
+      } else if (savedLang === 'vi' || savedLang === 'en') {
+        initialLang = savedLang;
+      } else if (browserVi) {
+        initialLang = 'vi';
+      }
+
+      setLanguage(initialLang);
+      decoratePlayStoreLinks();
+
+      // Mark genuine human pointer/touch gesture
+      const markHuman = () => document.body.setAttribute('data-human-verified', '1');
+      window.addEventListener('pointerdown', markHuman, { once: true, passive: true });
+      window.addEventListener('touchstart', markHuman, { once: true, passive: true });
+    });
+  </script>
+
+</body>
+</html>

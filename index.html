@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assist Gaming & Tech Studio | Official Developer Portal</title>
-  <meta name="description" content="Official developer portal for Assist Gaming & Tech Studio. Makers of BillSnap AI, MinePuzzle Daily, and smart mobile utilities.">
-  <meta name="keywords" content="BillSnap AI, MinePuzzle Daily, T11 Auto Helper, Android, iOS, Flutter, Developer Portal">
+  <meta name="description" content="Official developer portal for Assist Gaming & Tech Studio. Makers of BillSnap AI, T11 Auto Helper, MinePuzzle Daily, and smart mobile utilities.">
+  <meta name="keywords" content="BillSnap AI, T11 Auto Helper, MinePuzzle Daily, Android, iOS, Flutter, Developer Portal">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Assist Gaming & Tech Studio">
-  <meta property="og:description" content="Discover smart AI utilities and high-performance mobile games.">
+  <meta property="og:description" content="Discover smart AI utilities, Android productivity assistants, and high-performance mobile games.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gamingassistvn.github.io/">
 
@@ -20,24 +20,37 @@
 
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.08);
+    .lang-tabs {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.07);
       border: 1px solid var(--border-glass);
-      color: #FFFFFF;
+      border-radius: 24px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
       padding: 6px 14px;
       border-radius: 20px;
       font-family: inherit;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       transition: all 0.2s ease;
     }
-    .lang-btn:hover {
-      background: rgba(124, 108, 255, 0.3);
-      border-color: var(--accent-purple);
+    .lang-tab-btn:hover {
+      color: #FFFFFF;
+    }
+    .lang-tab-btn.active {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      color: #FFFFFF;
+      box-shadow: 0 2px 12px rgba(124, 108, 255, 0.4);
     }
     .products-container {
       max-width: 1100px;
@@ -66,17 +79,26 @@
       border-color: rgba(255, 255, 255, 0.2);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
+    .product-showcase-t11 {
+      border-color: rgba(0, 230, 118, 0.22);
+    }
+    .product-showcase-t11:hover {
+      border-color: rgba(0, 230, 118, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 230, 118, 0.14);
+    }
     .product-info-col {
       flex: 1.2;
     }
     .product-image-col {
       flex: 0.8;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
     }
     .phone-mockup-mini {
       width: 100%;
-      max-width: 240px;
+      max-width: 245px;
       border-radius: 32px;
       border: 8px solid #1A1D2E;
       background: #000;
@@ -84,9 +106,17 @@
       overflow: hidden;
       position: relative;
     }
-    .phone-mockup-mini img {
+    .phone-mockup-t11 {
+      box-shadow: 0 20px 45px rgba(0, 230, 118, 0.28);
+    }
+    .phone-mockup-mini img,
+    .phone-mockup-mini video {
       width: 100%;
       display: block;
+    }
+    .phone-mockup-mini video {
+      aspect-ratio: 9 / 16;
+      background: #000;
     }
     .store-btn-row {
       display: flex;
@@ -96,8 +126,9 @@
     }
     .app-meta-links {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       font-size: 13px;
       color: var(--text-dim);
     }
@@ -130,11 +161,19 @@
       border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-4px);
     }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .product-showcase-card {
+        padding: 26px 22px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navigation: Clear, Simple, Unambiguous -->
+  <!-- Navigation with Explicit EN / VI Tabs -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand">
@@ -148,10 +187,9 @@
         <li><a href="privacy.html" data-i18n="nav_privacy">Privacy Center</a></li>
         <li><a href="terms.html" data-i18n="nav_terms">Terms</a></li>
       </ul>
-      <div>
-        <button id="lang-toggle-btn" class="lang-btn" onclick="toggleLanguage()">
-          <span id="lang-badge">🌐 EN</span>
-        </button>
+      <div class="lang-tabs" role="tablist" aria-label="Language Switcher">
+        <button type="button" id="lang-tab-en" class="lang-tab-btn active" onclick="setLanguage('en')">🇬🇧 EN</button>
+        <button type="button" id="lang-tab-vi" class="lang-tab-btn" onclick="setLanguage('vi')">🇻🇳 VI</button>
       </div>
     </div>
   </nav>
@@ -167,7 +205,7 @@
         <span data-i18n="hero_title_2">Next-Gen Experiences.</span>
       </h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        We are an independent studio creating AI-powered financial tools and high-performance mobile games. Fast, secure, and privacy-focused.
+        We are an independent studio creating AI-powered financial tools, smart Android productivity assistants, and high-performance mobile games.
       </p>
     </div>
   </header>
@@ -181,7 +219,63 @@
       </h2>
     </div>
 
-    <!-- Product 1: BillSnap AI (Flagship with Screen Preview) -->
+    <!-- Product 1: T11 Auto Helper (Flagship Android Utility with Localized EN/VI Video) -->
+    <div class="product-showcase-card product-showcase-t11" id="t11">
+      <div class="product-info-col">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+          <img src="assets/icons/t11_helper.png" alt="T11 Auto Helper" style="width: 58px; height: 58px; border-radius: 15px; box-shadow: 0 6px 16px rgba(0,230,118,0.28);">
+          <div>
+            <span style="font-size: 11px; font-weight: 800; color: #00E676; text-transform: uppercase; letter-spacing: 1px;" data-i18n="t11_category">ANDROID UTILITY • 5,000+ DOWNLOADS</span>
+            <h3 style="font-size: 26px; font-weight: 900; color: #FFFFFF; margin: 2px 0;">T11 Auto Helper</h3>
+          </div>
+        </div>
+
+        <p style="color: var(--text-dim); line-height: 1.7; font-size: 15px;" data-i18n="t11_desc">
+          Daily squad condition, rest (Green), and morale (Red) assistant for football managers on Android 11+. Powered by official Android Accessibility touch gestures with one-time screen calibration, floating one-tap control bar, 15 languages, and 100% on-device privacy.
+        </p>
+
+        <!-- Google Play Button -->
+        <div class="store-btn-row">
+          <a href="https://play.google.com/store/apps/details?id=com.top11.autocollector" target="_blank" rel="noopener" class="btn-store" style="border-color: rgba(0, 230, 118, 0.45);">
+            <span class="btn-store-icon" style="color: #00E676;">▶</span>
+            <div>
+              <span class="btn-store-sub" data-i18n="gp_get_it">GET IT ON</span>
+              <span class="btn-store-main">Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Direct Links to Dedicated Video Landing Page & Privacy Policy -->
+        <div class="app-meta-links">
+          <a href="t11.html" style="color: #FFFFFF; background: rgba(0, 230, 118, 0.16); border: 1px solid #00E676; padding: 8px 16px; border-radius: 12px; text-decoration: none;" data-i18n="btn_t11_details">
+            View App Guide &amp; Full Video &rarr;
+          </a>
+          <a href="privacy/t11.html" style="color: #00E676;" data-i18n="link_billsnap_privacy">
+            🛡️ Privacy Policy
+          </a>
+        </div>
+      </div>
+
+      <!-- Localized Video Preview (EN video on EN tab, VI video on VI tab) -->
+      <div class="product-image-col">
+        <div class="phone-mockup-mini phone-mockup-t11">
+          <video id="home-t11-video"
+                 poster="assets/t11/poster_en.jpg"
+                 playsinline
+                 controls
+                 muted
+                 loop
+                 preload="metadata">
+            <source id="home-t11-video-src" src="assets/t11/demo_en.mp4" type="video/mp4">
+          </video>
+        </div>
+        <span style="font-size: 12px; color: var(--text-dim); margin-top: 10px;" data-i18n="t11_video_note">
+          ▶ English Demo Video (Switch EN / VI above)
+        </span>
+      </div>
+    </div>
+
+    <!-- Product 2: BillSnap AI (Flagship AI Utility with Screen Preview) -->
     <div class="product-showcase-card">
       <div class="product-info-col">
         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
@@ -208,7 +302,7 @@
           <a href="https://play.google.com/store/apps/details?id=com.billsnap.ai" target="_blank" rel="noopener" class="btn-store">
             <span class="btn-store-icon">▶</span>
             <div>
-              <span class="btn-store-sub">GET IT ON</span>
+              <span class="btn-store-sub" data-i18n="gp_get_it">GET IT ON</span>
               <span class="btn-store-main">Google Play</span>
             </div>
           </a>
@@ -217,7 +311,7 @@
         <!-- Direct Links to Dedicated Screen and Privacy -->
         <div class="app-meta-links">
           <a href="billsnap.html" style="color: #FFFFFF; background: rgba(0, 229, 255, 0.15); border: 1px solid var(--accent-cyan); padding: 8px 16px; border-radius: 12px; text-decoration: none;" data-i18n="btn_view_details">
-            View App Details & Screen &rarr;
+            View App Details &amp; Screen &rarr;
           </a>
           <a href="privacy/billsnap.html" data-i18n="link_billsnap_privacy">
             🛡️ Privacy Policy
@@ -237,7 +331,7 @@
 
     <!-- Other Products Grid -->
     <div class="grid-2-apps">
-      <!-- Product 2: MinePuzzle Daily -->
+      <!-- Product 3: MinePuzzle Daily -->
       <div class="compact-app-card">
         <div>
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
@@ -251,35 +345,12 @@
             Cyber-Neon 3D Minesweeper puzzle challenge. Solve daily boards, build winning streaks, and climb global leaderboards.
           </p>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; pt-4; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
-          <a href="https://play.google.com/store/apps" target="_blank" rel="noopener" class="btn-store" style="padding: 8px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
+          <a href="https://play.google.com/store/apps/details?id=com.minepuzzle.daily" target="_blank" rel="noopener" class="btn-store" style="padding: 8px 16px;">
             <span class="btn-store-icon">▶</span>
             <div><span class="btn-store-main" style="font-size: 13px;">Google Play</span></div>
           </a>
           <a href="privacy/minepuzzle.html" style="font-size: 13px; color: var(--text-dim); text-decoration: none;" data-i18n="link_privacy">Privacy Policy</a>
-        </div>
-      </div>
-
-      <!-- Product 3: T11 Auto Helper -->
-      <div class="compact-app-card">
-        <div>
-          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
-            <img src="assets/icons/t11_helper.png" alt="T11 Auto Helper" style="width: 48px; height: 48px; border-radius: 12px;">
-            <div>
-              <span style="font-size: 11px; font-weight: 800; color: #00E676; text-transform: uppercase;" data-i18n="t11_category">ANDROID UTILITY</span>
-              <h3 style="font-size: 20px; font-weight: 800; color: #FFFFFF;">T11 Auto Helper</h3>
-            </div>
-          </div>
-          <p style="color: var(--text-dim); font-size: 14px; line-height: 1.6; margin-bottom: 24px;" data-i18n="t11_desc">
-            Smart automation utility for Android. Automate repetitive workflow routines with on-device gesture scheduling.
-          </p>
-        </div>
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px;">
-          <a href="https://play.google.com/store/apps" target="_blank" rel="noopener" class="btn-store" style="padding: 8px 16px;">
-            <span class="btn-store-icon">▶</span>
-            <div><span class="btn-store-main" style="font-size: 13px;">Download</span></div>
-          </a>
-          <a href="privacy/t11.html" style="font-size: 13px; color: var(--text-dim); text-decoration: none;" data-i18n="link_privacy">Privacy Policy</a>
         </div>
       </div>
     </div>
@@ -291,13 +362,13 @@
           <div class="tech-icon">🛡️</div>
           <div>
             <h4 class="tech-title" data-i18n="tech_1_title">On-Device Privacy</h4>
-            <p class="tech-desc" data-i18n="tech_1_desc">Zero sale of user financial data. All calculations run strictly on your device.</p>
+            <p class="tech-desc" data-i18n="tech_1_desc">Zero sale of user personal data. All preferences and calculations run strictly on your device.</p>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">🌐</div>
           <div>
-            <h4 class="tech-title" data-i18n="tech_2_title">91-Language Support</h4>
+            <h4 class="tech-title" data-i18n="tech_2_title">Multi-Language Native UI</h4>
             <p class="tech-desc" data-i18n="tech_2_desc">Seamless native experience matching user device locales across 177 countries.</p>
           </div>
         </div>
@@ -305,7 +376,7 @@
           <div class="tech-icon">🚀</div>
           <div>
             <h4 class="tech-title" data-i18n="tech_3_title">Native 60–120 FPS</h4>
-            <p class="tech-desc" data-i18n="tech_3_desc">Built with Flutter and high-performance native engines for smooth responsiveness.</p>
+            <p class="tech-desc" data-i18n="tech_3_desc">Built with Kotlin, Flutter, and high-performance native engines for smooth responsiveness.</p>
           </div>
         </div>
       </div>
@@ -317,19 +388,19 @@
   <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 13px;">
     <div style="margin-bottom: 12px;">
       <a href="index.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Home</a>
-      <a href="#apps" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Apps & Games</a>
+      <a href="t11.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">T11 Auto Helper</a>
+      <a href="billsnap.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">BillSnap AI</a>
       <a href="privacy.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Privacy Center</a>
       <a href="terms.html" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Terms of Service</a>
       <a href="mailto:gaming.assist.vn@gmail.com" style="color: #A0A5B5; margin: 0 10px; text-decoration: none;">Contact Support</a>
     </div>
-    © 2026 Assist Gaming & Tech Studio. All rights reserved.
+    © 2026 Assist Gaming &amp; Tech Studio. All rights reserved.
   </footer>
 
-  <!-- Language Switcher & Dual Image Swapping Script -->
+  <!-- Language Tabs & Dual EN/VI Video + Screen Swapping Script -->
   <script>
     const translations = {
       en: {
-        badge: "🌐 EN",
         nav_home: "Home",
         nav_apps: "Apps & Games",
         nav_about: "About",
@@ -338,27 +409,31 @@
         hero_badge: "✨ OFFICIAL DEVELOPER PORTAL",
         hero_title_1: "Smart Utilities.",
         hero_title_2: "Next-Gen Experiences.",
-        hero_desc: "We are an independent studio creating AI-powered financial tools and high-performance mobile games. Fast, secure, and privacy-focused.",
+        hero_desc: "We are an independent studio creating AI-powered financial tools, smart Android productivity assistants, and high-performance mobile games.",
         section_products: "Featured Products",
+        gp_get_it: "GET IT ON",
+        t11_category: "ANDROID UTILITY • 5,000+ DOWNLOADS",
+        t11_desc: "Daily squad condition, rest (Green), and morale (Red) assistant for football managers on Android 11+. Powered by official Android Accessibility touch gestures with one-time screen calibration, floating one-tap control bar, 15 languages, and 100% on-device privacy.",
+        btn_t11_details: "View App Guide & Full Video →",
+        t11_video_note: "▶ English Guide Video (Switch EN / VI tab above)",
+        t11_video_src: "assets/t11/demo_en.mp4",
+        t11_poster_src: "assets/t11/poster_en.jpg",
         billsnap_category: "AI UTILITY • EXPENSE ORGANIZER",
-        billsnap_desc: "Smart receipt scanner powered by Gemini Vision AI. Automatically extracts vendor, date, and totals, then classifies expenses into 28 IRS Schedule C tax lines. 100% on-device privacy with audit-ready Excel and PDF exports.",
+        billsnap_desc: "Smart receipt scanner powered by Gemini Vision AI. Automatically extracts vendor, date, and totals, then classifies expenses into 48 IRS Schedule C tax lines. 100% on-device privacy with audit-ready Excel and PDF exports.",
         btn_view_details: "View App Details & Screen →",
         link_billsnap_privacy: "🛡️ Privacy Policy",
         mine_category: "3D GAME",
         mine_desc: "Cyber-Neon 3D Minesweeper puzzle challenge. Solve daily boards, build winning streaks, and climb global leaderboards.",
-        t11_category: "ANDROID UTILITY",
-        t11_desc: "Smart automation utility for Android. Automate repetitive workflow routines with on-device gesture scheduling.",
         link_privacy: "Privacy Policy",
         tech_1_title: "On-Device Privacy",
-        tech_1_desc: "Zero sale of user financial data. All calculations run strictly on your device.",
-        tech_2_title: "91-Language Support",
+        tech_1_desc: "Zero sale of user personal data. All preferences and calculations run strictly on your device.",
+        tech_2_title: "Multi-Language Native UI",
         tech_2_desc: "Seamless native experience matching user device locales across 177 countries.",
         tech_3_title: "Native 60–120 FPS",
-        tech_3_desc: "Built with Flutter and high-performance native engines for smooth responsiveness.",
+        tech_3_desc: "Built with Kotlin, Flutter, and high-performance native engines for smooth responsiveness.",
         image_src: "assets/billsnap_screen_en.png"
       },
       vi: {
-        badge: "🌐 VI",
         nav_home: "Trang chủ",
         nav_apps: "Sản phẩm",
         nav_about: "Giới thiệu",
@@ -367,38 +442,49 @@
         hero_badge: "✨ CỔNG THÔNG TIN NHÀ PHÁT TRIỂN",
         hero_title_1: "Tiện ích Thông minh.",
         hero_title_2: "Trải nghiệm Đỉnh cao.",
-        hero_desc: "Chúng tôi là studio độc lập chuyên phát triển các công cụ tài chính ứng dụng AI và trò chơi di động chất lượng cao. Tốc độ, an toàn và bảo mật tối đa.",
+        hero_desc: "Chúng tôi là studio độc lập phát triển các công cụ tài chính AI, trợ lý tiện ích thông minh trên Android và trò chơi di động chất lượng cao.",
         section_products: "Sản phẩm Tiêu biểu",
+        gp_get_it: "TẢI TRÊN",
+        t11_category: "TIỆN ÍCH ANDROID • 5.000+ LƯỢT TẢI",
+        t11_desc: "Trợ lý quản lý Thể lực (Gói Xanh) và Tinh thần (Gói Đỏ) hằng ngày dành cho HLV trên Android 11+. Sử dụng dịch vụ Trợ năng chuẩn của Android để mô phỏng chạm tự nhiên, chấm tọa độ 1 lần, thanh điều khiển nổi gọn nhẹ, hỗ trợ 15 ngôn ngữ và an toàn 100% trên thiết bị.",
+        btn_t11_details: "Xem Hướng dẫn & Video Đầy đủ →",
+        t11_video_note: "▶ Video Hướng dẫn Tiếng Việt (Chọn tab EN / VI ở trên)",
+        t11_video_src: "assets/t11/demo_vi.mp4",
+        t11_poster_src: "assets/t11/poster_vi.jpg",
         billsnap_category: "TIỆN ÍCH AI • QUẢN LÝ THUẾ",
-        billsnap_desc: "Trợ lý quét hóa đơn thông minh ứng dụng Gemini Vision AI. Tự động trích xuất thông tin biên lai và phân loại chi phí vào 28 danh mục thuế IRS Schedule C. Bảo mật 100% trên thiết bị, xuất báo cáo Excel và PDF chuẩn kiểm toán.",
+        billsnap_desc: "Trợ lý quét hóa đơn thông minh ứng dụng Gemini Vision AI. Tự động trích xuất thông tin biên lai và phân loại chi phí vào 48 danh mục thuế IRS Schedule C. Bảo mật 100% trên thiết bị, xuất báo cáo Excel và PDF chuẩn kiểm toán.",
         btn_view_details: "Xem chi tiết & Màn hình App →",
         link_billsnap_privacy: "🛡️ Chính sách bảo mật",
         mine_category: "TRÒ CHƠI 3D",
         mine_desc: "Trò chơi Dò Mìn 3D phong cách Cyber-Neon. Thử thách giải đố mỗi ngày, xây dựng chuỗi thắng và thi đua bảng xếp hạng toàn cầu.",
-        t11_category: "TIỆN ÍCH ANDROID",
-        t11_desc: "Công cụ tự động hóa thông minh cho Android. Tự động hóa các thao tác lặp đi lặp lại bằng kịch bản cử chỉ chạy cục bộ an toàn.",
         link_privacy: "Chính sách bảo mật",
         tech_1_title: "Bảo mật trên Thiết bị",
-        tech_1_desc: "Mọi dữ liệu tài chính được xử lý cục bộ trên thiết bị.",
-        tech_2_title: "Hỗ trợ 91 Ngôn ngữ",
+        tech_1_desc: "Mọi cấu hình và dữ liệu người dùng được xử lý cục bộ ngay trên thiết bị.",
+        tech_2_title: "Đa Ngôn Ngữ Tự Động",
         tech_2_desc: "Trải nghiệm mượt mà tự động đồng bộ theo ngôn ngữ thiết bị tại 177 quốc gia.",
         tech_3_title: "Hiệu năng 60–120 FPS",
-        tech_3_desc: "Xây dựng trên nền tảng Flutter và engine gốc hiệu năng cao cho phản hồi tức thì.",
+        tech_3_desc: "Xây dựng bằng Kotlin, Flutter và engine gốc hiệu năng cao cho phản hồi tức thì.",
         image_src: "assets/billsnap_screen_vi.png"
       }
     };
 
     let currentLang = 'en';
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'vi' : 'en';
-      applyLanguage(currentLang);
+    function setLanguage(lang) {
+      if (!translations[lang]) lang = 'en';
+      currentLang = lang;
       localStorage.setItem('studio_lang', currentLang);
+      document.documentElement.lang = currentLang;
+      applyLanguage(currentLang);
     }
 
     function applyLanguage(lang) {
       const data = translations[lang];
-      document.getElementById('lang-badge').textContent = data.badge;
+
+      const btnEn = document.getElementById('lang-tab-en');
+      const btnVi = document.getElementById('lang-tab-vi');
+      if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+      if (btnVi) btnVi.classList.toggle('active', lang === 'vi');
 
       // Update text
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -408,17 +494,43 @@
         }
       });
 
-      // Update home screen preview (Strictly swap between VI and EN image)
+      // Swap BillSnap preview image (EN <-> VI)
       const homeImg = document.getElementById('home-billsnap-screen');
       if (homeImg) {
         homeImg.src = data.image_src;
       }
+
+      // Swap T11 Auto Helper video (EN video <-> VI video)
+      const t11Video = document.getElementById('home-t11-video');
+      const t11Src = document.getElementById('home-t11-video-src');
+      if (t11Video && t11Src) {
+        t11Video.poster = data.t11_poster_src;
+        if (t11Src.getAttribute('src') !== data.t11_video_src) {
+          const wasPlaying = !t11Video.paused;
+          t11Src.setAttribute('src', data.t11_video_src);
+          t11Video.load();
+          if (wasPlaying) {
+            t11Video.play().catch(() => {});
+          }
+        }
+      }
     }
 
-    // Auto initialize from storage or default
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('studio_lang') || 'en';
-      currentLang = saved;
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = (params.get('lang') || '').toLowerCase();
+      const saved = localStorage.getItem('studio_lang');
+      const browserVi = (navigator.language || '').toLowerCase().startsWith('vi');
+
+      if (urlLang === 'vi' || urlLang === 'en') {
+        currentLang = urlLang;
+      } else if (saved === 'vi' || saved === 'en') {
+        currentLang = saved;
+      } else if (browserVi) {
+        currentLang = 'vi';
+      } else {
+        currentLang = 'en';
+      }
       applyLanguage(currentLang);
     });
   </script>
