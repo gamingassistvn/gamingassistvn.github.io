@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (GTM-PSBVB3MS / GA4 G-ZSSLR5DEYZ) -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PSBVB3MS"></script>
+  <!-- Google tag (gtag.js — GA4 G-ZSSLR5DEYZ) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSSLR5DEYZ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('config', 'G-ZSSLR5DEYZ');
   </script>
 
   <meta charset="UTF-8">
@@ -937,23 +938,18 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      // Apply quick instant guess from Timezone/Browser while Geo-IP resolves (~100ms)
-      const quickGuess = detectFromTimezoneAndBrowser();
-      applyLanguage(quickGuess, null);
-      decoratePlayStoreLinks();
+      let detectedCountry = 'unknown';
 
-      // Resolve authoritative Geo-IP country & apply immediately
-      const result = await detectBestLanguage();
-      applyLanguage(result.lang, result.country);
-
-      // Track Google Play Store CTA clicks in GA4 / Google Ads
+      // Bind Google Play Store CTA click tracking immediately (0ms delay) with beacon transport
+      // so Android's instant jump to Google Play app never drops the GA4 packet
       document.querySelectorAll('.js-play-link').forEach(a => {
         a.addEventListener('click', () => {
           if (typeof gtag === 'function') {
             gtag('event', 'click_google_play', {
               app_name: 'T11 Auto Helper',
               page_lang: activeLang,
-              user_country: result.country || 'unknown'
+              user_country: detectedCountry,
+              transport_type: 'beacon'
             });
           }
         });
@@ -962,6 +958,16 @@
       const markHuman = () => document.body.setAttribute('data-human-verified', '1');
       window.addEventListener('pointerdown', markHuman, { once: true, passive: true });
       window.addEventListener('touchstart', markHuman, { once: true, passive: true });
+
+      // Apply quick instant guess from Timezone/Browser while Geo-IP resolves (~100ms)
+      const quickGuess = detectFromTimezoneAndBrowser();
+      applyLanguage(quickGuess, null);
+      decoratePlayStoreLinks();
+
+      // Resolve authoritative Geo-IP country & apply immediately
+      const result = await detectBestLanguage();
+      detectedCountry = result.country || 'unknown';
+      applyLanguage(result.lang, result.country);
     });
   </script>
 
