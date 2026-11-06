@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (GTM-PSBVB3MS / GA4 G-ZSSLR5DEYZ) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PSBVB3MS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T11 Auto Helper — Daily Condition, Rest & Morale Assistant for Android</title>
@@ -394,7 +402,15 @@
       background: linear-gradient(180deg, transparent 0%, rgba(0, 230, 118, 0.06) 100%);
     }
 
+    /* Sticky Mobile Bottom Google Play Bar */
+    .mobile-sticky-play {
+      display: none;
+    }
+
     @media (max-width: 900px) {
+      body {
+        padding-bottom: 84px;
+      }
       .t11-hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -408,6 +424,63 @@
       }
       .nav-links, .geo-pill {
         display: none;
+      }
+      .mobile-sticky-play {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: rgba(9, 12, 24, 0.94);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(0, 230, 118, 0.4);
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.65);
+      }
+      .mobile-sticky-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        text-align: left;
+      }
+      .mobile-sticky-info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
+      .mobile-sticky-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: #FFFFFF;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .mobile-sticky-sub {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--t11-green);
+      }
+      .mobile-sticky-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #00C853 0%, #00E676 100%);
+        color: #04130B;
+        padding: 10px 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 13.5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        box-shadow: 0 4px 16px rgba(0, 230, 118, 0.4);
       }
     }
   </style>
@@ -643,6 +716,24 @@
     <div data-i18n="footer_rights">© 2026 Assist Gaming &amp; Tech Studio. All rights reserved.</div>
   </footer>
 
+  <!-- Sticky Mobile Bottom Google Play Install Bar -->
+  <div class="mobile-sticky-play">
+    <div class="mobile-sticky-info">
+      <img src="assets/t11/app_icon.png" alt="T11 Auto Helper">
+      <div>
+        <div class="mobile-sticky-title">T11 Auto Helper</div>
+        <div class="mobile-sticky-sub" data-i18n="gp_sub">GET IT ON GOOGLE PLAY</div>
+      </div>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.top11.autocollector"
+       target="_blank"
+       rel="noopener"
+       class="mobile-sticky-btn js-play-link">
+      <span>▶</span>
+      <span data-i18n="gp_main">Download Free Trial</span>
+    </a>
+  </div>
+
   <!-- 10-Language Dictionary + 3-Layer Geo-IP Auto-Localization Engine -->
   <script src="js/t11-locales.js"></script>
   <script>
@@ -854,6 +945,19 @@
       // Resolve authoritative Geo-IP country & apply immediately
       const result = await detectBestLanguage();
       applyLanguage(result.lang, result.country);
+
+      // Track Google Play Store CTA clicks in GA4 / Google Ads
+      document.querySelectorAll('.js-play-link').forEach(a => {
+        a.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_google_play', {
+              app_name: 'T11 Auto Helper',
+              page_lang: activeLang,
+              user_country: result.country || 'unknown'
+            });
+          }
+        });
+      });
 
       const markHuman = () => document.body.setAttribute('data-human-verified', '1');
       window.addEventListener('pointerdown', markHuman, { once: true, passive: true });
