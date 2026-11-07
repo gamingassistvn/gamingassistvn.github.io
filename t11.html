@@ -900,6 +900,7 @@
       }
 
       updateMuteButtonLabel();
+      decoratePlayStoreLinks();
     }
 
     function toggleMute() {
@@ -924,14 +925,14 @@
 
     function decoratePlayStoreLinks() {
       const params = new URLSearchParams(window.location.search);
-      const refParts = [];
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'gclid'].forEach(k => {
-        if (params.get(k)) refParts.push(k + '=' + encodeURIComponent(params.get(k)));
-      });
-      if (refParts.length === 0) {
-        refParts.push('utm_source=assist_web&utm_medium=landing_t11');
-      }
-      const playUrl = 'https://play.google.com/store/apps/details?id=com.top11.autocollector&referrer=' + encodeURIComponent(refParts.join('&'));
+      const refParams = new URLSearchParams();
+      refParams.set('utm_source', params.get('utm_source') || 't11_web_ads');
+      refParams.set('utm_medium', params.get('utm_medium') || 'youtube_demandgen');
+      refParams.set('utm_campaign', params.get('utm_campaign') || ('t11_' + (activeLang || 'en')));
+      if (params.get('utm_content')) refParams.set('utm_content', params.get('utm_content'));
+      if (params.get('gclid')) refParams.set('gclid', params.get('gclid'));
+
+      const playUrl = 'https://play.google.com/store/apps/details?id=com.top11.autocollector&referrer=' + encodeURIComponent(refParams.toString());
       document.querySelectorAll('.js-play-link').forEach(a => {
         a.href = playUrl;
       });
