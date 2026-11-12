@@ -85,6 +85,15 @@ body {
   box-shadow: var(--glow-purple);
 }
 
+.brand-logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.28);
+}
+
 .brand-name {
   font-size: 20px;
   font-weight: 800;
